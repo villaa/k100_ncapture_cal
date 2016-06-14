@@ -1,0 +1,3 @@
+#don't version log directories or macros
+logs
+macros
