@@ -1,0 +1,7 @@
+ntuple_type:	data
+runlist_pars:	4
+ntuple_before:	/data/chocula/villaa/k100Sim_Data/DIRECTORY/SIMTYPE_SOURCE_IDENTIFIER_NPRIMARIES_ _ _
+ntuple_after:   .txt
+ntuple_list:	lists/DIRECTORY_SIMTYPE_SOURCE_IDENTIFIER_NPRIMARIES.list
+selection_type: 8
+0.1	1.5
