@@ -6,17 +6,20 @@ cout << endl;
 char *inc1 = gSystem->ExpandPathName("./root/");
 char *inc2 = gSystem->ExpandPathName("./cuts/");
 char *inc3 = gSystem->ExpandPathName("./");
+char *inc4 = gSystem->ExpandPathName("../photoneutron_soudan/root/");
 gInterpreter->AddIncludePath(inc1);
 gInterpreter->AddIncludePath(inc2);
 gInterpreter->AddIncludePath(inc3);
+gInterpreter->AddIncludePath(inc4);
 delete [] inc1;
 delete [] inc2;
 delete [] inc3;
+delete [] inc4;
 
 //extend the macro path
 char *macropath = gROOT->GetMacroPath();
 char longerpath[256];
-sprintf(longerpath,"./root:./cuts:%s",macropath);
+sprintf(longerpath,"./root:./cuts:../photoneutron_soudan/root/:%s",macropath);
 gROOT->SetMacroPath(longerpath);
 printf("macro path: %s\n",longerpath);
 }

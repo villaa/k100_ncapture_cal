@@ -1,0 +1,23 @@
+#+CondorGroup = "phys"
++CondorGroup = "cdms"
++HappyToBeEvicted = TRUE
+Universe        = vanilla
+Executable      = /home/phys/villaa/analysis/cdms_simulation/k100_ncapture_cal/skim/skimCode/skimData
+GetEnv		= true
+
+Notification = error
+Notify_user = $ENV(USER)@physics.umn.edu
+
+Requirements = (Machine != "cdms2.spa.umn.edu") && (Arch=="X86_64")
+#request_memory = ImageSize
+
+OutputDir	= /home/phys/villaa/analysis/cdms_simulation/k100_ncapture_cal/skim/condor/logfiles
+Error       = $(OutputDir)/ERRORFILE
+Log         = $(OutputDir)/RUNLOGFILE
+Output		= $(OutputDir)/OUTPUTFILE
+
+#should_transfer_files = YES
+#when_to_transfer_output = ON_EXIT
+
+Arguments = "THEARGUMENTS"
+Queue

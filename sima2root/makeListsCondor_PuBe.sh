@@ -1,10 +1,10 @@
 #!/bin/sh
 
-id=0x0003
+id=0x0009
 src=PuBe
 simtype=GenericShield
 directory=captureCal
-nprimaries=1M
+nprimaries=10M
 
         #create the .dat file for the chain object
         sed -e "s|IDENTIFIER|${id}|" -e "s|SOURCE|${src}|" -e "s|DIRECTORY|${directory}|" -e "s|SIMTYPE|${simtype}|" -e "s|NPRIMARIES|${nprimaries}|" < PuBe.dat.template > ${directory}_${simtype}_${src}_${id}_${nprimaries}.dat 
