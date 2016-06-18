@@ -18,6 +18,6 @@ datasetno=9
 
         sed -e "${SEDARG}" -e "s|ERRORFILE|${ERRORFILE}|" -e "s|OUTPUTFILE|${OUTPUTFILE}|" -e "s|RUNLOGFILE|${LOGFILE}|" < condor/condor-Skim  > .condorfile_${DATE}
         
-        cat .condorfile_${DATE}
-        #condor_submit .condorfile_${DATE}
+        #cat .condorfile_${DATE}
+        condor_submit .condorfile_${DATE}
 	rm .condorfile_${DATE}
