@@ -1,6 +1,6 @@
 #!/bin/sh
 
-datasetno=9
+datasetno=$1
 
 
 	#get the date and make logfile names
@@ -8,12 +8,12 @@ datasetno=9
         DATE=`date +%y%m%d%H%M%S`
 
         #create a condor file for the execution of the job
-	ARGUMENTS="-o ${id}.root -set "${datasetno} 
-	OUTPUTFILE=${id}_${DATE}.txt
-	ERRORFILE=${id}_${DATE}.err
+	ARGUMENTS="-o ${DATASETIDHEX}.root -set "${datasetno} 
+	OUTPUTFILE=${DATASETIDHEX}_${DATE}.txt
+	ERRORFILE=${DATASETIDHEX}_${DATE}.err
 	SEDARG="s|THEARGUMENTS|${ARGUMENTS}|"
 
-	LOGFILE=${id}_${DATE}.log
+	LOGFILE=${DATASETIDHEX}_${DATE}.log
 
 
         sed -e "${SEDARG}" -e "s|ERRORFILE|${ERRORFILE}|" -e "s|OUTPUTFILE|${OUTPUTFILE}|" -e "s|RUNLOGFILE|${LOGFILE}|" < condor/condor-Skim  > .condorfile_${DATE}
