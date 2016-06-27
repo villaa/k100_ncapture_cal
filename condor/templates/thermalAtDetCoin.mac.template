@@ -1,0 +1,24 @@
+#make a generic generator
+/gps/particle neutron 
+/gps/position 0.0 0.0 3.39 cm
+/gps/pos/type Point
+/gps/ang/type iso
+/gps/ene/mono 0.000000025 MeV
+
+#make a raytrace model
+#/vis/rayTracer/eyePosition 1 1 1 m
+#/vis/rayTracer/trace
+
+
+
+/CDMS/gammaCoin/setPosition -40.0 0.0 0.0 cm
+/CDMS/gammaCoin/setSize 5.0 8.0 0.0 cm
+/CDMS/detector/activate HPGeCoincidence 
+/CDMS/detector/deactivate Shields
+/CDMS/updateGeometry
+
+#run naming stuff
+#/run/k100/uniqueID TIMEOFDAY # not implemented in the geant4 code
+/run/k100/OFPrefix /data/chocula/villaa/k100Sim_Data/DATADIR/GenericShield_RADSOURCE_THESETID_NEVHR_
+
+/run/beamOn NEVENTS 

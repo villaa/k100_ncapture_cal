@@ -59,6 +59,8 @@ int main(int argc, char *argv[])
         sim = argv[i+1];
       if(rep=="-set")
         datasetno = atoi(argv[i+1]);
+      if(rep=="-source")
+	source = argv[i+1];
    }
 
    //get data set number string in hex

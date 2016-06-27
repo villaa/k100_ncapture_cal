@@ -10,7 +10,7 @@ TH1D *getDetEDist(int bins=100,double xmin=0.0, double xmax=5.0,bool singles=fal
 
   //get the tree
   if(datatree==NULL){
-    datatree = getCondensetDataByID(3,-1,directory,"edeptree");
+    datatree = getCondensetDataByID(datasetno,-1,directory,"edeptree");
   }
 
 

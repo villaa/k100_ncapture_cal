@@ -2,6 +2,7 @@
 
 
 void plotESpecSimple(int datasetno=3){
+cout << "Plotting for data set: " << datasetno << endl;
 TH1D *h = getDetEDist(300,0.0,2.5,true,0,NULL,datasetno,"/data/chocula/villaa/k100Sim_Data/ZipSum/");
 TH1D *her = getDetEDist(300,0.0,2.5,true,1,NULL,datasetno,"/data/chocula/villaa/k100Sim_Data/ZipSum/");
 her->SetLineColor(kGreen);

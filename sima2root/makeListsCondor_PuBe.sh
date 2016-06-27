@@ -1,11 +1,18 @@
 #!/bin/sh
 
-id=0x0009
-src=PuBe
-simtype=GenericShield
-directory=captureCal
-nprimaries=10M
+datasetno=$1
+src=$2
+simtype=$3
+directory=$4
+nprimaries=$5
 
+#datasetno=18
+#src=PuBe
+#simtype=GenericShield
+#directory=captureCal
+#nprimaries=10M
+
+        id=`printf "0x%04x" ${datasetno}`
         #create the .dat file for the chain object
         sed -e "s|IDENTIFIER|${id}|" -e "s|SOURCE|${src}|" -e "s|DIRECTORY|${directory}|" -e "s|SIMTYPE|${simtype}|" -e "s|NPRIMARIES|${nprimaries}|" < PuBe.dat.template > ${directory}_${simtype}_${src}_${id}_${nprimaries}.dat 
 

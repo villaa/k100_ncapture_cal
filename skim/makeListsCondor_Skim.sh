@@ -1,6 +1,7 @@
 #!/bin/sh
 
 datasetno=$1
+source=$2
 
 
 	#get the date and make logfile names
@@ -8,7 +9,7 @@ datasetno=$1
         DATE=`date +%y%m%d%H%M%S`
 
         #create a condor file for the execution of the job
-	ARGUMENTS="-o ${DATASETIDHEX}.root -set "${datasetno} 
+	ARGUMENTS="-o ${DATASETIDHEX}.root -set ${datasetno} -source ${source}"
 	OUTPUTFILE=${DATASETIDHEX}_${DATE}.txt
 	ERRORFILE=${DATASETIDHEX}_${DATE}.err
 	SEDARG="s|THEARGUMENTS|${ARGUMENTS}|"
