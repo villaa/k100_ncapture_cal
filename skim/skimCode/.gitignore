@@ -1,2 +1,5 @@
 #binaries
 skimData
+
+#data file
+*.root
