@@ -251,6 +251,7 @@ TTree *projectSumDepEv(TChain *ch,string cut)
   Long64_t seed;
   Double_t edepNR,edepER;
   Double_t edepCoin;
+  Double_t tdiffCoin;
    
   // create tree and the ROOT file to store it
   TTree *datatree = new TTree("edeptree","energy deposition data");
@@ -265,6 +266,7 @@ TTree *projectSumDepEv(TChain *ch,string cut)
   datatree->Branch("edepNR",&edepNR,"edepNR/D");
   datatree->Branch("edepER",&edepER,"edepER/D");
   datatree->Branch("edepCoin",&edepCoin,"edepCoin/D");
+  datatree->Branch("tdiffCoin",&tdiffCoin,"tdiffCoin/D");
 
   //get meaningful quantities from the tree/chain
   string NRhitstr = "Sum$(1*(("+NRcut+") && (dt==1) && ("+cut+")))";
@@ -272,6 +274,7 @@ TTree *projectSumDepEv(TChain *ch,string cut)
   string edepNRstr = "Sum$(d3*(("+NRcut+") && (dt==1) && ("+cut+")))";
   string edepERstr = "Sum$(d3*(("+ERcut+") && (dt==1) && ("+cut+")))";
   string edepCoinstr = "Sum$(d3*(("+ERcut+") && (dt==7) && ("+cut+")))";
+  string tdiffCoinstr = "MinIf$(time1,(("+ERcut+") && (dt==7) && ("+cut+"))) - MinIf$(time1,((dt==1) && ("+cut+")))";
   ch->Draw(Form("%s:%s:%s:ev",NRhitstr.c_str(),ERhitstr.c_str(),edepNRstr.c_str()),"","goff");
   Long64_t nevents = ch->GetSelectedRows();
   cout << "selected: " << nevents << endl;
@@ -288,6 +291,7 @@ TTree *projectSumDepEv(TChain *ch,string cut)
   Long64_t *storeev = (Long64_t*)malloc(nevents*sizeof(Long64_t));
   Long64_t *storeevCoin = (Long64_t*)malloc(nevents*sizeof(Long64_t));
   Long64_t *storeevseed = (Long64_t*)malloc(nevents*sizeof(Long64_t));
+  Double_t *storetdiffCoinvec = (Double_t*)malloc(nevents*sizeof(Double_t));
 
   for(int i=0;i<nevents;i++){
     storeNRhitvec[i] = NRhitvec[i];
@@ -312,6 +316,15 @@ TTree *projectSumDepEv(TChain *ch,string cut)
     storeevseed[i] = (Long64_t) evseed[i];
   }
 
+  ch->Draw(Form("%s",tdiffCoinstr.c_str()),"","goff");
+  nevents = ch->GetSelectedRows();
+  cout << "Reselected: " << nevents << endl;
+  Double_t *tdiffCoinvec = ch->GetV1();
+
+  for(int i=0;i<nevents;i++){
+    storetdiffCoinvec[i] = tdiffCoinvec[i];
+  }
+
   //loop through the lists and fill the tree;
   for(Long_t i=0; i<nevents; i++){
     //cout << "Computing event: " << i << endl;
@@ -327,6 +340,7 @@ TTree *projectSumDepEv(TChain *ch,string cut)
     Ev = storeev[i];
     coinEv = storeevCoin[i];
     seed = storeevseed[i];
+    tdiffCoin=storetdiffCoinvec[i];
     datatree->Fill();
   }
 

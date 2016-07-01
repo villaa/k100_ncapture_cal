@@ -9,7 +9,7 @@ source=$2
         DATE=`date +%y%m%d%H%M%S`
 
         #create a condor file for the execution of the job
-	ARGUMENTS="-o ${DATASETIDHEX}.root -set ${datasetno} -source ${source}"
+	ARGUMENTS="-o ${DATASETIDHEX}.root -set ${datasetno} -source ${source} -E"
 	OUTPUTFILE=${DATASETIDHEX}_${DATE}.txt
 	ERRORFILE=${DATASETIDHEX}_${DATE}.err
 	SEDARG="s|THEARGUMENTS|${ARGUMENTS}|"
