@@ -34,3 +34,32 @@ TChain *getCondensetDataByID(int datasetno=3,int n=-1,string directory="/data/ch
   return data;
 
 }
+TChain *getCondensetDataByPrefix(string postfix,int n=-1,string directory="/data/chocula/villaa/k100Sim_Data/ZipSum/",string treename="edeptree")
+{
+
+  //create a chain
+  TChain *data = new TChain(treename.c_str(),treename.c_str());
+
+  //make a command to use with a root pipe
+  command = "ls "+directory+" |grep .root |grep "+postfix;
+  TString files = gSystem->GetFromPipe(command.c_str());
+  istringstream iss(files);
+
+  //get the files from the string
+  string filename;
+
+  //make a counter
+  int count=0;
+
+  while(!iss.eof()){
+    iss >> filename;
+    if(n<0 || count<n){
+      string fullfilename = directory+"/"+filename;
+      data->Add(fullfilename.c_str());
+    }
+    count++;
+  }
+  
+  return data;
+
+}
