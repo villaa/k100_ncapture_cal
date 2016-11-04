@@ -87,12 +87,14 @@ int main(int argc, char *argv[])
    while(!iss.eof()){
      iss >> filename;
      string fullfilename = indir+filename;
+     cout << fullfilename << endl;
      data->Add(fullfilename.c_str());
      if(numfiles<0 || count%numfiles==0){
        ostringstream convert;
        convert.precision(4);
        convert << setw(4) << setfill('0') << count;
        string outname = outdir+convert.str()+"_"+outfile;
+       cout << outname << endl;
        TFile *newfile = new TFile(outname.c_str(),"RECREATE");
        TTree *tr;
        if(!evtgrp)

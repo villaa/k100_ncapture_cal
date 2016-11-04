@@ -63,3 +63,25 @@ TChain *getCondensetDataByPrefix(string postfix,int n=-1,string directory="/data
   return data;
 
 }
+Int_t getPrimaries(string postfix,string directory="/data/chocula/villaa/k100Sim_Data/captureCal/")
+{
+
+  //make a command to use with a root pipe
+  command = "ls "+directory+" |grep _000.txt |grep "+postfix;
+  TString files = gSystem->GetFromPipe(command.c_str());
+  istringstream iss(files);
+
+  //get the files from the string
+  string filename;
+
+  //make a counter
+  int count=0;
+
+  while(!iss.eof()){
+    iss >> filename;
+    count++;
+  }
+  
+  return count;
+
+}
