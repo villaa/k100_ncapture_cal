@@ -16,7 +16,8 @@ void plotNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-9,do
           if(coin<0.0)
             leg = new TLegend(0.50,0.45,0.90,0.65);
           else
-            leg = new TLegend(0.50,0.27,0.90,0.47);
+            leg = new TLegend(0.520376,0.553571,0.920063,0.754121);
+            //leg = new TLegend(0.50,0.27,0.90,0.47);
   }
   else if(datatype=="PuBeCoin10M"){
 	  primaries = getPrimaries("0x001b");
@@ -38,7 +39,8 @@ void plotNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-9,do
   //let's do some calculations to make the axis size ratio correct for some specified
   //ratio of x-size to y-size.  
   int xw=810,yw=200;
-  double r=1.0;
+  //double r=1.0;
+  double r=0.4;
   double xr = 0.05;
   double xl = 0.15;
   double yt = 0.05;
@@ -70,7 +72,7 @@ void plotNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-9,do
   c1->SetRightMargin(xr);
   c1->SetGrid(1,1);
 
-  double px=700,py=ymax/10.0;
+  double px=1581,py=ymax/2.0;
   //size of x-axis
   double xmin=100.0;
   double xmax=2400;
@@ -109,15 +111,19 @@ void plotNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-9,do
   TH1D *hsing = getDetNREDistK100(ch,nbins,xmin,xmax,"singles",coin);
   hsing->SetLineColor(kRed);
   hsing->Scale(1/((double)primaries*hsing->GetBinWidth(1)));
+  hsing->SetLineWidth(2);
   TH1D *hmult = getDetNREDistK100(ch,nbins,xmin,xmax,"mult",coin);
   hmult->SetLineColor(kBlue);
   hmult->Scale(1/((double)primaries*hmult->GetBinWidth(1)));
+  hmult->SetLineWidth(2);
   TH1D *her = getDetNREDistK100(ch,nbins,xmin,xmax,"er",coin);
   her->SetLineColor(kGreen);
   her->Scale(1/((double)primaries*her->GetBinWidth(1)));
+  her->SetLineWidth(2);
   TH1D *hermix = getDetNREDistK100(ch,nbins,xmin,xmax,"ermix",coin);
   hermix->SetLineColor(kMagenta);
   hermix->Scale(1/((double)primaries*hermix->GetBinWidth(1)));
+  hermix->SetLineWidth(2);
 
   TH1D *hsum = new TH1D("sum","sum",nbins,xmin,xmax);
   hsum->Add(hsing);
