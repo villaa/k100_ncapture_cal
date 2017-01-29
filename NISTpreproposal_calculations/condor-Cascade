@@ -1,0 +1,25 @@
+#+CondorGroup = "phys"
++CondorGroup = "cdms"
++HappyToBeEvicted = TRUE
+Universe        = vanilla
+Executable      = /local/cdms/root/v5_34_05_64/bin/root 
+GetEnv		= true
+
+remote_initialdir = /home/phys/villaa/analysis/cdms_simulation/k100_ncapture_cal/NISTpreproposal_calculations
+
+Notification = error
+Notify_user = $ENV(USER)@physics.umn.edu
+
+Requirements = (Machine != "cdms2.spa.umn.edu") && (Arch=="X86_64")
+#request_memory = ImageSize
+
+OutputDir	= /home/phys/villaa/analysis/cdms_simulation/k100_ncapture_cal/NISTpreproposal_calculations/condor/logfiles
+Error       = $(OutputDir)/IDENTIFIER_condor.phys.err.$(Cluster)-$(Process).txt
+Log         = $(OutputDir)/IDENTIFIER_condor.phys.log.$(Cluster)-$(Process).txt
+Output		= $(OutputDir)/IDENTIFIER_condor.phys.out.$(Cluster)-$(Process).txt
+
+#should_transfer_files = YES
+#when_to_transfer_output = ON_EXIT
+
+Arguments = "-q -b 'write.C(NEV,HFAC,""TSC"",""ROOTFILE"")'"
+Queue

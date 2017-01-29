@@ -35,8 +35,10 @@ TTree *gatherThirdTSC(int n,TRandom3 *rand,double whinder=1,string filename="out
   //to be as much as 10^4
   double E; //total energy of cascade in eV
   double I; //ionization in number of e/h pairs
+  UInt_t seed=rand->GetSeed();
   TTree *t = new TTree(Form("ThirdTSC_whinder%3.1f",whinder),Form("ThirdTSC_whinder%3.1f",whinder));
   t->Branch("E",&E,"E/D");
+  t->Branch("seed",&seed,"seed/i");
   t->Branch("I",&I,"I/D"); //ionization in effective number of e/h pairs assuming egam=3eV (average energy to make one e/h pair);
 
   //construct a lindhard parameter set 
@@ -81,8 +83,10 @@ TTree *gatherSecondTSC(int n,TRandom3 *rand,double whinder=1,string filename="ou
   //to be as much as 10^4
   double E; //total energy of cascade in eV
   double I; //ionization in number of e/h pairs
+  UInt_t seed=rand->GetSeed();
   TTree *t = new TTree(Form("SecondTSC_whinder%3.1f",whinder),Form("SecondTSC_whinder%3.1f",whinder));
   t->Branch("E",&E,"E/D");
+  t->Branch("seed",&seed,"seed/i");
   t->Branch("I",&I,"I/D"); //ionization in effective number of e/h pairs assuming egam=3eV (average energy to make one e/h pair);
 
   //construct a lindhard parameter set 
@@ -127,8 +131,10 @@ TTree *gatherFirstTSC(int n,TRandom3 *rand,double whinder=1,string filename="out
   //to be as much as 10^4
   double E; //total energy of cascade in eV
   double I; //ionization in number of e/h pairs
+  UInt_t seed=rand->GetSeed();
   TTree *t = new TTree(Form("FirstTSC_whinder%3.1f",whinder),Form("FirstTSC_whinder%3.1f",whinder));
   t->Branch("E",&E,"E/D");
+  t->Branch("seed",&seed,"seed/i");
   t->Branch("I",&I,"I/D"); //ionization in effective number of e/h pairs assuming egam=3eV (average energy to make one e/h pair);
 
   //construct a lindhard parameter set 
