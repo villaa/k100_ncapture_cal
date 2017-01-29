@@ -1,5 +1,53 @@
 #include "weisskopf.C"
+#include "lindhard.C"
 
+//make a data set with some examples of a two step cascade
+//two-step cascade (TSC) in the 72Ge(n,gamma)73Ge reaction where the
+//capture goes from 6783(Sn)-->1132 keV (1/2-) --> 0 keV (1/2-).  This can be M1
+//and the Weisskopf estimate for it is ~fs. 
+//geDecay(geStop(218.71,73,1,rand),73,1.1320,rand)
+TTree *gatherSecondTSC(int n,double whinder=1,string filename="out.root")
+{
+  //take the TSC commented above and create a root tree with just the energy for n events
+  TRandom3 *rand = new TRandom3(2342423);
+
+  //the input whinder is the hinderance factor wrt Weisskopf estimates, for E1 this seems
+  //to be as much as 10^4
+  double E; //total energy of cascade in eV
+  double I; //ionization in number of e/h pairs
+  TTree *t = new TTree(Form("SecondTSC_whinder%3.1f",whinder),Form("SecondTSC_whinder%3.1f",whinder));
+  t->Branch("E",&E,"E/D");
+  t->Branch("I",&I,"I/D"); //ionization in effective number of e/h pairs assuming egam=3eV (average energy to make one e/h pair);
+
+  //construct a lindhard parameter set 
+  Double_t par[1];
+  par[0]=0.159; //k-value for Germanium (accepted)
+  Double_t x[1];
+  Double_t y[1];
+
+  //do the loop
+  for(int i=0;i<n;i++){
+    E=218.71;
+    I=0;
+    double vdecay = geStop(E,73,we(1.132,73,"M1")*whinder,rand);
+    double Eleft = ((73*1e9)/2.0)*(pow(vdecay,2.0));
+    x[0]=218.71;
+    y[0]=Eleft;
+    //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
+    //cout << "Lindhard y: " << lindhard_k(y,par) << endl;
+    I+=(x[0]*lindhard_k(x,par)/3.0)-(y[0]*lindhard_k(y,par)/3.0);
+    E+=-Eleft;
+    double Erest = geDecay(vdecay,73,1.132,rand);
+    E+=Erest;
+    x[0]=Erest;
+    //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
+    I+=(x[0]*lindhard_k(x,par)/3.0);
+    //cout << "Ionization I: " << I << endl;
+    t->Fill();
+  }
+
+  return t;
+}
 //make a data set with some examples of a two step cascade
 //two-step cascade (TSC) in the 70Ge(n,gamma)71Ge reaction where the
 //capture goes from 7416(Sn)-->2032 keV (1/2-,3/2) --> 0 keV (1/2-).  This can be E1
@@ -13,15 +61,35 @@ TTree *gatherFirstTSC(int n,double whinder=1,string filename="out.root")
   //the input whinder is the hinderance factor wrt Weisskopf estimates, for E1 this seems
   //to be as much as 10^4
   double E; //total energy of cascade in eV
-  TTree *t = new TTree(Form("FirstTSC_whinder%f",whinder));
+  double I; //ionization in number of e/h pairs
+  TTree *t = new TTree(Form("FirstTSC_whinder%3.1f",whinder),Form("FirstTSC_whinder%3.1f",whinder));
   t->Branch("E",&E,"E/D");
+  t->Branch("I",&I,"I/D"); //ionization in effective number of e/h pairs assuming egam=3eV (average energy to make one e/h pair);
+
+  //construct a lindhard parameter set 
+  Double_t par[1];
+  par[0]=0.159; //k-value for Germanium (accepted)
+  Double_t x[1];
+  Double_t y[1];
 
   //do the loop
   for(int i=0;i<n;i++){
     E=204.61;
+    I=0;
     double vdecay = geStop(E,71,we(2.032,71,"E1")*whinder,rand);
-    E+=-((71*1e9)/2.0)*(pow(vdecay,2.0));
-    E+=geDecay(vdecay,71,2.032,rand);
+    double Eleft = ((71*1e9)/2.0)*(pow(vdecay,2.0));
+    x[0]=204.61;
+    y[0]=Eleft;
+    //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
+    //cout << "Lindhard y: " << lindhard_k(y,par) << endl;
+    I+=(x[0]*lindhard_k(x,par)/3.0)-(y[0]*lindhard_k(y,par)/3.0);
+    E+=-Eleft;
+    double Erest = geDecay(vdecay,71,2.032,rand);
+    E+=Erest;
+    x[0]=Erest;
+    //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
+    I+=(x[0]*lindhard_k(x,par)/3.0);
+    //cout << "Ionization I: " << I << endl;
     t->Fill();
   }
 
