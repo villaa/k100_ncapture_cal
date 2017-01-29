@@ -1,0 +1,10 @@
+to illustrate the cascade effects I probably want a simple cascade with at least one intermediary
+state that has a large gamma ray energy decaying from it and a possibility of E1 transition
+(fastest) and a lifetime which is unmeasured.
+
+I've found this in the two-step transition (TSC) in the 70Ge(n,gamma)71Ge reaction where the
+capture goes from 7416(Sn)-->2032 keV (1/2-,3/2) --> 0 keV (1/2-).  I don't fully understand the
+parenthetical notation either it means that the level spin/parity assignment is uncertain or that
+the level is a mixture.  Either way, it seems an E1 transition is possible.  And the lifetimes of
+those for such a high energy de-exciting gamma (2032 keV), could be very fast on order of fs or
+lower for Weisskopf estimates. 

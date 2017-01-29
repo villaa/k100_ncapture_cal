@@ -1,6 +1,26 @@
+//return the Energy after the mid-stop kick. 
+double geDecay(double v, double M, double Egam, TRandom3 *rand)
+{
+
+  //assume v in units of c, M in GeV, and Egam in MeV.
+
+  //generate a random direction wrt the incoming direction in the CM
+  //I think one angle will do, the azimuthal angle shouldn't matter
+  double costhet = (2*rand->Uniform())-1;
+
+  //calculate the recoiling energy in the CM frame
+  double Ecm = pow(Egam*1e6,2.0)/(2*(M*1e9));
+
+  //boost to the lab frame using the velocity v in the direction -z
+
+  //return the energy in eV 
+  return Ecm;
+}
 //return the velocity at a random stopping time
 double geStop(double E, double M, double tau, TRandom3 *rand)
 {
+  //assume energy in eV, mass in GeV, tau in fs.
+  
   //get the random time, time and tau in fs
   double t = rand->Exp(tau);
 
