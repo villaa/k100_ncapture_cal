@@ -1,3 +1,32 @@
+#include "weisskopf.C"
+
+//make a data set with some examples of a two step cascade
+//two-step cascade (TSC) in the 70Ge(n,gamma)71Ge reaction where the
+//capture goes from 7416(Sn)-->2032 keV (1/2-,3/2) --> 0 keV (1/2-).  This can be E1
+//and the Weisskopf estimate for it is a hundred times less than ~fs. 
+//geDecay(geStop(204.61,71,10000000,rand),71,2.032,rand)
+TTree *gatherFirstTSC(int n,double whinder=1,string filename="out.root")
+{
+  //take the TSC commented above and create a root tree with just the energy for n events
+  TRandom3 *rand = new TRandom3(2342423);
+
+  //the input whinder is the hinderance factor wrt Weisskopf estimates, for E1 this seems
+  //to be as much as 10^4
+  double E; //total energy of cascade in eV
+  TTree *t = new TTree(Form("FirstTSC_whinder%f",whinder));
+  t->Branch("E",&E,"E/D");
+
+  //do the loop
+  for(int i=0;i<n;i++){
+    E=204.61;
+    double vdecay = geStop(E,71,we(2.032,71,"E1")*whinder,rand);
+    E+=-((71*1e9)/2.0)*(pow(vdecay,2.0));
+    E+=geDecay(vdecay,71,2.032,rand);
+    t->Fill();
+  }
+
+  return t;
+}
 //return the Energy after the mid-stop kick. 
 double geDecay(double v, double M, double Egam, TRandom3 *rand)
 {
@@ -7,14 +36,37 @@ double geDecay(double v, double M, double Egam, TRandom3 *rand)
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
   double costhet = (2*rand->Uniform())-1;
+  double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
   double Ecm = pow(Egam*1e6,2.0)/(2*(M*1e9));
 
+  //cout << "Ecm: " << Ecm << endl;
+
   //boost to the lab frame using the velocity v in the direction -z
+  double vx,vy;
+  double vxpr,vypr;
+  double vxnew,vynew;
+  vx = sqrt(2*M*1e9*Ecm)/(M*1e9);
+  vy = 0.0;
+  vxpr = costhet*vx -sinthet*vy;
+  vypr = sinthet*vx + costhet*vy;
+  vxnew = vxpr + v;
+  vynew = vypr;
+
+  //cout << "vx: " << vx << endl;
+  //cout << "vy: " << vy << endl;
+  //cout << "vxpr: " << vxpr << endl;
+  //cout << "vypr: " << vypr << endl;
+  //cout << "vxnew: " << vxnew << endl;
+  //cout << "vynew: " << vynew << endl;
+
+  //now calculate the energy
+  double El;
+  El = ((M*1e9)/2.0)*(pow(vxnew,2.0)+pow(vynew,2.0));
 
   //return the energy in eV 
-  return Ecm;
+  return El;
 }
 //return the velocity at a random stopping time
 double geStop(double E, double M, double tau, TRandom3 *rand)
