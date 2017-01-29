@@ -1,15 +1,81 @@
 #include "weisskopf.C"
 #include "lindhard.C"
+#include "kinematics.C"
+#include <time.h>
 
+//make a file with datasets for whinder of 1,10,100.
+void collectData(int n, double whinder=1,string TSC="First",string filename="out.root")
+{
+  TFile *f = new TFile(filename.c_str(),"UPDATE");
+  ULong64_t seed = clock();
+  cout << "Clock seed: " << seed << endl;
+  TRandom3 *rand = new TRandom3(seed);
+  if(TSC=="First")
+    TTree *t = gatherFirstTSC(n,rand,whinder);
+  else if(TSC=="Second")
+    TTree *t = gatherSecondTSC(n,rand,whinder);
+  else if(TSC=="Third")
+    TTree *t = gatherThirdTSC(n,rand,whinder);
+
+  t->Write("",TObject::kOverwrite);
+
+  return;
+}
+
+//make a data set with some examples of a two step cascade
+//two-step cascade (TSC) in the 72Ge(n,gamma)73Ge reaction where the
+//capture goes from 6783(Sn)-->392 keV (3/2-) --> 66.7 (metastable) keV (5/2+).  This can be E1 or M2
+//and the Weisskopf estimate for it is ~9fs. 
+//geDecay(geStop(300.64,getMass("73Ge")/1000,9,rand),getMass("73Ge")/1000,0.392,rand)
+TTree *gatherThirdTSC(int n,TRandom3 *rand,double whinder=1,string filename="out.root")
+{
+  //take the TSC commented above and create a root tree with just the energy for n events
+
+  //the input whinder is the hinderance factor wrt Weisskopf estimates, for E1 this seems
+  //to be as much as 10^4
+  double E; //total energy of cascade in eV
+  double I; //ionization in number of e/h pairs
+  TTree *t = new TTree(Form("ThirdTSC_whinder%3.1f",whinder),Form("ThirdTSC_whinder%3.1f",whinder));
+  t->Branch("E",&E,"E/D");
+  t->Branch("I",&I,"I/D"); //ionization in effective number of e/h pairs assuming egam=3eV (average energy to make one e/h pair);
+
+  //construct a lindhard parameter set 
+  Double_t par[1];
+  par[0]=0.159; //k-value for Germanium (accepted)
+  Double_t x[1];
+  Double_t y[1];
+
+  //do the loop
+  for(int i=0;i<n;i++){
+    E=300.64;
+    I=0;
+    double vdecay = geStop(E,getMass("73Ge")/1000,we(1.132,73,"M1")*whinder,rand);
+    double Eleft = ((getMass("73Ge")*1e6)/2.0)*(pow(vdecay,2.0));
+    x[0]=300.64;
+    y[0]=Eleft;
+    //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
+    //cout << "Lindhard y: " << lindhard_k(y,par) << endl;
+    I+=(x[0]*lindhard_k(x,par)/3.0)-(y[0]*lindhard_k(y,par)/3.0);
+    E+=-Eleft;
+    double Erest = geDecay(vdecay,getMass("73Ge")/1000.0,1.132,rand);
+    E+=Erest;
+    x[0]=Erest;
+    //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
+    I+=(x[0]*lindhard_k(x,par)/3.0);
+    //cout << "Ionization I: " << I << endl;
+    t->Fill();
+  }
+
+  return t;
+}
 //make a data set with some examples of a two step cascade
 //two-step cascade (TSC) in the 72Ge(n,gamma)73Ge reaction where the
 //capture goes from 6783(Sn)-->1132 keV (1/2-) --> 0 keV (1/2-).  This can be M1
 //and the Weisskopf estimate for it is ~fs. 
 //geDecay(geStop(218.71,73,1,rand),73,1.1320,rand)
-TTree *gatherSecondTSC(int n,double whinder=1,string filename="out.root")
+TTree *gatherSecondTSC(int n,TRandom3 *rand,double whinder=1,string filename="out.root")
 {
   //take the TSC commented above and create a root tree with just the energy for n events
-  TRandom3 *rand = new TRandom3(2342423);
 
   //the input whinder is the hinderance factor wrt Weisskopf estimates, for E1 this seems
   //to be as much as 10^4
@@ -29,15 +95,15 @@ TTree *gatherSecondTSC(int n,double whinder=1,string filename="out.root")
   for(int i=0;i<n;i++){
     E=218.71;
     I=0;
-    double vdecay = geStop(E,73,we(1.132,73,"M1")*whinder,rand);
-    double Eleft = ((73*1e9)/2.0)*(pow(vdecay,2.0));
+    double vdecay = geStop(E,getMass("73Ge")/1000,we(1.132,73,"M1")*whinder,rand);
+    double Eleft = ((getMass("73Ge")*1e6)/2.0)*(pow(vdecay,2.0));
     x[0]=218.71;
     y[0]=Eleft;
     //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
     //cout << "Lindhard y: " << lindhard_k(y,par) << endl;
     I+=(x[0]*lindhard_k(x,par)/3.0)-(y[0]*lindhard_k(y,par)/3.0);
     E+=-Eleft;
-    double Erest = geDecay(vdecay,73,1.132,rand);
+    double Erest = geDecay(vdecay,getMass("73Ge")/1000.0,1.132,rand);
     E+=Erest;
     x[0]=Erest;
     //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
@@ -53,10 +119,9 @@ TTree *gatherSecondTSC(int n,double whinder=1,string filename="out.root")
 //capture goes from 7416(Sn)-->2032 keV (1/2-,3/2) --> 0 keV (1/2-).  This can be E1
 //and the Weisskopf estimate for it is a hundred times less than ~fs. 
 //geDecay(geStop(204.61,71,10000000,rand),71,2.032,rand)
-TTree *gatherFirstTSC(int n,double whinder=1,string filename="out.root")
+TTree *gatherFirstTSC(int n,TRandom3 *rand,double whinder=1,string filename="out.root")
 {
   //take the TSC commented above and create a root tree with just the energy for n events
-  TRandom3 *rand = new TRandom3(2342423);
 
   //the input whinder is the hinderance factor wrt Weisskopf estimates, for E1 this seems
   //to be as much as 10^4
@@ -76,15 +141,15 @@ TTree *gatherFirstTSC(int n,double whinder=1,string filename="out.root")
   for(int i=0;i<n;i++){
     E=204.61;
     I=0;
-    double vdecay = geStop(E,71,we(2.032,71,"E1")*whinder,rand);
-    double Eleft = ((71*1e9)/2.0)*(pow(vdecay,2.0));
+    double vdecay = geStop(E,getMass("71Ge")/1000,we(2.032,71,"E1")*whinder,rand);
+    double Eleft = ((getMass("71Ge")*1e6)/2.0)*(pow(vdecay,2.0));
     x[0]=204.61;
     y[0]=Eleft;
     //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
     //cout << "Lindhard y: " << lindhard_k(y,par) << endl;
     I+=(x[0]*lindhard_k(x,par)/3.0)-(y[0]*lindhard_k(y,par)/3.0);
     E+=-Eleft;
-    double Erest = geDecay(vdecay,71,2.032,rand);
+    double Erest = geDecay(vdecay,getMass("71Ge")/1000.0,2.032,rand);
     E+=Erest;
     x[0]=Erest;
     //cout << "Lindhard x: " << lindhard_k(x,par) << endl;
