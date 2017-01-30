@@ -3,7 +3,10 @@
 
 for i in 1 10 100 1000 
 do
-  ./condorTrees.sh 100 $i First cascades.root
-  ./condorTrees.sh 100 $i Second cascades.root
-  ./condorTrees.sh 100 $i Third cascades.root
+  FILE=First${i}
+  ./condorTrees.sh 100000 $i First cascades_${FILE}.root
+  FILE=Second${i}
+  ./condorTrees.sh 100000 $i Second cascades_${FILE}.root
+  FILE=Third${i}
+  ./condorTrees.sh 100000 $i Third cascades_${FILE}.root
 done
