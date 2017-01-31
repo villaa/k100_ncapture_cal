@@ -5,7 +5,7 @@ TH1D *getWithResAndV(TTree *t,string name="TSC",double res=10,double V=0)
   TRandom3 *rand = new TRandom3();
 
   //make histogram
-  TH1D *h = new TH1D(name.c_str(),name.c_str(),400,50,600);
+  TH1D *h = new TH1D(name.c_str(),name.c_str(),100,50,600);
 
   double E,I;
 

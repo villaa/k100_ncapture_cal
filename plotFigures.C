@@ -39,8 +39,7 @@ void plotNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-9,do
   //let's do some calculations to make the axis size ratio correct for some specified
   //ratio of x-size to y-size.  
   int xw=810,yw=200;
-  //double r=1.0;
-  double r=0.4;
+  double r=1.0;
   double xr = 0.05;
   double xl = 0.15;
   double yt = 0.05;
