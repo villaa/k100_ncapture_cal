@@ -222,7 +222,7 @@ void plotNISTNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-
           if(coin<0.0)
             leg = new TLegend(0.50,0.68,0.90,0.88);
           else
-            leg = new TLegend(0.50,0.407,0.90,0.608);
+            leg = new TLegend(0.389,0.710,0.92,0.8098);
   }
   primaries=primaries*1e7;
   cout << primaries << endl;
@@ -262,7 +262,7 @@ void plotNISTNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-
   c1->SetRightMargin(xr);
   //c1->SetGrid(1,1);
 
-  double px=1093.75,py=3.973e-11;
+  double px=1104.46,py=1.01e-10;
   //size of x-axis
   double xmin=100.0;
   double xmax=2400;
@@ -317,13 +317,64 @@ void plotNISTNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-
   cout << hsum << endl;
 
 
-  leg->AddEntry(hmult,Form("NR multiples"),"l");
-  leg->AddEntry(hsing,Form("NR singles"),"l");
+  //leg->AddEntry(hmult,Form("NR multiples"),"l");
+  //leg->AddEntry(hsing,Form("NR singles"),"l");
   leg->AddEntry(hsum,Form("all NR deposits"),"l");
+
+  //get histogram from a quasi-fit to the Poly/NaI data set
+  TF1 *f = new TF1("bknd","expo(0)+expo(2)",100,2400);
+  f->SetParameter(0,-23.5);
+  f->SetParameter(1,-0.007);
+  f->SetParameter(2,-25.3);
+  f->SetParameter(3,-0.000203555);
+  f->SetLineColor(kRed);
+
+  //try making a shaded region
+  TGraph *g = new TGraph();
+  g->SetPoint(0,xmin,ymin);
+  g->SetPoint(1,xmin,f(xmin));
+  int npts=100;
+  for(int i=0;i<npts;i++){
+    double x = xmin+((i+1)*(xmax-xmin)/(double)npts);
+    //cout << "x: " << x << " y: " << f(x) << endl;
+    g->SetPoint(i+2,x,f(x));
+  }
+  g->SetPoint(npts+2,xmax,ymin);
+  g->SetFillColor(kRed-10);
+  g->Draw("f");
+
+
+  f->Draw("same");
+
+  leg->AddEntry(g,Form("n- and #gamma-induced background NRs"),"f");
+
+  //put a label for cascade features 
+  TText *cfeat = new TText(275.893,1e-10,"cascade features");
+  cfeat->SetTextAngle(0);
+  cfeat->SetTextSize(0.024);
+  cfeat->SetTextColor(1);
+  cfeat->SetTextFont(42);
+  frame1->GetListOfFunctions()->Add(cfeat);
+
+  //arrow to cascade features
+  TArrow *a1 = new TArrow(479,9.67e-11,329,6.89e-11,0.01,"|>");
+  a1->SetAngle(60);
+  a1->SetLineWidth(2);
+  TArrow *a2 = new TArrow(479,9.67e-11,425,7.53e-11,0.01,"|>");
+  a2->SetAngle(60);
+  a2->SetLineWidth(2);
+  TArrow *a3 = new TArrow(479,9.67e-11,746.4,8.48e-11,0.01,"|>");
+  a3->SetAngle(60);
+  a3->SetLineWidth(2);
+
+  a1->Draw();
+  a2->Draw();
+  a3->Draw();
 
   //hsing->Draw("same");
   //hmult->Draw("same");
   hsum->Draw("same");
+  frame->Draw("sameaxis");
   //print up legend
   //leg->SetHeader(Form("%d GeV %s primaries ",energy,getFullPartName(part).c_str()));
   leg->SetBorderSize(0);
@@ -331,7 +382,7 @@ void plotNISTNREDist(bool print=0,int nbins=100,double ymax=1e-6,double ymin=1e-
   leg->SetLineWidth(2);
   leg->SetTextFont(42);
   leg->SetTextSize(.03);
-  //leg->Draw("same");
+  leg->Draw("same");
 
   ostringstream coinlabel;
   if(coin>0.0)
