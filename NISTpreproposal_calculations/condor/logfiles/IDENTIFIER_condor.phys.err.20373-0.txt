@@ -1,0 +1,2 @@
+Error: Symbol i is not defined in current scope  :0:
+*** Interpreter error recovered ***

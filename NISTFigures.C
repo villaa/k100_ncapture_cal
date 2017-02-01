@@ -346,7 +346,7 @@ void plotSignificance(bool print=0,bool isprelim=true, string ext="eps",bool res
 {
 
   TLegend *leg;
-  leg = new TLegend(0.178882,0.835106,0.673292,0.93484);
+  leg = new TLegend(0.4,0.766,0.92,0.9);
 
   //let's do some calculations to make the axis size ratio correct for some specified
   //ratio of x-size to y-size.  
@@ -365,10 +365,10 @@ void plotSignificance(bool print=0,bool isprelim=true, string ext="eps",bool res
   TCanvas* c1 = (TCanvas*) gROOT->GetListOfCanvases()->FindObject("c1");
   if(c1){
     c1->Close();
-    c1 = new TCanvas("c1","Capture TSC",200,10,xw,yw);
+    c1 = new TCanvas("c1","Capture Significance",200,10,xw,yw);
   }
   else
-    c1 = new TCanvas("c1","Capture TSC",200,10,xw,yw);
+    c1 = new TCanvas("c1","Capture Significance",200,10,xw,yw);
 
 
   c1->cd();
@@ -425,9 +425,10 @@ void plotSignificance(bool print=0,bool isprelim=true, string ext="eps",bool res
   //if we assume the livefrac is 0.94 and we're reading out 500us traces (pg 13 of N-MISC-16-001)
   cout << "livefrac: " << livefrac << endl;
   //cout << "4xlivefrac: " << fourtimeslivefrac << endl;
-  TF1 *f0 = significance(8e-11,1.5e-11,livefrac,100,false,60,true,0.5); //Poly moderator single NaI coin 40% live
-  TF1 *f1 = significance(8e-11,1.5e-11,livefrac,100,true,60,true,0.5);  //D2O moderator single NaI coin 40% live
-  TF1 *f2 = significance(32e-11,6e-11,livefrac,100,true,60,true,0.5);   //D2O moderator quad NaI coin 40% live
+  TF1 *f0 = significance(8e-11-1.5e-11,1.5e-11,livefrac,100,false,60,true,0.5); //Poly moderator single NaI coin 40% live
+  TF1 *f1 = significance(8e-11-1.5e-11,1.5e-11,livefrac,100,true,60,true,0.5);  //D2O moderator single NaI coin 40% live
+  TF1 *f2 = significance(32e-11-6e-11,6e-11,livefrac,100,true,60,true,0.5);   //D2O moderator quad NaI coin 40% live
+  TF1 *f3 = significanceLT(4*(1.2e-10+8e-11+7e-11)-4*(9e-12+1.5e-11+2e-11),4*(9e-12+1.5e-11+2e-11),livefrac,100,true,60,true,0.5);   //D2O moderator quad NaI coin 40% live
 
   //set some colors and line widths
   f0->SetLineColor(kBlack);
@@ -439,15 +440,48 @@ void plotSignificance(bool print=0,bool isprelim=true, string ext="eps",bool res
   f2->SetLineColor(kGreen);
   f2->SetLineWidth(2);
   f2->SetNpx(10000);
+  f3->SetLineColor(kBlue);
+  f3->SetLineWidth(2);
+  f3->SetNpx(10000);
 
 
   leg->AddEntry(f0,Form("single NaI coincidence > 2.6 MeV"),"l");
   leg->AddEntry(f1,Form("+ D_{2}O moderator"),"l");
   leg->AddEntry(f2,Form("+ 3 NaI detectors"),"l");
+  leg->AddEntry(f3,Form("+ decrease threshold to 90 eV"),"l");
 
   f0->Draw("same");
   f1->Draw("same");
   f2->Draw("same");
+  f3->Draw("same");
+
+  //put a label for 8sigma 
+  TLatex *sig8 = new TLatex(53.3,8.45,"8#sigma");
+  sig8->SetTextAngle(0);
+  sig8->SetTextSize(0.024);
+  sig8->SetTextColor(1);
+  sig8->SetTextFont(42);
+  frame1->GetListOfFunctions()->Add(sig8);
+
+  //put a label for precision spectroscopy
+  TText *spec = new TText(23.13,20.29,"precision spectroscopy");
+  spec->SetTextAngle(0);
+  spec->SetTextSize(0.024);
+  spec->SetTextColor(1);
+  spec->SetTextFont(42);
+  frame1->GetListOfFunctions()->Add(spec);
+
+  //make a line with arrow
+  TArrow *arr = new TArrow(22,20,22,21,0.007,"|>");
+  arr->SetAngle(60);
+  arr->SetLineWidth(2);
+  arr->Draw();
+
+  //make a line at 20 sigma
+  TLine *twentysig = new TLine(0.0,20.0,60.0,20.0);
+  twentysig->SetLineWidth(2);
+  twentysig->SetLineStyle(2);
+  twentysig->Draw("same");
 
   //make a line at 8 sigma
   TLine *eightsig = new TLine(0.0,8.0,60.0,8.0);
