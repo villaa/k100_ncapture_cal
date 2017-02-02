@@ -495,6 +495,68 @@ void plotSignificance(bool print=0,bool isprelim=true, string ext="eps",bool res
   f3->SetLineWidth(2);
   f3->SetNpx(10000);
 
+  //calculate days to 8sigma, monotonic functions
+  double lbound,ubound,xval,epsilon,siglev;
+  siglev=8;
+  epsilon=siglev*0.01; //1 % resolution
+  lbound=0.0;
+  ubound=120.0;
+  xval=(ubound+lbound)/2.0;
+  while((f0(xval)>(siglev+epsilon)) || (f0(xval)<(siglev-epsilon))){
+    if(f0(xval)>(siglev+epsilon)){
+      ubound=xval;
+      xval=(ubound+lbound)/2.0;
+    }
+    else{
+      lbound=xval;
+      xval=(ubound+lbound)/2.0;
+    }
+  }
+  cout << "Function f0 reached " << siglev << "sigma at duration: " << xval << " days" << endl;
+  lbound=0.0;
+  ubound=120.0;
+  xval=(ubound+lbound)/2.0;
+  while((f1(xval)>(siglev+epsilon)) || (f1(xval)<(siglev-epsilon))){
+    if(f1(xval)>(siglev+epsilon)){
+      ubound=xval;
+      xval=(ubound+lbound)/2.0;
+    }
+    else{
+      lbound=xval;
+      xval=(ubound+lbound)/2.0;
+    }
+  }
+  cout << "Function f1 reached " << siglev << "sigma at duration: " << xval << " days" << endl;
+  lbound=0.0;
+  ubound=120.0;
+  xval=(ubound+lbound)/2.0;
+  while((f2(xval)>(siglev+epsilon)) || (f2(xval)<(siglev-epsilon))){
+    if(f2(xval)>(siglev+epsilon)){
+      ubound=xval;
+      xval=(ubound+lbound)/2.0;
+    }
+    else{
+      lbound=xval;
+      xval=(ubound+lbound)/2.0;
+    }
+  }
+  cout << "Function f2 reached " << siglev << "sigma at duration: " << xval << " days" << endl;
+  lbound=0.0;
+  ubound=120.0;
+  xval=(ubound+lbound)/2.0;
+  while((f3(xval)>(siglev+epsilon)) || (f3(xval)<(siglev-epsilon))){
+    if(f3(xval)>(siglev+epsilon)){
+      ubound=xval;
+      xval=(ubound+lbound)/2.0;
+    }
+    else{
+      lbound=xval;
+      xval=(ubound+lbound)/2.0;
+    }
+  }
+  cout << "Function f3 reached " << siglev << "sigma at duration: " << xval << " days" << endl;
+
+
 
   leg->AddEntry(f0,Form("single NaI coincidence > 2.6 MeV"),"l");
   leg->AddEntry(f1,Form("+ D_{2}O moderator"),"l");

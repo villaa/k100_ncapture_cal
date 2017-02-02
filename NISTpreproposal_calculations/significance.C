@@ -56,9 +56,9 @@ TF1 *significanceLT(double sig,double bknd,double livetime,double sigwidth,bool 
   TF1 *f;
  
   if(realdays)
-    f = new TF1("significance",Form("%f*(x/sqrt(x))*(%f/sqrt(%f))",factor,dutycycle,dutycycle),0,60);
+    f = new TF1("significance",Form("%f*(x/sqrt(x))*(%f/sqrt(%f))",factor,dutycycle,dutycycle),0,120);
   else
-    f = new TF1("significance",Form("%f*x/sqrt(x)",factor),0,60);
+    f = new TF1("significance",Form("%f*x/sqrt(x)",factor),0,120);
 
   return f;
 }
