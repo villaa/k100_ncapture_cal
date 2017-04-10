@@ -173,8 +173,8 @@ void plotTSCExample(bool print=0,string cascade="First",double ymax=0.7,double y
   h1000_10PcY->SetLineWidth(2);
 
 
-  leg->AddEntry(h100,Form("Weisskopf hinderance of 100"),"l");
-  leg->AddEntry(h1000,Form("Weisskopf hinderance of 1000"),"l");
+  leg->AddEntry(h100,Form("Weisskopf hindrance of 100"),"l");
+  leg->AddEntry(h1000,Form("Weisskopf hindrance of 1000"),"l");
   leg->AddEntry(h1000_10PcY,Form("Yield increase of 10%%"),"l");
 
   h100->Draw("same");
