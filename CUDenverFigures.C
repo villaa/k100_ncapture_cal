@@ -11,11 +11,11 @@
 // plotNISTNREDist(1,75,2e-10,1e-12,2.6,true,"PuBeCoinNaI10M");
 //  plotSignificance(1,true);
 
-void plotTSCExample(bool print=0,string cascade="First",double ymax=0.7,double ymin=0.0,bool isprelim=true, string ext="eps",bool resave=false)
+void plotTSCExample(bool print=0,string cascade="First",double ymax=3,double ymin=0.0,bool isprelim=true, string ext="eps",bool resave=false)
 {
 
   TLegend *leg;
-  leg = new TLegend(0.445,0.82,0.94,0.92);
+  leg = new TLegend(0.47,0.82,0.94,0.92);
 
   //let's do some calculations to make the axis size ratio correct for some specified
   //ratio of x-size to y-size.  
@@ -173,8 +173,8 @@ void plotTSCExample(bool print=0,string cascade="First",double ymax=0.7,double y
   h1000_10PcY->SetLineWidth(2);
 
 
-  leg->AddEntry(h100,Form("Weisskopf hindrance of 100"),"l");
-  leg->AddEntry(h1000,Form("Weisskopf hindrance of 1000"),"l");
+  leg->AddEntry(h100,Form("Slow transitions: x100"),"l");
+  leg->AddEntry(h1000,Form("Slow transitions: x1000"),"l");
   leg->AddEntry(h1000_10PcY,Form("Yield increase of 10%%"),"l");
 
   h100->Draw("same");

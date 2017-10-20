@@ -62,3 +62,32 @@ TF1 *significanceLT(double sig,double bknd,double livetime,double sigwidth,bool 
 
   return f;
 }
+TF1 *significanceNSF(double sig,double bknd,double livetime,double sigwidth, double dres0=200,bool realdays=false,double dutycycle=0.5)
+{
+  //all assuming 90V for now
+  //all assuming 200 eV resolution on peaks
+
+  //sig is signal in events/10days
+  //bknd is background in same unit -- expect, say 100 events over the whole range 0 to 25 keV
+  bknd*=(1200.0/25000.0); //so we can quote the background over the whole interval
+  //livetime is the livetime fraction
+  //sigwidth is the width (in eV) of the assumed gaussian signal
+
+  //account for resolution and timing broadening
+  double sigtotal = sqrt(pow(dres0,2.0));
+
+  //double sigfac = 0.68; //assume 1sigma is exactly 50eV
+  double sigfac = TMath::Erf((600/sigtotal)*(1/sqrt(2))); //assume 1200 eV analysis region
+  cout << "sigfac: " << sigfac << endl;
+
+  double factor; 
+  factor = ((sig/10.0)*livetime*sigfac)/sqrt((bknd/10.0)*livetime); //src and bknds are in units of 10 days
+  TF1 *f;
+ 
+  if(realdays)
+    f = new TF1("significance",Form("%f*(x/sqrt(x))*(%f/sqrt(%f))",factor,dutycycle,dutycycle),0,60);
+  else
+    f = new TF1("significance",Form("%f*x/sqrt(x)",factor),0,60);
+
+  return f;
+}
