@@ -1,0 +1,10 @@
+#scan of number of captures per 1M primaries as a function of radial distance (distance is not pure radial distance but side of a 45deg right triangle in cm)
+#distance n cap
+20.520	589
+21.227	626
+21.934	561
+22.641	575
+24.055	545
+24.7622	509
+25.469	490
+26.176	493
