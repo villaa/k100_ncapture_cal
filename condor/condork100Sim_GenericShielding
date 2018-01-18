@@ -20,6 +20,7 @@ SHIELDW=10.0
 SHIELDL=10.0
 SHIELDT=20.0
 SHIELDMAT=Poly
+TAGNAME=""
 
 input=($@)
 
@@ -28,7 +29,7 @@ do
 
   if [ "${input[i]}" = "-usage" ];
   then
-    echo "condork100Sim_GenericShielding -n NJOBS -src SOURCE -set DATASETID -ngen NEV -prim -otype OTYPE -merge -template TEMPLATEFILE -sourcepos X Y Z -shieldsize W L T -shieldmat SHIELDMAT "
+    echo "condork100Sim_GenericShielding -n NJOBS -src SOURCE -set DATASETID -ngen NEV -prim -otype OTYPE -merge -template TEMPLATEFILE -sourcepos X Y Z -shieldsize W L T -shieldmat SHIELDMAT TAGNAME "
     exit
   fi
 
@@ -91,6 +92,11 @@ do
     SHIELDMAT=${input[i+1]}
   fi
 
+  if [ "${input[i]}" = "-tagname" ];
+  then
+    TAGNAME=${input[i+1]}
+  fi
+
   if [ "${input[i]}" = "-exe" ];
   then
     EXE=yes
@@ -140,7 +146,7 @@ do
     if [ "${MERGE}" != "true" ]
     then
        #make the macro file and put it in the macros/ directory
-       sed -e 's|RADSOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${DATADIR}'|' -e 's|NEVHR|'${REDNEV}'|' -e 's|SOURCEPOSX|'${SOURCEPOSX}'|' -e 's|SOURCEPOSY|'${SOURCEPOSY}'|' -e 's|SOURCEPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDPOSX|'${SOURCEPOSX}'|' -e 's|SHIELDPOSY|'${SOURCEPOSY}'|' -e 's|SHIELDPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDW|'${SHIELDW}'|' -e 's|SHIELDL|'${SHIELDL}'|' -e 's|SHIELDT|'${SHIELDT}'|' -e 's|SHIELDMAT|'${SHIELDMAT}'|' < ${TEMPLATEFILE}  > 'macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
+       sed -e 's|RADSOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${DATADIR}'|' -e 's|NEVHR|'${REDNEV}'|' -e 's|SOURCEPOSX|'${SOURCEPOSX}'|' -e 's|SOURCEPOSY|'${SOURCEPOSY}'|' -e 's|SOURCEPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDPOSX|'${SOURCEPOSX}'|' -e 's|SHIELDPOSY|'${SOURCEPOSY}'|' -e 's|SHIELDPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDW|'${SHIELDW}'|' -e 's|SHIELDL|'${SHIELDL}'|' -e 's|SHIELDT|'${SHIELDT}'|' -e 's|SHIELDMAT|'${SHIELDMAT}'|' -e 's|TAGNAME|'${TAGNAME}'|' < ${TEMPLATEFILE}  > 'macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
 
        #make the condor file
        args='macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
@@ -149,7 +155,7 @@ do
     else
        #make the condor file
        #genShieldSimCondense.sh 0 PuBe 100 templates/pube.mac.template -100.0 0.0 0.0 10.0 10.0 20.0 Poly
-       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}
+       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}' '${TAGNAME}
        echo ${args}
        sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|' -e 's|SIMNAME|'${DATADIR}'_'${SOURCE}'|' -e 's|DATE|'${DATE}'|' -e 's|NGENHR|'${REDNEV}'|' < condor-k100SimMerge > .condorjob_${SOURCE}_${DATE}_${i}
 
@@ -164,7 +170,7 @@ do
     if [ "${MERGE}" != "true" ]
     then
        #make the macro file and put it in the macros/ directory
-       sed -e 's|RADSOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${DATADIR}'|' -e 's|NEVHR|'${REDNEV}'|' -e 's|SOURCEPOSX|'${SOURCEPOSX}'|' -e 's|SOURCEPOSY|'${SOURCEPOSY}'|' -e 's|SOURCEPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDPOSX|'${SOURCEPOSX}'|' -e 's|SHIELDPOSY|'${SOURCEPOSY}'|' -e 's|SHIELDPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDW|'${SHIELDW}'|' -e 's|SHIELDL|'${SHIELDL}'|' -e 's|SHIELDT|'${SHIELDT}'|' -e 's|SHIELDMAT|'${SHIELDMAT}'|' < ${TEMPLATEFILE}  > 'macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
+       sed -e 's|RADSOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${DATADIR}'|' -e 's|NEVHR|'${REDNEV}'|' -e 's|SOURCEPOSX|'${SOURCEPOSX}'|' -e 's|SOURCEPOSY|'${SOURCEPOSY}'|' -e 's|SOURCEPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDPOSX|'${SOURCEPOSX}'|' -e 's|SHIELDPOSY|'${SOURCEPOSY}'|' -e 's|SHIELDPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDW|'${SHIELDW}'|' -e 's|SHIELDL|'${SHIELDL}'|' -e 's|SHIELDT|'${SHIELDT}'|' -e 's|SHIELDMAT|'${SHIELDMAT}'|' -e 's|TAGNAME|'${TAGNAME}'|' < ${TEMPLATEFILE}  > 'macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
 
        #make the condor file
        args='macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
@@ -173,7 +179,7 @@ do
     else
        #make the condor file
        #genShieldSimCondense.sh 0 PuBe 100 templates/pube.mac.template -100.0 0.0 0.0 10.0 10.0 20.0 Poly
-       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}
+       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}' '${TAGNAME}
        echo ${args}
        sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|' -e 's|SIMNAME|'${DATADIR}'_'${SOURCE}'|' -e 's|DATE|'${DATE}'|' -e 's|NGENHR|'${REDNEV}'|' < condor-k100SimMerge > .condorjob_${SOURCE}_${DATE}_${i}
 
