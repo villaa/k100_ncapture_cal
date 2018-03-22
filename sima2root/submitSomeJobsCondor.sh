@@ -14,4 +14,5 @@
 #./makeListsCondor_PuBe.sh 34 DDCoin GenericShield captureCal 10M
 #./makeListsCondor_PuBe.sh 27 PuBeCoin GenericShield captureCal 100M
 #./makeListsCondor_PuBe.sh 34 DDCoin GenericShield captureCal 100M
-./makeListsCondor_PuBe.sh 0 PuBeCoinNaI GenericShield captureCal 10M
+#./makeListsCondor_PuBe.sh 0 PuBeCoinNaI GenericShield captureCal 10M
+./makeListsCondor_PuBe.sh 0 PuBe Run66ShieldTest captureCal 1M
