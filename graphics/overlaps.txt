@@ -1,0 +1,1943 @@
+geomGridTest.mac
+Visualization Manager instantiating with verbosity "warnings (3)"...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Current available graphics systems are:
+  ASCIITree (ATree)
+  DAWNFILE (DAWNFILE)
+  G4HepRep (HepRepXML)
+  G4HepRepFile (HepRepFile)
+  OpenGLImmediateX (OGLI, OGLIX)
+  OpenGLStoredX (OGL, OGLS, OGLSX)
+  RayTracer (RayTracer)
+  VRML1FILE (VRML1FILE)
+  VRML2FILE (VRML2FILE)
+  gMocrenFile (gMocrenFile)
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByCharge
+  drawByParticleID
+  drawByOriginVolume
+  drawByAttribute
+
+Registered filter factories:
+  chargeFilter
+  particleFilter
+  originVolumeFilter
+  attributeFilter
+
+You have successfully registered the following user vis actions.
+Run Duration User Vis Actions: none
+End of Event User Vis Actions: none
+End of Run User Vis Actions: none
+
+Some /vis commands (optionally) take a string to specify colour.
+Available colours:
+  black, blue, brown, cyan, gray, green, grey, magenta, red, white, yellow
+
+
+*************************************************************
+ Geant4 version Name: geant4-10-01-patch-02    (19-June-2015)
+                      Copyright : Geant4 Collaboration
+                      Reference : NIM A 506 (2003), 250-303
+                            WWW : http://cern.ch/geant4
+*************************************************************
+
+G4Material WARNING: duplicate name of material Aluminum
+
+***** Table : Nb of materials = 37 *****
+
+ Material: Aluminum    density:  2.700 g/cm3   RadL:   8.893 cm   Nucl.Int.Length:  38.879 cm 
+                       Imean: 166.000 eV 
+
+   --->  Element: Aluminum (Al)   Z = 13.0   N =  27.0   A =  26.98 g/mole
+         --->  Isotope:  Al27   Z = 13   N =  27   A =  26.98 g/mole   abundance: 100.00 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: Aluminum    density:  2.670 g/cm3   RadL:   8.991 cm   Nucl.Int.Length:  39.312 cm 
+                       Imean: 166.000 eV 
+
+   --->  Element: Aluminum (Al)   Z = 13.0   N =  27.0   A =  26.98 g/mole
+         --->  Isotope:  Al27   Z = 13   N =  27   A =  26.98 g/mole   abundance: 100.00 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material:     wood    density: 900.000 mg/cm3  RadL:  44.757 cm   Nucl.Int.Length:  82.069 cm 
+                       Imean:  67.200 eV 
+
+   --->  Element: Hydrogen (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:   9.17 %  ElmAbundance  57.14 % 
+
+   --->  Element: Oxygen (O)   Z =  8.0   N =  16.0   A =  16.00 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance:  99.76 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:   0.04 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:   0.20 %
+          ElmMassFraction:  36.31 %  ElmAbundance  14.29 % 
+
+   --->  Element: Carbon (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:  54.52 %  ElmAbundance  28.57 % 
+
+
+ Material:  Silicon    density:  2.330 g/cm3   RadL:   9.368 cm   Nucl.Int.Length:  45.663 cm 
+                       Imean: 173.000 eV 
+
+   --->  Element: Silicon (Si)   Z = 14.0   N =  28.1   A =  28.09 g/mole
+         --->  Isotope:  Si28   Z = 14   N =  28   A =  27.98 g/mole   abundance:  92.23 %
+         --->  Isotope:  Si29   Z = 14   N =  29   A =  28.98 g/mole   abundance:   4.68 %
+         --->  Isotope:  Si30   Z = 14   N =  30   A =  29.97 g/mole   abundance:   3.09 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: Germanium    density:  5.323 g/cm3   RadL:   2.301 cm   Nucl.Int.Length:  27.431 cm 
+                       Imean: 350.000 eV 
+
+   --->  Element: Germanium (Ge)   Z = 32.0   N =  72.6   A =  72.61 g/mole
+         --->  Isotope:  Ge70   Z = 32   N =  70   A =  69.92 g/mole   abundance:  20.84 %
+         --->  Isotope:  Ge72   Z = 32   N =  72   A =  71.92 g/mole   abundance:  27.54 %
+         --->  Isotope:  Ge73   Z = 32   N =  73   A =  72.92 g/mole   abundance:   7.73 %
+         --->  Isotope:  Ge74   Z = 32   N =  74   A =  73.92 g/mole   abundance:  36.28 %
+         --->  Isotope:  Ge76   Z = 32   N =  76   A =  75.92 g/mole   abundance:   7.61 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material:      NaI    density:  3.670 g/cm3   RadL:   2.586 cm   Nucl.Int.Length:  42.879 cm 
+                       Imean: 400.008 eV 
+
+   --->  Element: Sodium (Na)   Z = 11.0   N =  23.0   A =  22.99 g/mole
+         --->  Isotope:  Na23   Z = 11   N =  23   A =  22.99 g/mole   abundance: 100.00 %
+          ElmMassFraction:  15.34 %  ElmAbundance  50.00 % 
+
+   --->  Element: Iodine (I)   Z = 53.0   N = 126.9   A = 126.90 g/mole
+         --->  Isotope:  I127   Z = 53   N = 127   A = 126.90 g/mole   abundance: 100.00 %
+          ElmMassFraction:  84.66 %  ElmAbundance  50.00 % 
+
+
+ Material:   Copper    density:  8.920 g/cm3   RadL:   1.442 cm   Nucl.Int.Length:  15.658 cm 
+                       Imean: 322.000 eV 
+
+   --->  Element: Copper (Cu)   Z = 29.0   N =  63.5   A =  63.55 g/mole
+         --->  Isotope:  Cu63   Z = 29   N =  63   A =  62.93 g/mole   abundance:  69.17 %
+         --->  Isotope:  Cu65   Z = 29   N =  65   A =  64.93 g/mole   abundance:  30.83 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: Lead_brick    density: 11.350 g/cm3   RadL:   5.612 mm   Nucl.Int.Length:  18.247 cm 
+                       Imean: 823.000 eV 
+
+   --->  Element: Lead (Pb)   Z = 82.0   N = 207.2   A = 207.20 g/mole
+         --->  Isotope: Pb204   Z = 82   N = 204   A = 203.97 g/mole   abundance:   1.40 %
+         --->  Isotope: Pb206   Z = 82   N = 206   A = 205.97 g/mole   abundance:  24.10 %
+         --->  Isotope: Pb207   Z = 82   N = 207   A = 206.98 g/mole   abundance:  22.10 %
+         --->  Isotope: Pb208   Z = 82   N = 208   A = 207.98 g/mole   abundance:  52.40 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material:   Sulfur    density:  2.070 g/cm3   RadL:   9.418 cm   Nucl.Int.Length:  53.717 cm 
+                       Imean: 180.000 eV 
+
+   --->  Element: Sulfur (S)   Z = 16.0   N =  32.1   A =  32.06 g/mole
+         --->  Isotope:   S32   Z = 16   N =  32   A =  31.97 g/mole   abundance:  94.93 %
+         --->  Isotope:   S33   Z = 16   N =  33   A =  32.97 g/mole   abundance:   0.76 %
+         --->  Isotope:   S34   Z = 16   N =  34   A =  33.97 g/mole   abundance:   4.29 %
+         --->  Isotope:   S36   Z = 16   N =  36   A =  35.97 g/mole   abundance:   0.02 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: Phosphorus    density:  1.823 g/cm3   RadL:  11.631 cm   Nucl.Int.Length:  60.292 cm 
+                       Imean: 173.000 eV 
+
+   --->  Element: Phosphorus (P)   Z = 15.0   N =  31.0   A =  30.97 g/mole
+         --->  Isotope:   P31   Z = 15   N =  31   A =  30.97 g/mole   abundance: 100.00 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material:   Nickel    density:  8.908 g/cm3   RadL:   1.423 cm   Nucl.Int.Length:  15.269 cm 
+                       Imean: 311.000 eV 
+
+   --->  Element: Nickel (Ni)   Z = 28.0   N =  58.7   A =  58.69 g/mole
+         --->  Isotope:  Ni58   Z = 28   N =  58   A =  57.94 g/mole   abundance:  68.08 %
+         --->  Isotope:  Ni60   Z = 28   N =  60   A =  59.93 g/mole   abundance:  26.22 %
+         --->  Isotope:  Ni61   Z = 28   N =  61   A =  60.93 g/mole   abundance:   1.14 %
+         --->  Isotope:  Ni62   Z = 28   N =  62   A =  61.93 g/mole   abundance:   3.63 %
+         --->  Isotope:  Ni64   Z = 28   N =  64   A =  63.93 g/mole   abundance:   0.93 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: Chromium    density:  7.190 g/cm3   RadL:   2.079 cm   Nucl.Int.Length:  18.169 cm 
+                       Imean: 257.000 eV 
+
+   --->  Element: Chromium (Cr)   Z = 24.0   N =  52.0   A =  52.00 g/mole
+         --->  Isotope:  Cr50   Z = 24   N =  50   A =  49.95 g/mole   abundance:   4.34 %
+         --->  Isotope:  Cr52   Z = 24   N =  52   A =  51.94 g/mole   abundance:  83.79 %
+         --->  Isotope:  Cr53   Z = 24   N =  53   A =  52.94 g/mole   abundance:   9.50 %
+         --->  Isotope:  Cr54   Z = 24   N =  54   A =  53.94 g/mole   abundance:   2.37 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: Manganese    density:  7.210 g/cm3   RadL:   2.030 cm   Nucl.Int.Length:  18.454 cm 
+                       Imean: 272.000 eV 
+
+   --->  Element: Manganese (Mn)   Z = 25.0   N =  54.9   A =  54.94 g/mole
+         --->  Isotope:  Mn55   Z = 25   N =  55   A =  54.94 g/mole   abundance: 100.00 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material:   Carbon    density:  2.267 g/cm3   RadL:  18.835 cm   Nucl.Int.Length:  35.357 cm 
+                       Imean:  81.000 eV 
+
+   --->  Element: Carbon (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material:     Iron    density:  7.874 g/cm3   RadL:   1.757 cm   Nucl.Int.Length:  16.990 cm 
+                       Imean: 286.000 eV 
+
+   --->  Element: Iron (Fe)   Z = 26.0   N =  55.8   A =  55.84 g/mole
+         --->  Isotope:  Fe54   Z = 26   N =  54   A =  53.94 g/mole   abundance:   5.84 %
+         --->  Isotope:  Fe56   Z = 26   N =  56   A =  55.93 g/mole   abundance:  91.75 %
+         --->  Isotope:  Fe57   Z = 26   N =  57   A =  56.94 g/mole   abundance:   2.12 %
+         --->  Isotope:  Fe58   Z = 26   N =  58   A =  57.93 g/mole   abundance:   0.28 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material:     Zinc    density:  7.140 g/cm3   RadL:   1.741 cm   Nucl.Int.Length:  19.748 cm 
+                       Imean: 330.000 eV 
+
+   --->  Element: Zinc (Zn)   Z = 30.0   N =  65.4   A =  65.38 g/mole
+         --->  Isotope:  Zn64   Z = 30   N =  64   A =  63.93 g/mole   abundance:  48.63 %
+         --->  Isotope:  Zn66   Z = 30   N =  66   A =  65.93 g/mole   abundance:  27.90 %
+         --->  Isotope:  Zn67   Z = 30   N =  67   A =  66.93 g/mole   abundance:   4.10 %
+         --->  Isotope:  Zn68   Z = 30   N =  68   A =  67.92 g/mole   abundance:  18.75 %
+         --->  Isotope:  Zn70   Z = 30   N =  70   A =  69.93 g/mole   abundance:   0.62 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: Scintillator    density:  1.032 g/cm3   RadL:  42.541 cm   Nucl.Int.Length:  70.021 cm 
+                       Imean:  64.808 eV 
+
+   --->  Element: Hydrogen (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:   8.47 %  ElmAbundance  52.38 % 
+
+   --->  Element: Carbon (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:  91.53 %  ElmAbundance  47.62 % 
+
+
+ Material:      H2O    density:  1.000 g/cm3   RadL:  36.091 cm   Nucl.Int.Length:  75.355 cm 
+                       Imean:  68.998 eV 
+
+   --->  Element: Hydrogen (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:  11.21 %  ElmAbundance  66.67 % 
+
+   --->  Element: Oxygen (O)   Z =  8.0   N =  16.0   A =  16.00 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance:  99.76 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:   0.04 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:   0.20 %
+          ElmMassFraction:  88.79 %  ElmAbundance  33.33 % 
+
+
+ Material:      D2O    density:  1.110 g/cm3   RadL:  36.138 cm   Nucl.Int.Length:  60.853 cm 
+                       Imean:  68.998 eV 
+
+   --->  Element: Deuterium (D)   Z =  1.0   N =   2.0   A =   2.01 g/mole
+         --->  Isotope:    D1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    D2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:  20.11 %  ElmAbundance  66.67 % 
+
+   --->  Element: Oxygen (O)   Z =  8.0   N =  16.0   A =  16.00 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance:  99.76 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:   0.04 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:   0.20 %
+          ElmMassFraction:  79.89 %  ElmAbundance  33.33 % 
+
+
+ Material:     SiO2    density:  2.196 g/cm3   RadL:  12.317 cm   Nucl.Int.Length:  43.652 cm 
+                       Imean: 125.663 eV 
+
+   --->  Element: Oxygen (O)   Z =  8.0   N =  16.0   A =  16.00 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance:  99.76 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:   0.04 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:   0.20 %
+          ElmMassFraction:  53.25 %  ElmAbundance  66.67 % 
+
+   --->  Element: Silicon (Si)   Z = 14.0   N =  28.1   A =  28.09 g/mole
+         --->  Isotope:  Si28   Z = 14   N =  28   A =  27.98 g/mole   abundance:  92.23 %
+         --->  Isotope:  Si29   Z = 14   N =  29   A =  28.98 g/mole   abundance:   4.68 %
+         --->  Isotope:  Si30   Z = 14   N =  30   A =  29.97 g/mole   abundance:   3.09 %
+          ElmMassFraction:  46.75 %  ElmAbundance  33.33 % 
+
+
+ Material: SiO2BlastSand    density:  1.405 g/cm3   RadL:  19.245 cm   Nucl.Int.Length:  68.206 cm 
+                       Imean: 125.663 eV 
+
+   --->  Element: Oxygen (O)   Z =  8.0   N =  16.0   A =  16.00 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance:  99.76 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:   0.04 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:   0.20 %
+          ElmMassFraction:  53.25 %  ElmAbundance  66.67 % 
+
+   --->  Element: Silicon (Si)   Z = 14.0   N =  28.1   A =  28.09 g/mole
+         --->  Isotope:  Si28   Z = 14   N =  28   A =  27.98 g/mole   abundance:  92.23 %
+         --->  Isotope:  Si29   Z = 14   N =  29   A =  28.98 g/mole   abundance:   4.68 %
+         --->  Isotope:  Si30   Z = 14   N =  30   A =  29.97 g/mole   abundance:   3.09 %
+          ElmMassFraction:  46.75 %  ElmAbundance  33.33 % 
+
+
+ Material:     Poly    density: 973.000 mg/cm3  RadL:  46.031 cm   Nucl.Int.Length:  69.475 cm 
+                       Imean:  56.518 eV 
+
+   --->  Element: Hydrogen (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:  14.40 %  ElmAbundance  66.67 % 
+
+   --->  Element: Carbon (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:  85.60 %  ElmAbundance  33.33 % 
+
+
+ Material:  MuMetal    density:  1.000 g/cm3   RadL:  12.884 cm   Nucl.Int.Length:   1.356 m  
+                       Imean: 306.183 eV 
+
+   --->  Element: Iron (Fe)   Z = 26.0   N =  55.8   A =  55.84 g/mole
+         --->  Isotope:  Fe54   Z = 26   N =  54   A =  53.94 g/mole   abundance:   5.84 %
+         --->  Isotope:  Fe56   Z = 26   N =  56   A =  55.93 g/mole   abundance:  91.75 %
+         --->  Isotope:  Fe57   Z = 26   N =  57   A =  56.94 g/mole   abundance:   2.12 %
+         --->  Isotope:  Fe58   Z = 26   N =  58   A =  57.93 g/mole   abundance:   0.28 %
+          ElmMassFraction:  19.00 %  ElmAbundance  19.78 % 
+
+   --->  Element: Nickel (Ni)   Z = 28.0   N =  58.7   A =  58.69 g/mole
+         --->  Isotope:  Ni58   Z = 28   N =  58   A =  57.94 g/mole   abundance:  68.08 %
+         --->  Isotope:  Ni60   Z = 28   N =  60   A =  59.93 g/mole   abundance:  26.22 %
+         --->  Isotope:  Ni61   Z = 28   N =  61   A =  60.93 g/mole   abundance:   1.14 %
+         --->  Isotope:  Ni62   Z = 28   N =  62   A =  61.93 g/mole   abundance:   3.63 %
+         --->  Isotope:  Ni64   Z = 28   N =  64   A =  63.93 g/mole   abundance:   0.93 %
+          ElmMassFraction:  81.00 %  ElmAbundance  80.22 % 
+
+
+ Material:    Brass    density:  8.200 g/cm3   RadL:   1.550 cm   Nucl.Int.Length:  17.089 cm 
+                       Imean: 324.788 eV 
+
+   --->  Element: Copper (Cu)   Z = 29.0   N =  63.5   A =  63.55 g/mole
+         --->  Isotope:  Cu63   Z = 29   N =  63   A =  62.93 g/mole   abundance:  69.17 %
+         --->  Isotope:  Cu65   Z = 29   N =  65   A =  64.93 g/mole   abundance:  30.83 %
+          ElmMassFraction:  65.00 %  ElmAbundance  65.64 % 
+
+   --->  Element: Zinc (Zn)   Z = 30.0   N =  65.4   A =  65.38 g/mole
+         --->  Isotope:  Zn64   Z = 30   N =  64   A =  63.93 g/mole   abundance:  48.63 %
+         --->  Isotope:  Zn66   Z = 30   N =  66   A =  65.93 g/mole   abundance:  27.90 %
+         --->  Isotope:  Zn67   Z = 30   N =  67   A =  66.93 g/mole   abundance:   4.10 %
+         --->  Isotope:  Zn68   Z = 30   N =  68   A =  67.92 g/mole   abundance:  18.75 %
+         --->  Isotope:  Zn70   Z = 30   N =  70   A =  69.93 g/mole   abundance:   0.62 %
+          ElmMassFraction:  35.00 %  ElmAbundance  34.36 % 
+
+
+ Material: liquidHelium    density: 141.200 mg/cm3  RadL:   6.681 m    Nucl.Int.Length:   3.936 m  
+                       Imean:  41.800 eV 
+
+   --->  Element: Helium (He)   Z =  2.0   N =   4.0   A =   4.00 g/mole
+         --->  Isotope:   He3   Z =  2   N =   3   A =   3.02 g/mole   abundance:   0.00 %
+         --->  Isotope:   He4   Z =  2   N =   4   A =   4.00 g/mole   abundance: 100.00 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material:    Steel    density:  8.030 g/cm3   RadL:   1.743 cm   Nucl.Int.Length:  16.554 cm 
+                       Imean: 280.335 eV 
+
+   --->  Element: Carbon (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:   0.08 %  ElmAbundance   0.36 % 
+
+   --->  Element: Manganese (Mn)   Z = 25.0   N =  54.9   A =  54.94 g/mole
+         --->  Isotope:  Mn55   Z = 25   N =  55   A =  54.94 g/mole   abundance: 100.00 %
+          ElmMassFraction:   2.00 %  ElmAbundance   1.99 % 
+
+   --->  Element: Chromium (Cr)   Z = 24.0   N =  52.0   A =  52.00 g/mole
+         --->  Isotope:  Cr50   Z = 24   N =  50   A =  49.95 g/mole   abundance:   4.34 %
+         --->  Isotope:  Cr52   Z = 24   N =  52   A =  51.94 g/mole   abundance:  83.79 %
+         --->  Isotope:  Cr53   Z = 24   N =  53   A =  52.94 g/mole   abundance:   9.50 %
+         --->  Isotope:  Cr54   Z = 24   N =  54   A =  53.94 g/mole   abundance:   2.37 %
+          ElmMassFraction:  19.00 %  ElmAbundance  19.94 % 
+
+   --->  Element: Nickel (Ni)   Z = 28.0   N =  58.7   A =  58.69 g/mole
+         --->  Isotope:  Ni58   Z = 28   N =  58   A =  57.94 g/mole   abundance:  68.08 %
+         --->  Isotope:  Ni60   Z = 28   N =  60   A =  59.93 g/mole   abundance:  26.22 %
+         --->  Isotope:  Ni61   Z = 28   N =  61   A =  60.93 g/mole   abundance:   1.14 %
+         --->  Isotope:  Ni62   Z = 28   N =  62   A =  61.93 g/mole   abundance:   3.63 %
+         --->  Isotope:  Ni64   Z = 28   N =  64   A =  63.93 g/mole   abundance:   0.93 %
+          ElmMassFraction:   9.25 %  ElmAbundance   8.60 % 
+
+   --->  Element: Silicon (Si)   Z = 14.0   N =  28.1   A =  28.09 g/mole
+         --->  Isotope:  Si28   Z = 14   N =  28   A =  27.98 g/mole   abundance:  92.23 %
+         --->  Isotope:  Si29   Z = 14   N =  29   A =  28.98 g/mole   abundance:   4.68 %
+         --->  Isotope:  Si30   Z = 14   N =  30   A =  29.97 g/mole   abundance:   3.09 %
+          ElmMassFraction:   1.00 %  ElmAbundance   1.94 % 
+
+   --->  Element: Phosphorus (P)   Z = 15.0   N =  31.0   A =  30.97 g/mole
+         --->  Isotope:   P31   Z = 15   N =  31   A =  30.97 g/mole   abundance: 100.00 %
+          ElmMassFraction:   0.04 %  ElmAbundance   0.08 % 
+
+   --->  Element: Sulfur (S)   Z = 16.0   N =  32.1   A =  32.06 g/mole
+         --->  Isotope:   S32   Z = 16   N =  32   A =  31.97 g/mole   abundance:  94.93 %
+         --->  Isotope:   S33   Z = 16   N =  33   A =  32.97 g/mole   abundance:   0.76 %
+         --->  Isotope:   S34   Z = 16   N =  34   A =  33.97 g/mole   abundance:   4.29 %
+         --->  Isotope:   S36   Z = 16   N =  36   A =  35.97 g/mole   abundance:   0.02 %
+          ElmMassFraction:   0.03 %  ElmAbundance   0.05 % 
+
+   --->  Element: Iron (Fe)   Z = 26.0   N =  55.8   A =  55.84 g/mole
+         --->  Isotope:  Fe54   Z = 26   N =  54   A =  53.94 g/mole   abundance:   5.84 %
+         --->  Isotope:  Fe56   Z = 26   N =  56   A =  55.93 g/mole   abundance:  91.75 %
+         --->  Isotope:  Fe57   Z = 26   N =  57   A =  56.94 g/mole   abundance:   2.12 %
+         --->  Isotope:  Fe58   Z = 26   N =  58   A =  57.93 g/mole   abundance:   0.28 %
+          ElmMassFraction:  68.59 %  ElmAbundance  67.03 % 
+
+
+ Material: StandardSteel    density:  7.850 g/cm3   RadL:   1.775 cm   Nucl.Int.Length:  16.929 cm 
+                       Imean: 282.158 eV 
+
+   --->  Element: Carbon (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:   1.00 %  ElmAbundance   4.49 % 
+
+   --->  Element: Iron (Fe)   Z = 26.0   N =  55.8   A =  55.84 g/mole
+         --->  Isotope:  Fe54   Z = 26   N =  54   A =  53.94 g/mole   abundance:   5.84 %
+         --->  Isotope:  Fe56   Z = 26   N =  56   A =  55.93 g/mole   abundance:  91.75 %
+         --->  Isotope:  Fe57   Z = 26   N =  57   A =  56.94 g/mole   abundance:   2.12 %
+         --->  Isotope:  Fe58   Z = 26   N =  58   A =  57.93 g/mole   abundance:   0.28 %
+          ElmMassFraction:  99.00 %  ElmAbundance  95.51 % 
+
+
+ Material:    Super    density: 694.500 mg/cm3  RadL:  45.012 cm   Nucl.Int.Length:   1.184 m  
+                       Imean:  92.577 eV 
+
+   --->  Element: Aluminum (Al)   Z = 13.0   N =  27.0   A =  26.98 g/mole
+         --->  Isotope:  Al27   Z = 13   N =  27   A =  26.98 g/mole   abundance: 100.00 %
+          ElmMassFraction:  50.00 %  ElmAbundance  14.77 % 
+
+   --->  Element: Hydrogen (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:   7.20 %  ElmAbundance  56.82 % 
+
+   --->  Element: Carbon (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:  42.80 %  ElmAbundance  28.41 % 
+
+
+ Material:   Vacuum    density:  0.000 kg/m3   RadL: 204727512.315 pc   Nucl.Int.Length: 113427275.267 pc 
+                       Imean:  19.200 eV   temperature:   2.73 K  pressure:   0.00 atm
+
+   --->  Element: H (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: G4_CONCRETE    density:  2.300 g/cm3   RadL:  11.553 cm   Nucl.Int.Length:  41.206 cm 
+                       Imean: 135.200 eV 
+
+   --->  Element: H (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:   1.00 %  ElmAbundance  16.88 % 
+
+   --->  Element: C (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:   0.10 %  ElmAbundance   0.14 % 
+
+   --->  Element: O (O)   Z =  8.0   N =  16.0   A =  16.00 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance:  99.76 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:   0.04 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:   0.20 %
+          ElmMassFraction:  52.91 %  ElmAbundance  56.25 % 
+
+   --->  Element: Na (Na)   Z = 11.0   N =  23.0   A =  22.99 g/mole
+         --->  Isotope:  Na23   Z = 11   N =  23   A =  22.99 g/mole   abundance: 100.00 %
+          ElmMassFraction:   1.60 %  ElmAbundance   1.18 % 
+
+   --->  Element: Mg (Mg)   Z = 12.0   N =  24.3   A =  24.31 g/mole
+         --->  Isotope:  Mg24   Z = 12   N =  24   A =  23.98 g/mole   abundance:  78.99 %
+         --->  Isotope:  Mg25   Z = 12   N =  25   A =  24.99 g/mole   abundance:  10.00 %
+         --->  Isotope:  Mg26   Z = 12   N =  26   A =  25.98 g/mole   abundance:  11.01 %
+          ElmMassFraction:   0.20 %  ElmAbundance   0.14 % 
+
+   --->  Element: Al (Al)   Z = 13.0   N =  27.0   A =  26.98 g/mole
+         --->  Isotope:  Al27   Z = 13   N =  27   A =  26.98 g/mole   abundance: 100.00 %
+          ElmMassFraction:   3.39 %  ElmAbundance   2.14 % 
+
+   --->  Element: Si (Si)   Z = 14.0   N =  28.1   A =  28.09 g/mole
+         --->  Isotope:  Si28   Z = 14   N =  28   A =  27.98 g/mole   abundance:  92.23 %
+         --->  Isotope:  Si29   Z = 14   N =  29   A =  28.98 g/mole   abundance:   4.68 %
+         --->  Isotope:  Si30   Z = 14   N =  30   A =  29.97 g/mole   abundance:   3.09 %
+          ElmMassFraction:  33.70 %  ElmAbundance  20.41 % 
+
+   --->  Element: K (K)   Z = 19.0   N =  39.1   A =  39.10 g/mole
+         --->  Isotope:   K39   Z = 19   N =  39   A =  38.96 g/mole   abundance:  93.26 %
+         --->  Isotope:   K40   Z = 19   N =  40   A =  39.96 g/mole   abundance:   0.01 %
+         --->  Isotope:   K41   Z = 19   N =  41   A =  40.96 g/mole   abundance:   6.73 %
+          ElmMassFraction:   1.30 %  ElmAbundance   0.57 % 
+
+   --->  Element: Ca (Ca)   Z = 20.0   N =  40.1   A =  40.08 g/mole
+         --->  Isotope:  Ca40   Z = 20   N =  40   A =  39.96 g/mole   abundance:  96.94 %
+         --->  Isotope:  Ca42   Z = 20   N =  42   A =  41.96 g/mole   abundance:   0.65 %
+         --->  Isotope:  Ca43   Z = 20   N =  43   A =  42.96 g/mole   abundance:   0.14 %
+         --->  Isotope:  Ca44   Z = 20   N =  44   A =  43.96 g/mole   abundance:   2.09 %
+         --->  Isotope:  Ca46   Z = 20   N =  46   A =  45.95 g/mole   abundance:   0.00 %
+         --->  Isotope:  Ca48   Z = 20   N =  48   A =  47.95 g/mole   abundance:   0.19 %
+          ElmMassFraction:   4.40 %  ElmAbundance   1.87 % 
+
+   --->  Element: Fe (Fe)   Z = 26.0   N =  55.9   A =  55.85 g/mole
+         --->  Isotope:  Fe54   Z = 26   N =  54   A =  53.94 g/mole   abundance:   5.84 %
+         --->  Isotope:  Fe56   Z = 26   N =  56   A =  55.93 g/mole   abundance:  91.75 %
+         --->  Isotope:  Fe57   Z = 26   N =  57   A =  56.94 g/mole   abundance:   2.12 %
+         --->  Isotope:  Fe58   Z = 26   N =  58   A =  57.93 g/mole   abundance:   0.28 %
+          ElmMassFraction:   1.40 %  ElmAbundance   0.43 % 
+
+
+ Material:   G4_AIR    density:  1.205 mg/cm3  RadL: 303.921 m    Nucl.Int.Length: 710.137 m  
+                       Imean:  85.700 eV   temperature: 293.15 K  pressure:   1.00 atm
+
+   --->  Element: C (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:   0.01 %  ElmAbundance   0.02 % 
+
+   --->  Element: N (N)   Z =  7.0   N =  14.0   A =  14.01 g/mole
+         --->  Isotope:   N14   Z =  7   N =  14   A =  14.00 g/mole   abundance:  99.63 %
+         --->  Isotope:   N15   Z =  7   N =  15   A =  15.00 g/mole   abundance:   0.37 %
+          ElmMassFraction:  75.53 %  ElmAbundance  78.44 % 
+
+   --->  Element: O (O)   Z =  8.0   N =  16.0   A =  16.00 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance:  99.76 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:   0.04 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:   0.20 %
+          ElmMassFraction:  23.18 %  ElmAbundance  21.07 % 
+
+   --->  Element: Ar (Ar)   Z = 18.0   N =  40.0   A =  39.95 g/mole
+         --->  Isotope:  Ar36   Z = 18   N =  36   A =  35.97 g/mole   abundance:   0.34 %
+         --->  Isotope:  Ar38   Z = 18   N =  38   A =  37.96 g/mole   abundance:   0.06 %
+         --->  Isotope:  Ar40   Z = 18   N =  40   A =  39.96 g/mole   abundance:  99.60 %
+          ElmMassFraction:   1.28 %  ElmAbundance   0.47 % 
+
+
+ Material: G4_SODIUM_IODIDE    density:  3.667 g/cm3   RadL:   2.588 cm   Nucl.Int.Length:  42.894 cm 
+                       Imean: 452.000 eV 
+
+   --->  Element: Na (Na)   Z = 11.0   N =  23.0   A =  22.99 g/mole
+         --->  Isotope:  Na23   Z = 11   N =  23   A =  22.99 g/mole   abundance: 100.00 %
+          ElmMassFraction:  15.34 %  ElmAbundance  50.00 % 
+
+   --->  Element: I (I)   Z = 53.0   N = 127.0   A = 126.90 g/mole
+         --->  Isotope:  I127   Z = 53   N = 127   A = 126.90 g/mole   abundance: 100.00 %
+          ElmMassFraction:  84.66 %  ElmAbundance  50.00 % 
+
+
+ Material: G4_POLYVINYL_CHLORIDE    density:  1.300 g/cm3   RadL:  19.626 cm   Nucl.Int.Length:  69.279 cm 
+                       Imean: 108.200 eV 
+
+   --->  Element: C (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:  38.44 %  ElmAbundance  33.33 % 
+
+   --->  Element: H (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:   4.84 %  ElmAbundance  50.00 % 
+
+   --->  Element: Cl (Cl)   Z = 17.0   N =  35.5   A =  35.45 g/mole
+         --->  Isotope:  Cl35   Z = 17   N =  35   A =  34.97 g/mole   abundance:  75.78 %
+         --->  Isotope:  Cl37   Z = 17   N =  37   A =  36.97 g/mole   abundance:  24.22 %
+          ElmMassFraction:  56.73 %  ElmAbundance  16.67 % 
+
+
+ Material: G4_POLYETHYLENE (C_2H_4)_N-Polyethylene   density: 940.000 mg/cm3  RadL:  47.632 cm   Nucl.Int.Length:  72.088 cm 
+                       Imean:  57.400 eV 
+
+   --->  Element: C (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:  85.63 %  ElmAbundance  33.33 % 
+
+   --->  Element: H (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:  14.37 %  ElmAbundance  66.67 % 
+
+
+ Material:    G4_Al    density:  2.699 g/cm3   RadL:   8.896 cm   Nucl.Int.Length:  38.877 cm 
+                       Imean: 166.000 eV 
+
+   --->  Element: Al (Al)   Z = 13.0   N =  27.0   A =  26.98 g/mole
+         --->  Isotope:  Al27   Z = 13   N =  27   A =  26.98 g/mole   abundance: 100.00 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: G4_PLEXIGLASS    density:  1.190 g/cm3   RadL:  34.075 cm   Nucl.Int.Length:  62.750 cm 
+                       Imean:  74.000 eV 
+
+   --->  Element: C (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:  59.98 %  ElmAbundance  33.33 % 
+
+   --->  Element: H (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:   8.05 %  ElmAbundance  53.33 % 
+
+   --->  Element: O (O)   Z =  8.0   N =  16.0   A =  16.00 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance:  99.76 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:   0.04 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:   0.20 %
+          ElmMassFraction:  31.96 %  ElmAbundance  13.33 % 
+
+
+ Material: G4_PARAFFIN    density: 930.000 mg/cm3  RadL:  48.224 cm   Nucl.Int.Length:  72.482 cm 
+                       Imean:  55.900 eV 
+
+   --->  Element: C (C)   Z =  6.0   N =  12.0   A =  12.01 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance:  98.93 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:   1.07 %
+          ElmMassFraction:  85.14 %  ElmAbundance  32.47 % 
+
+   --->  Element: H (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:  14.86 %  ElmAbundance  67.53 % 
+
+
+
+G4PhysListFactory::GetReferencePhysList <ShieldingLEND_EMZ>  EMoption= 4
+<<< Geant4 Physics List simulation engine: Shielding 2.1
+
+<<< Reference Physics List ShieldingLEND_EMZ is built
+
+
+----- HepJamesRandom engine status -----
+ Initial seed = 1521347611
+ u[] = 0.493107 0.298859 0.023158 0.206828 0.578448 0.545108 0.517381 0.0905727 0.0194737 0.427449 0.0214524 0.40376 0.737011 0.177809 0.485278 0.63996 0.220877 0.204948 0.440894 0.943116 0.931678 0.108871 0.713161 0.925421 0.252829 0.583093 0.812367 0.920182 0.662165 0.0793669 0.389607 0.448355 0.214092 0.891737 0.235904 0.221734 0.149569 0.49971 0.248874 0.782897 0.390893 0.0321047 0.180916 0.353644 0.228577 0.680772 0.843415 0.842518 0.510955 0.265654 0.749246 0.918005 0.372091 0.634621 0.275277 0.198774 0.635357 0.278904 0.991797 0.599193 0.498748 0.584866 0.308571 0.281059 0.0979849 0.411449 0.670516 0.857242 0.624204 0.2462 0.694413 0.959692 0.428061 0.718276 0.971149 0.337295 0.0288382 0.67862 0.715228 0.849121 0.0328475 0.813189 0.387933 0.265517 0.916954 0.799785 0.538527 0.358487 0.667379 0.348475 0.33435 0.476904 0.47099 0.0800474 0.176403 0.977942 0.0197561 
+ c = 0.0216029, cd = 0.456233, cm = 1
+ i97 = 96, u[i97] = 0.0197561
+ j97 = 32, u[j97] = 0.214092
+----------------------------------------
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+<tower1> is not found.
+Tower 1 is detector 1
+Dump UsedTarget for LENDElastic
+Requested Evaluation, Z , A -> Actual Evaluation, Z , A(0=Nat) , Pointer of Target
+ ENDF.B-VII.0, 1, 1 -> ENDF.B-VII.0, 1, 1, 0x1c68330
+ ENDF.B-VII.0, 1, 2 -> ENDF.B-VII.0, 1, 2, 0x1c690b0
+ ENDF.B-VII.0, 2, 3 -> ENDF.B-VII.0, 2, 3, 0x1d01850
+ ENDF.B-VII.0, 2, 4 -> ENDF.B-VII.0, 2, 4, 0x1cdc060
+ ENDF.B-VII.0, 6, 12 -> na, -1, -1, 0
+ ENDF.B-VII.0, 6, 13 -> na, -1, -1, 0
+ ENDF.B-VII.0, 7, 14 -> ENDF.B-VII.0, 7, 14, 0x3894b60
+ ENDF.B-VII.0, 7, 15 -> ENDF.B-VII.0, 7, 15, 0x4253f70
+ ENDF.B-VII.0, 8, 16 -> ENDF.B-VII.0, 8, 16, 0x1c67870
+ ENDF.B-VII.0, 8, 17 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 8, 18 -> na, -1, -1, 0
+ ENDF.B-VII.0, 11, 23 -> ENDF.B-VII.0, 11, 23, 0x1c7efa0
+ ENDF.B-VII.0, 12, 24 -> ENDF.B-VII.0, 12, 24, 0x1f368d0
+ ENDF.B-VII.0, 12, 25 -> ENDF.B-VII.0, 12, 25, 0x1cc9650
+ ENDF.B-VII.0, 12, 26 -> ENDF.B-VII.0, 12, 26, 0x2339920
+ ENDF.B-VII.0, 13, 27 -> ENDF.B-VII.0, 13, 27, 0x1c4ba00
+ ENDF.B-VII.0, 14, 28 -> ENDF.B-VII.0, 14, 28, 0x1c7e9c0
+ ENDF.B-VII.0, 14, 29 -> ENDF.B-VII.0, 14, 29, 0x352c7f0
+ ENDF.B-VII.0, 14, 30 -> ENDF.B-VII.0, 14, 30, 0x38752f0
+ ENDF.B-VII.0, 15, 31 -> ENDF.B-VII.0, 15, 31, 0x1f09810
+ ENDF.B-VII.0, 16, 32 -> ENDF.B-VII.0, 16, 32, 0x1cff6c0
+ ENDF.B-VII.0, 16, 33 -> ENDF.B-VII.0, 16, 33, 0x1cfe840
+ ENDF.B-VII.0, 16, 34 -> ENDF.B-VII.0, 16, 34, 0x2329c80
+ ENDF.B-VII.0, 16, 36 -> ENDF.B-VII.0, 16, 36, 0x1d7a0a0
+ ENDF.B-VII.0, 17, 35 -> ENDF.B-VII.0, 17, 35, 0x38942b0
+ ENDF.B-VII.0, 17, 37 -> ENDF.B-VII.0, 17, 37, 0x1d7b0b0
+ ENDF.B-VII.0, 18, 36 -> ENDF.B-VII.0, 18, 36, 0x2980a50
+ ENDF.B-VII.0, 18, 38 -> ENDF.B-VII.0, 18, 38, 0x492a730
+ ENDF.B-VII.0, 18, 40 -> ENDF.B-VII.0, 18, 40, 0x1f15960
+ ENDF.B-VII.0, 19, 39 -> ENDF.B-VII.0, 19, 39, 0x1f056e0
+ ENDF.B-VII.0, 19, 40 -> ENDF.B-VII.0, 19, 40, 0x6921030
+ ENDF.B-VII.0, 19, 41 -> ENDF.B-VII.0, 19, 41, 0x2df4930
+ ENDF.B-VII.0, 20, 40 -> ENDF.B-VII.0, 20, 40, 0x1ced760
+ ENDF.B-VII.0, 20, 42 -> ENDF.B-VII.0, 20, 42, 0x2df4ab0
+ ENDF.B-VII.0, 20, 43 -> ENDF.B-VII.0, 20, 43, 0x1c80aa0
+ ENDF.B-VII.0, 20, 44 -> ENDF.B-VII.0, 20, 44, 0x1f077f0
+ ENDF.B-VII.0, 20, 46 -> ENDF.B-VII.0, 20, 46, 0x4950590
+ ENDF.B-VII.0, 20, 48 -> ENDF.B-VII.0, 20, 48, 0x1f57f10
+ ENDF.B-VII.0, 24, 50 -> ENDF.B-VII.0, 24, 50, 0x1efa8d0
+ ENDF.B-VII.0, 24, 52 -> ENDF.B-VII.0, 24, 52, 0x1cd53c0
+ ENDF.B-VII.0, 24, 53 -> ENDF.B-VII.0, 24, 53, 0x28a6980
+ ENDF.B-VII.0, 24, 54 -> ENDF.B-VII.0, 24, 54, 0x1c582c0
+ ENDF.B-VII.0, 25, 55 -> ENDF.B-VII.0, 25, 55, 0x38877b0
+ ENDF.B-VII.0, 26, 54 -> ENDF.B-VII.0, 26, 54, 0x2333ea0
+ ENDF.B-VII.0, 26, 56 -> ENDF.B-VII.0, 26, 56, 0x1f602e0
+ ENDF.B-VII.0, 26, 57 -> ENDF.B-VII.0, 26, 57, 0x1f2e590
+ ENDF.B-VII.0, 26, 58 -> ENDF.B-VII.0, 26, 58, 0x1d062c0
+ ENDF.B-VII.0, 28, 58 -> ENDF.B-VII.0, 28, 58, 0x1cfcf40
+ ENDF.B-VII.0, 28, 60 -> ENDF.B-VII.0, 28, 60, 0x1ccde50
+ ENDF.B-VII.0, 28, 61 -> ENDF.B-VII.0, 28, 61, 0x2deeeb0
+ ENDF.B-VII.0, 28, 62 -> ENDF.B-VII.0, 28, 62, 0x2009d60
+ ENDF.B-VII.0, 28, 64 -> ENDF.B-VII.0, 28, 64, 0x34496b0
+ ENDF.B-VII.0, 29, 63 -> ENDF.B-VII.0, 29, 63, 0x2334780
+ ENDF.B-VII.0, 29, 65 -> ENDF.B-VII.0, 29, 65, 0x1d06120
+ ENDF.B-VII.0, 30, 64 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 66 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 67 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 68 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 70 -> na, -1, -1, 0
+ ENDF.B-VII.0, 32, 70 -> ENDF.B-VII.0, 32, 70, 0x350e4b0
+ ENDF.B-VII.0, 32, 72 -> ENDF.B-VII.0, 32, 72, 0x1f13c80
+ ENDF.B-VII.0, 32, 73 -> ENDF.B-VII.0, 32, 73, 0x1ceab40
+ ENDF.B-VII.0, 32, 74 -> ENDF.B-VII.0, 32, 74, 0x1ccbd70
+ ENDF.B-VII.0, 32, 76 -> ENDF.B-VII.0, 32, 76, 0x1d3f4b0
+ ENDF.B-VII.0, 53, 127 -> ENDF.B-VII.0, 53, 127, 0x1ef9530
+ ENDF.B-VII.0, 82, 204 -> ENDF.B-VII.0, 82, 204, 0x1c8a1f0
+ ENDF.B-VII.0, 82, 206 -> ENDF.B-VII.0, 82, 206, 0x1c89450
+ ENDF.B-VII.0, 82, 207 -> ENDF.B-VII.0, 82, 207, 0x232a3d0
+ ENDF.B-VII.0, 82, 208 -> ENDF.B-VII.0, 82, 208, 0x4f3fa60
+Dump UsedTarget for LENDElastic
+Requested Evaluation, Z , A -> Actual Evaluation, Z , A(0=Nat) , Pointer of Target
+ ENDF.B-VII.0, 1, 1 -> ENDF.B-VII.0, 1, 1, 0x1c68330
+ ENDF.B-VII.0, 1, 2 -> ENDF.B-VII.0, 1, 2, 0x1c690b0
+ ENDF.B-VII.0, 2, 3 -> ENDF.B-VII.0, 2, 3, 0x1d01850
+ ENDF.B-VII.0, 2, 4 -> ENDF.B-VII.0, 2, 4, 0x1cdc060
+ ENDF.B-VII.0, 6, 12 -> ENDF.B-VII.0, 6, 0, 0x726e8a0
+ ENDF.B-VII.0, 6, 13 -> ENDF.B-VII.0, 6, 0, 0x726e8a0
+ ENDF.B-VII.0, 7, 14 -> ENDF.B-VII.0, 7, 14, 0x3894b60
+ ENDF.B-VII.0, 7, 15 -> ENDF.B-VII.0, 7, 15, 0x4253f70
+ ENDF.B-VII.0, 8, 16 -> ENDF.B-VII.0, 8, 16, 0x1c67870
+ ENDF.B-VII.0, 8, 17 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 8, 18 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 11, 23 -> ENDF.B-VII.0, 11, 23, 0x1c7efa0
+ ENDF.B-VII.0, 12, 24 -> ENDF.B-VII.0, 12, 24, 0x1f368d0
+ ENDF.B-VII.0, 12, 25 -> ENDF.B-VII.0, 12, 25, 0x1cc9650
+ ENDF.B-VII.0, 12, 26 -> ENDF.B-VII.0, 12, 26, 0x2339920
+ ENDF.B-VII.0, 13, 27 -> ENDF.B-VII.0, 13, 27, 0x1c4ba00
+ ENDF.B-VII.0, 14, 28 -> ENDF.B-VII.0, 14, 28, 0x1c7e9c0
+ ENDF.B-VII.0, 14, 29 -> ENDF.B-VII.0, 14, 29, 0x352c7f0
+ ENDF.B-VII.0, 14, 30 -> ENDF.B-VII.0, 14, 30, 0x38752f0
+ ENDF.B-VII.0, 15, 31 -> ENDF.B-VII.0, 15, 31, 0x1f09810
+ ENDF.B-VII.0, 16, 32 -> ENDF.B-VII.0, 16, 32, 0x1cff6c0
+ ENDF.B-VII.0, 16, 33 -> ENDF.B-VII.0, 16, 33, 0x1cfe840
+ ENDF.B-VII.0, 16, 34 -> ENDF.B-VII.0, 16, 34, 0x2329c80
+ ENDF.B-VII.0, 16, 36 -> ENDF.B-VII.0, 16, 36, 0x1d7a0a0
+ ENDF.B-VII.0, 17, 35 -> ENDF.B-VII.0, 17, 35, 0x38942b0
+ ENDF.B-VII.0, 17, 37 -> ENDF.B-VII.0, 17, 37, 0x1d7b0b0
+ ENDF.B-VII.0, 18, 36 -> ENDF.B-VII.0, 18, 36, 0x2980a50
+ ENDF.B-VII.0, 18, 38 -> ENDF.B-VII.0, 18, 38, 0x492a730
+ ENDF.B-VII.0, 18, 40 -> ENDF.B-VII.0, 18, 40, 0x1f15960
+ ENDF.B-VII.0, 19, 39 -> ENDF.B-VII.0, 19, 39, 0x1f056e0
+ ENDF.B-VII.0, 19, 40 -> ENDF.B-VII.0, 19, 40, 0x6921030
+ ENDF.B-VII.0, 19, 41 -> ENDF.B-VII.0, 19, 41, 0x2df4930
+ ENDF.B-VII.0, 20, 40 -> ENDF.B-VII.0, 20, 40, 0x1ced760
+ ENDF.B-VII.0, 20, 42 -> ENDF.B-VII.0, 20, 42, 0x2df4ab0
+ ENDF.B-VII.0, 20, 43 -> ENDF.B-VII.0, 20, 43, 0x1c80aa0
+ ENDF.B-VII.0, 20, 44 -> ENDF.B-VII.0, 20, 44, 0x1f077f0
+ ENDF.B-VII.0, 20, 46 -> ENDF.B-VII.0, 20, 46, 0x4950590
+ ENDF.B-VII.0, 20, 48 -> ENDF.B-VII.0, 20, 48, 0x1f57f10
+ ENDF.B-VII.0, 24, 50 -> ENDF.B-VII.0, 24, 50, 0x1efa8d0
+ ENDF.B-VII.0, 24, 52 -> ENDF.B-VII.0, 24, 52, 0x1cd53c0
+ ENDF.B-VII.0, 24, 53 -> ENDF.B-VII.0, 24, 53, 0x28a6980
+ ENDF.B-VII.0, 24, 54 -> ENDF.B-VII.0, 24, 54, 0x1c582c0
+ ENDF.B-VII.0, 25, 55 -> ENDF.B-VII.0, 25, 55, 0x38877b0
+ ENDF.B-VII.0, 26, 54 -> ENDF.B-VII.0, 26, 54, 0x2333ea0
+ ENDF.B-VII.0, 26, 56 -> ENDF.B-VII.0, 26, 56, 0x1f602e0
+ ENDF.B-VII.0, 26, 57 -> ENDF.B-VII.0, 26, 57, 0x1f2e590
+ ENDF.B-VII.0, 26, 58 -> ENDF.B-VII.0, 26, 58, 0x1d062c0
+ ENDF.B-VII.0, 28, 58 -> ENDF.B-VII.0, 28, 58, 0x1cfcf40
+ ENDF.B-VII.0, 28, 60 -> ENDF.B-VII.0, 28, 60, 0x1ccde50
+ ENDF.B-VII.0, 28, 61 -> ENDF.B-VII.0, 28, 61, 0x2deeeb0
+ ENDF.B-VII.0, 28, 62 -> ENDF.B-VII.0, 28, 62, 0x2009d60
+ ENDF.B-VII.0, 28, 64 -> ENDF.B-VII.0, 28, 64, 0x34496b0
+ ENDF.B-VII.0, 29, 63 -> ENDF.B-VII.0, 29, 63, 0x2334780
+ ENDF.B-VII.0, 29, 65 -> ENDF.B-VII.0, 29, 65, 0x1d06120
+ ENDF.B-VII.0, 30, 64 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 66 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 67 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 68 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 70 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 32, 70 -> ENDF.B-VII.0, 32, 70, 0x350e4b0
+ ENDF.B-VII.0, 32, 72 -> ENDF.B-VII.0, 32, 72, 0x1f13c80
+ ENDF.B-VII.0, 32, 73 -> ENDF.B-VII.0, 32, 73, 0x1ceab40
+ ENDF.B-VII.0, 32, 74 -> ENDF.B-VII.0, 32, 74, 0x1ccbd70
+ ENDF.B-VII.0, 32, 76 -> ENDF.B-VII.0, 32, 76, 0x1d3f4b0
+ ENDF.B-VII.0, 53, 127 -> ENDF.B-VII.0, 53, 127, 0x1ef9530
+ ENDF.B-VII.0, 82, 204 -> ENDF.B-VII.0, 82, 204, 0x1c8a1f0
+ ENDF.B-VII.0, 82, 206 -> ENDF.B-VII.0, 82, 206, 0x1c89450
+ ENDF.B-VII.0, 82, 207 -> ENDF.B-VII.0, 82, 207, 0x232a3d0
+ ENDF.B-VII.0, 82, 208 -> ENDF.B-VII.0, 82, 208, 0x4f3fa60
+Dump UsedTarget for LENDInelastic
+Requested Evaluation, Z , A -> Actual Evaluation, Z , A(0=Nat) , Pointer of Target
+ ENDF.B-VII.0, 1, 1 -> ENDF.B-VII.0, 1, 1, 0x1c68330
+ ENDF.B-VII.0, 1, 2 -> ENDF.B-VII.0, 1, 2, 0x1c690b0
+ ENDF.B-VII.0, 2, 3 -> ENDF.B-VII.0, 2, 3, 0x1d01850
+ ENDF.B-VII.0, 2, 4 -> ENDF.B-VII.0, 2, 4, 0x1cdc060
+ ENDF.B-VII.0, 6, 12 -> na, -1, -1, 0
+ ENDF.B-VII.0, 6, 13 -> na, -1, -1, 0
+ ENDF.B-VII.0, 7, 14 -> ENDF.B-VII.0, 7, 14, 0x3894b60
+ ENDF.B-VII.0, 7, 15 -> ENDF.B-VII.0, 7, 15, 0x4253f70
+ ENDF.B-VII.0, 8, 16 -> ENDF.B-VII.0, 8, 16, 0x1c67870
+ ENDF.B-VII.0, 8, 17 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 8, 18 -> na, -1, -1, 0
+ ENDF.B-VII.0, 11, 23 -> ENDF.B-VII.0, 11, 23, 0x1c7efa0
+ ENDF.B-VII.0, 12, 24 -> ENDF.B-VII.0, 12, 24, 0x1f368d0
+ ENDF.B-VII.0, 12, 25 -> ENDF.B-VII.0, 12, 25, 0x1cc9650
+ ENDF.B-VII.0, 12, 26 -> ENDF.B-VII.0, 12, 26, 0x2339920
+ ENDF.B-VII.0, 13, 27 -> ENDF.B-VII.0, 13, 27, 0x1c4ba00
+ ENDF.B-VII.0, 14, 28 -> ENDF.B-VII.0, 14, 28, 0x1c7e9c0
+ ENDF.B-VII.0, 14, 29 -> ENDF.B-VII.0, 14, 29, 0x352c7f0
+ ENDF.B-VII.0, 14, 30 -> ENDF.B-VII.0, 14, 30, 0x38752f0
+ ENDF.B-VII.0, 15, 31 -> ENDF.B-VII.0, 15, 31, 0x1f09810
+ ENDF.B-VII.0, 16, 32 -> ENDF.B-VII.0, 16, 32, 0x1cff6c0
+ ENDF.B-VII.0, 16, 33 -> ENDF.B-VII.0, 16, 33, 0x1cfe840
+ ENDF.B-VII.0, 16, 34 -> ENDF.B-VII.0, 16, 34, 0x2329c80
+ ENDF.B-VII.0, 16, 36 -> ENDF.B-VII.0, 16, 36, 0x1d7a0a0
+ ENDF.B-VII.0, 17, 35 -> ENDF.B-VII.0, 17, 35, 0x38942b0
+ ENDF.B-VII.0, 17, 37 -> ENDF.B-VII.0, 17, 37, 0x1d7b0b0
+ ENDF.B-VII.0, 18, 36 -> ENDF.B-VII.0, 18, 36, 0x2980a50
+ ENDF.B-VII.0, 18, 38 -> ENDF.B-VII.0, 18, 38, 0x492a730
+ ENDF.B-VII.0, 18, 40 -> ENDF.B-VII.0, 18, 40, 0x1f15960
+ ENDF.B-VII.0, 19, 39 -> ENDF.B-VII.0, 19, 39, 0x1f056e0
+ ENDF.B-VII.0, 19, 40 -> ENDF.B-VII.0, 19, 40, 0x6921030
+ ENDF.B-VII.0, 19, 41 -> ENDF.B-VII.0, 19, 41, 0x2df4930
+ ENDF.B-VII.0, 20, 40 -> ENDF.B-VII.0, 20, 40, 0x1ced760
+ ENDF.B-VII.0, 20, 42 -> ENDF.B-VII.0, 20, 42, 0x2df4ab0
+ ENDF.B-VII.0, 20, 43 -> ENDF.B-VII.0, 20, 43, 0x1c80aa0
+ ENDF.B-VII.0, 20, 44 -> ENDF.B-VII.0, 20, 44, 0x1f077f0
+ ENDF.B-VII.0, 20, 46 -> ENDF.B-VII.0, 20, 46, 0x4950590
+ ENDF.B-VII.0, 20, 48 -> ENDF.B-VII.0, 20, 48, 0x1f57f10
+ ENDF.B-VII.0, 24, 50 -> ENDF.B-VII.0, 24, 50, 0x1efa8d0
+ ENDF.B-VII.0, 24, 52 -> ENDF.B-VII.0, 24, 52, 0x1cd53c0
+ ENDF.B-VII.0, 24, 53 -> ENDF.B-VII.0, 24, 53, 0x28a6980
+ ENDF.B-VII.0, 24, 54 -> ENDF.B-VII.0, 24, 54, 0x1c582c0
+ ENDF.B-VII.0, 25, 55 -> ENDF.B-VII.0, 25, 55, 0x38877b0
+ ENDF.B-VII.0, 26, 54 -> ENDF.B-VII.0, 26, 54, 0x2333ea0
+ ENDF.B-VII.0, 26, 56 -> ENDF.B-VII.0, 26, 56, 0x1f602e0
+ ENDF.B-VII.0, 26, 57 -> ENDF.B-VII.0, 26, 57, 0x1f2e590
+ ENDF.B-VII.0, 26, 58 -> ENDF.B-VII.0, 26, 58, 0x1d062c0
+ ENDF.B-VII.0, 28, 58 -> ENDF.B-VII.0, 28, 58, 0x1cfcf40
+ ENDF.B-VII.0, 28, 60 -> ENDF.B-VII.0, 28, 60, 0x1ccde50
+ ENDF.B-VII.0, 28, 61 -> ENDF.B-VII.0, 28, 61, 0x2deeeb0
+ ENDF.B-VII.0, 28, 62 -> ENDF.B-VII.0, 28, 62, 0x2009d60
+ ENDF.B-VII.0, 28, 64 -> ENDF.B-VII.0, 28, 64, 0x34496b0
+ ENDF.B-VII.0, 29, 63 -> ENDF.B-VII.0, 29, 63, 0x2334780
+ ENDF.B-VII.0, 29, 65 -> ENDF.B-VII.0, 29, 65, 0x1d06120
+ ENDF.B-VII.0, 30, 64 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 66 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 67 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 68 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 70 -> na, -1, -1, 0
+ ENDF.B-VII.0, 32, 70 -> ENDF.B-VII.0, 32, 70, 0x350e4b0
+ ENDF.B-VII.0, 32, 72 -> ENDF.B-VII.0, 32, 72, 0x1f13c80
+ ENDF.B-VII.0, 32, 73 -> ENDF.B-VII.0, 32, 73, 0x1ceab40
+ ENDF.B-VII.0, 32, 74 -> ENDF.B-VII.0, 32, 74, 0x1ccbd70
+ ENDF.B-VII.0, 32, 76 -> ENDF.B-VII.0, 32, 76, 0x1d3f4b0
+ ENDF.B-VII.0, 53, 127 -> ENDF.B-VII.0, 53, 127, 0x1ef9530
+ ENDF.B-VII.0, 82, 204 -> ENDF.B-VII.0, 82, 204, 0x1c8a1f0
+ ENDF.B-VII.0, 82, 206 -> ENDF.B-VII.0, 82, 206, 0x1c89450
+ ENDF.B-VII.0, 82, 207 -> ENDF.B-VII.0, 82, 207, 0x232a3d0
+ ENDF.B-VII.0, 82, 208 -> ENDF.B-VII.0, 82, 208, 0x4f3fa60
+Dump UsedTarget for LENDInelastic
+Requested Evaluation, Z , A -> Actual Evaluation, Z , A(0=Nat) , Pointer of Target
+ ENDF.B-VII.0, 1, 1 -> ENDF.B-VII.0, 1, 1, 0x1c68330
+ ENDF.B-VII.0, 1, 2 -> ENDF.B-VII.0, 1, 2, 0x1c690b0
+ ENDF.B-VII.0, 2, 3 -> ENDF.B-VII.0, 2, 3, 0x1d01850
+ ENDF.B-VII.0, 2, 4 -> ENDF.B-VII.0, 2, 4, 0x1cdc060
+ ENDF.B-VII.0, 6, 12 -> ENDF.B-VII.0, 6, 0, 0x726e8a0
+ ENDF.B-VII.0, 6, 13 -> ENDF.B-VII.0, 6, 0, 0x726e8a0
+ ENDF.B-VII.0, 7, 14 -> ENDF.B-VII.0, 7, 14, 0x3894b60
+ ENDF.B-VII.0, 7, 15 -> ENDF.B-VII.0, 7, 15, 0x4253f70
+ ENDF.B-VII.0, 8, 16 -> ENDF.B-VII.0, 8, 16, 0x1c67870
+ ENDF.B-VII.0, 8, 17 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 8, 18 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 11, 23 -> ENDF.B-VII.0, 11, 23, 0x1c7efa0
+ ENDF.B-VII.0, 12, 24 -> ENDF.B-VII.0, 12, 24, 0x1f368d0
+ ENDF.B-VII.0, 12, 25 -> ENDF.B-VII.0, 12, 25, 0x1cc9650
+ ENDF.B-VII.0, 12, 26 -> ENDF.B-VII.0, 12, 26, 0x2339920
+ ENDF.B-VII.0, 13, 27 -> ENDF.B-VII.0, 13, 27, 0x1c4ba00
+ ENDF.B-VII.0, 14, 28 -> ENDF.B-VII.0, 14, 28, 0x1c7e9c0
+ ENDF.B-VII.0, 14, 29 -> ENDF.B-VII.0, 14, 29, 0x352c7f0
+ ENDF.B-VII.0, 14, 30 -> ENDF.B-VII.0, 14, 30, 0x38752f0
+ ENDF.B-VII.0, 15, 31 -> ENDF.B-VII.0, 15, 31, 0x1f09810
+ ENDF.B-VII.0, 16, 32 -> ENDF.B-VII.0, 16, 32, 0x1cff6c0
+ ENDF.B-VII.0, 16, 33 -> ENDF.B-VII.0, 16, 33, 0x1cfe840
+ ENDF.B-VII.0, 16, 34 -> ENDF.B-VII.0, 16, 34, 0x2329c80
+ ENDF.B-VII.0, 16, 36 -> ENDF.B-VII.0, 16, 36, 0x1d7a0a0
+ ENDF.B-VII.0, 17, 35 -> ENDF.B-VII.0, 17, 35, 0x38942b0
+ ENDF.B-VII.0, 17, 37 -> ENDF.B-VII.0, 17, 37, 0x1d7b0b0
+ ENDF.B-VII.0, 18, 36 -> ENDF.B-VII.0, 18, 36, 0x2980a50
+ ENDF.B-VII.0, 18, 38 -> ENDF.B-VII.0, 18, 38, 0x492a730
+ ENDF.B-VII.0, 18, 40 -> ENDF.B-VII.0, 18, 40, 0x1f15960
+ ENDF.B-VII.0, 19, 39 -> ENDF.B-VII.0, 19, 39, 0x1f056e0
+ ENDF.B-VII.0, 19, 40 -> ENDF.B-VII.0, 19, 40, 0x6921030
+ ENDF.B-VII.0, 19, 41 -> ENDF.B-VII.0, 19, 41, 0x2df4930
+ ENDF.B-VII.0, 20, 40 -> ENDF.B-VII.0, 20, 40, 0x1ced760
+ ENDF.B-VII.0, 20, 42 -> ENDF.B-VII.0, 20, 42, 0x2df4ab0
+ ENDF.B-VII.0, 20, 43 -> ENDF.B-VII.0, 20, 43, 0x1c80aa0
+ ENDF.B-VII.0, 20, 44 -> ENDF.B-VII.0, 20, 44, 0x1f077f0
+ ENDF.B-VII.0, 20, 46 -> ENDF.B-VII.0, 20, 46, 0x4950590
+ ENDF.B-VII.0, 20, 48 -> ENDF.B-VII.0, 20, 48, 0x1f57f10
+ ENDF.B-VII.0, 24, 50 -> ENDF.B-VII.0, 24, 50, 0x1efa8d0
+ ENDF.B-VII.0, 24, 52 -> ENDF.B-VII.0, 24, 52, 0x1cd53c0
+ ENDF.B-VII.0, 24, 53 -> ENDF.B-VII.0, 24, 53, 0x28a6980
+ ENDF.B-VII.0, 24, 54 -> ENDF.B-VII.0, 24, 54, 0x1c582c0
+ ENDF.B-VII.0, 25, 55 -> ENDF.B-VII.0, 25, 55, 0x38877b0
+ ENDF.B-VII.0, 26, 54 -> ENDF.B-VII.0, 26, 54, 0x2333ea0
+ ENDF.B-VII.0, 26, 56 -> ENDF.B-VII.0, 26, 56, 0x1f602e0
+ ENDF.B-VII.0, 26, 57 -> ENDF.B-VII.0, 26, 57, 0x1f2e590
+ ENDF.B-VII.0, 26, 58 -> ENDF.B-VII.0, 26, 58, 0x1d062c0
+ ENDF.B-VII.0, 28, 58 -> ENDF.B-VII.0, 28, 58, 0x1cfcf40
+ ENDF.B-VII.0, 28, 60 -> ENDF.B-VII.0, 28, 60, 0x1ccde50
+ ENDF.B-VII.0, 28, 61 -> ENDF.B-VII.0, 28, 61, 0x2deeeb0
+ ENDF.B-VII.0, 28, 62 -> ENDF.B-VII.0, 28, 62, 0x2009d60
+ ENDF.B-VII.0, 28, 64 -> ENDF.B-VII.0, 28, 64, 0x34496b0
+ ENDF.B-VII.0, 29, 63 -> ENDF.B-VII.0, 29, 63, 0x2334780
+ ENDF.B-VII.0, 29, 65 -> ENDF.B-VII.0, 29, 65, 0x1d06120
+ ENDF.B-VII.0, 30, 64 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 66 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 67 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 68 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 70 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 32, 70 -> ENDF.B-VII.0, 32, 70, 0x350e4b0
+ ENDF.B-VII.0, 32, 72 -> ENDF.B-VII.0, 32, 72, 0x1f13c80
+ ENDF.B-VII.0, 32, 73 -> ENDF.B-VII.0, 32, 73, 0x1ceab40
+ ENDF.B-VII.0, 32, 74 -> ENDF.B-VII.0, 32, 74, 0x1ccbd70
+ ENDF.B-VII.0, 32, 76 -> ENDF.B-VII.0, 32, 76, 0x1d3f4b0
+ ENDF.B-VII.0, 53, 127 -> ENDF.B-VII.0, 53, 127, 0x1ef9530
+ ENDF.B-VII.0, 82, 204 -> ENDF.B-VII.0, 82, 204, 0x1c8a1f0
+ ENDF.B-VII.0, 82, 206 -> ENDF.B-VII.0, 82, 206, 0x1c89450
+ ENDF.B-VII.0, 82, 207 -> ENDF.B-VII.0, 82, 207, 0x232a3d0
+ ENDF.B-VII.0, 82, 208 -> ENDF.B-VII.0, 82, 208, 0x4f3fa60
+Dump UsedTarget for LENDCapture
+Requested Evaluation, Z , A -> Actual Evaluation, Z , A(0=Nat) , Pointer of Target
+ ENDF.B-VII.0, 1, 1 -> ENDF.B-VII.0, 1, 1, 0x1c68330
+ ENDF.B-VII.0, 1, 2 -> ENDF.B-VII.0, 1, 2, 0x1c690b0
+ ENDF.B-VII.0, 2, 3 -> ENDF.B-VII.0, 2, 3, 0x1d01850
+ ENDF.B-VII.0, 2, 4 -> ENDF.B-VII.0, 2, 4, 0x1cdc060
+ ENDF.B-VII.0, 6, 12 -> na, -1, -1, 0
+ ENDF.B-VII.0, 6, 13 -> na, -1, -1, 0
+ ENDF.B-VII.0, 7, 14 -> ENDF.B-VII.0, 7, 14, 0x3894b60
+ ENDF.B-VII.0, 7, 15 -> ENDF.B-VII.0, 7, 15, 0x4253f70
+ ENDF.B-VII.0, 8, 16 -> ENDF.B-VII.0, 8, 16, 0x1c67870
+ ENDF.B-VII.0, 8, 17 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 8, 18 -> na, -1, -1, 0
+ ENDF.B-VII.0, 11, 23 -> ENDF.B-VII.0, 11, 23, 0x1c7efa0
+ ENDF.B-VII.0, 12, 24 -> ENDF.B-VII.0, 12, 24, 0x1f368d0
+ ENDF.B-VII.0, 12, 25 -> ENDF.B-VII.0, 12, 25, 0x1cc9650
+ ENDF.B-VII.0, 12, 26 -> ENDF.B-VII.0, 12, 26, 0x2339920
+ ENDF.B-VII.0, 13, 27 -> ENDF.B-VII.0, 13, 27, 0x1c4ba00
+ ENDF.B-VII.0, 14, 28 -> ENDF.B-VII.0, 14, 28, 0x1c7e9c0
+ ENDF.B-VII.0, 14, 29 -> ENDF.B-VII.0, 14, 29, 0x352c7f0
+ ENDF.B-VII.0, 14, 30 -> ENDF.B-VII.0, 14, 30, 0x38752f0
+ ENDF.B-VII.0, 15, 31 -> ENDF.B-VII.0, 15, 31, 0x1f09810
+ ENDF.B-VII.0, 16, 32 -> ENDF.B-VII.0, 16, 32, 0x1cff6c0
+ ENDF.B-VII.0, 16, 33 -> ENDF.B-VII.0, 16, 33, 0x1cfe840
+ ENDF.B-VII.0, 16, 34 -> ENDF.B-VII.0, 16, 34, 0x2329c80
+ ENDF.B-VII.0, 16, 36 -> ENDF.B-VII.0, 16, 36, 0x1d7a0a0
+ ENDF.B-VII.0, 17, 35 -> ENDF.B-VII.0, 17, 35, 0x38942b0
+ ENDF.B-VII.0, 17, 37 -> ENDF.B-VII.0, 17, 37, 0x1d7b0b0
+ ENDF.B-VII.0, 18, 36 -> ENDF.B-VII.0, 18, 36, 0x2980a50
+ ENDF.B-VII.0, 18, 38 -> ENDF.B-VII.0, 18, 38, 0x492a730
+ ENDF.B-VII.0, 18, 40 -> ENDF.B-VII.0, 18, 40, 0x1f15960
+ ENDF.B-VII.0, 19, 39 -> ENDF.B-VII.0, 19, 39, 0x1f056e0
+ ENDF.B-VII.0, 19, 40 -> ENDF.B-VII.0, 19, 40, 0x6921030
+ ENDF.B-VII.0, 19, 41 -> ENDF.B-VII.0, 19, 41, 0x2df4930
+ ENDF.B-VII.0, 20, 40 -> ENDF.B-VII.0, 20, 40, 0x1ced760
+ ENDF.B-VII.0, 20, 42 -> ENDF.B-VII.0, 20, 42, 0x2df4ab0
+ ENDF.B-VII.0, 20, 43 -> ENDF.B-VII.0, 20, 43, 0x1c80aa0
+ ENDF.B-VII.0, 20, 44 -> ENDF.B-VII.0, 20, 44, 0x1f077f0
+ ENDF.B-VII.0, 20, 46 -> ENDF.B-VII.0, 20, 46, 0x4950590
+ ENDF.B-VII.0, 20, 48 -> ENDF.B-VII.0, 20, 48, 0x1f57f10
+ ENDF.B-VII.0, 24, 50 -> ENDF.B-VII.0, 24, 50, 0x1efa8d0
+ ENDF.B-VII.0, 24, 52 -> ENDF.B-VII.0, 24, 52, 0x1cd53c0
+ ENDF.B-VII.0, 24, 53 -> ENDF.B-VII.0, 24, 53, 0x28a6980
+ ENDF.B-VII.0, 24, 54 -> ENDF.B-VII.0, 24, 54, 0x1c582c0
+ ENDF.B-VII.0, 25, 55 -> ENDF.B-VII.0, 25, 55, 0x38877b0
+ ENDF.B-VII.0, 26, 54 -> ENDF.B-VII.0, 26, 54, 0x2333ea0
+ ENDF.B-VII.0, 26, 56 -> ENDF.B-VII.0, 26, 56, 0x1f602e0
+ ENDF.B-VII.0, 26, 57 -> ENDF.B-VII.0, 26, 57, 0x1f2e590
+ ENDF.B-VII.0, 26, 58 -> ENDF.B-VII.0, 26, 58, 0x1d062c0
+ ENDF.B-VII.0, 28, 58 -> ENDF.B-VII.0, 28, 58, 0x1cfcf40
+ ENDF.B-VII.0, 28, 60 -> ENDF.B-VII.0, 28, 60, 0x1ccde50
+ ENDF.B-VII.0, 28, 61 -> ENDF.B-VII.0, 28, 61, 0x2deeeb0
+ ENDF.B-VII.0, 28, 62 -> ENDF.B-VII.0, 28, 62, 0x2009d60
+ ENDF.B-VII.0, 28, 64 -> ENDF.B-VII.0, 28, 64, 0x34496b0
+ ENDF.B-VII.0, 29, 63 -> ENDF.B-VII.0, 29, 63, 0x2334780
+ ENDF.B-VII.0, 29, 65 -> ENDF.B-VII.0, 29, 65, 0x1d06120
+ ENDF.B-VII.0, 30, 64 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 66 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 67 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 68 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 70 -> na, -1, -1, 0
+ ENDF.B-VII.0, 32, 70 -> ENDF.B-VII.0, 32, 70, 0x350e4b0
+ ENDF.B-VII.0, 32, 72 -> ENDF.B-VII.0, 32, 72, 0x1f13c80
+ ENDF.B-VII.0, 32, 73 -> ENDF.B-VII.0, 32, 73, 0x1ceab40
+ ENDF.B-VII.0, 32, 74 -> ENDF.B-VII.0, 32, 74, 0x1ccbd70
+ ENDF.B-VII.0, 32, 76 -> ENDF.B-VII.0, 32, 76, 0x1d3f4b0
+ ENDF.B-VII.0, 53, 127 -> ENDF.B-VII.0, 53, 127, 0x1ef9530
+ ENDF.B-VII.0, 82, 204 -> ENDF.B-VII.0, 82, 204, 0x1c8a1f0
+ ENDF.B-VII.0, 82, 206 -> ENDF.B-VII.0, 82, 206, 0x1c89450
+ ENDF.B-VII.0, 82, 207 -> ENDF.B-VII.0, 82, 207, 0x232a3d0
+ ENDF.B-VII.0, 82, 208 -> ENDF.B-VII.0, 82, 208, 0x4f3fa60
+Dump UsedTarget for LENDCapture
+Requested Evaluation, Z , A -> Actual Evaluation, Z , A(0=Nat) , Pointer of Target
+ ENDF.B-VII.0, 1, 1 -> ENDF.B-VII.0, 1, 1, 0x1c68330
+ ENDF.B-VII.0, 1, 2 -> ENDF.B-VII.0, 1, 2, 0x1c690b0
+ ENDF.B-VII.0, 2, 3 -> ENDF.B-VII.0, 2, 3, 0x1d01850
+ ENDF.B-VII.0, 2, 4 -> ENDF.B-VII.0, 2, 4, 0x1cdc060
+ ENDF.B-VII.0, 6, 12 -> ENDF.B-VII.0, 6, 0, 0x726e8a0
+ ENDF.B-VII.0, 6, 13 -> ENDF.B-VII.0, 6, 0, 0x726e8a0
+ ENDF.B-VII.0, 7, 14 -> ENDF.B-VII.0, 7, 14, 0x3894b60
+ ENDF.B-VII.0, 7, 15 -> ENDF.B-VII.0, 7, 15, 0x4253f70
+ ENDF.B-VII.0, 8, 16 -> ENDF.B-VII.0, 8, 16, 0x1c67870
+ ENDF.B-VII.0, 8, 17 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 8, 18 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 11, 23 -> ENDF.B-VII.0, 11, 23, 0x1c7efa0
+ ENDF.B-VII.0, 12, 24 -> ENDF.B-VII.0, 12, 24, 0x1f368d0
+ ENDF.B-VII.0, 12, 25 -> ENDF.B-VII.0, 12, 25, 0x1cc9650
+ ENDF.B-VII.0, 12, 26 -> ENDF.B-VII.0, 12, 26, 0x2339920
+ ENDF.B-VII.0, 13, 27 -> ENDF.B-VII.0, 13, 27, 0x1c4ba00
+ ENDF.B-VII.0, 14, 28 -> ENDF.B-VII.0, 14, 28, 0x1c7e9c0
+ ENDF.B-VII.0, 14, 29 -> ENDF.B-VII.0, 14, 29, 0x352c7f0
+ ENDF.B-VII.0, 14, 30 -> ENDF.B-VII.0, 14, 30, 0x38752f0
+ ENDF.B-VII.0, 15, 31 -> ENDF.B-VII.0, 15, 31, 0x1f09810
+ ENDF.B-VII.0, 16, 32 -> ENDF.B-VII.0, 16, 32, 0x1cff6c0
+ ENDF.B-VII.0, 16, 33 -> ENDF.B-VII.0, 16, 33, 0x1cfe840
+ ENDF.B-VII.0, 16, 34 -> ENDF.B-VII.0, 16, 34, 0x2329c80
+ ENDF.B-VII.0, 16, 36 -> ENDF.B-VII.0, 16, 36, 0x1d7a0a0
+ ENDF.B-VII.0, 17, 35 -> ENDF.B-VII.0, 17, 35, 0x38942b0
+ ENDF.B-VII.0, 17, 37 -> ENDF.B-VII.0, 17, 37, 0x1d7b0b0
+ ENDF.B-VII.0, 18, 36 -> ENDF.B-VII.0, 18, 36, 0x2980a50
+ ENDF.B-VII.0, 18, 38 -> ENDF.B-VII.0, 18, 38, 0x492a730
+ ENDF.B-VII.0, 18, 40 -> ENDF.B-VII.0, 18, 40, 0x1f15960
+ ENDF.B-VII.0, 19, 39 -> ENDF.B-VII.0, 19, 39, 0x1f056e0
+ ENDF.B-VII.0, 19, 40 -> ENDF.B-VII.0, 19, 40, 0x6921030
+ ENDF.B-VII.0, 19, 41 -> ENDF.B-VII.0, 19, 41, 0x2df4930
+ ENDF.B-VII.0, 20, 40 -> ENDF.B-VII.0, 20, 40, 0x1ced760
+ ENDF.B-VII.0, 20, 42 -> ENDF.B-VII.0, 20, 42, 0x2df4ab0
+ ENDF.B-VII.0, 20, 43 -> ENDF.B-VII.0, 20, 43, 0x1c80aa0
+ ENDF.B-VII.0, 20, 44 -> ENDF.B-VII.0, 20, 44, 0x1f077f0
+ ENDF.B-VII.0, 20, 46 -> ENDF.B-VII.0, 20, 46, 0x4950590
+ ENDF.B-VII.0, 20, 48 -> ENDF.B-VII.0, 20, 48, 0x1f57f10
+ ENDF.B-VII.0, 24, 50 -> ENDF.B-VII.0, 24, 50, 0x1efa8d0
+ ENDF.B-VII.0, 24, 52 -> ENDF.B-VII.0, 24, 52, 0x1cd53c0
+ ENDF.B-VII.0, 24, 53 -> ENDF.B-VII.0, 24, 53, 0x28a6980
+ ENDF.B-VII.0, 24, 54 -> ENDF.B-VII.0, 24, 54, 0x1c582c0
+ ENDF.B-VII.0, 25, 55 -> ENDF.B-VII.0, 25, 55, 0x38877b0
+ ENDF.B-VII.0, 26, 54 -> ENDF.B-VII.0, 26, 54, 0x2333ea0
+ ENDF.B-VII.0, 26, 56 -> ENDF.B-VII.0, 26, 56, 0x1f602e0
+ ENDF.B-VII.0, 26, 57 -> ENDF.B-VII.0, 26, 57, 0x1f2e590
+ ENDF.B-VII.0, 26, 58 -> ENDF.B-VII.0, 26, 58, 0x1d062c0
+ ENDF.B-VII.0, 28, 58 -> ENDF.B-VII.0, 28, 58, 0x1cfcf40
+ ENDF.B-VII.0, 28, 60 -> ENDF.B-VII.0, 28, 60, 0x1ccde50
+ ENDF.B-VII.0, 28, 61 -> ENDF.B-VII.0, 28, 61, 0x2deeeb0
+ ENDF.B-VII.0, 28, 62 -> ENDF.B-VII.0, 28, 62, 0x2009d60
+ ENDF.B-VII.0, 28, 64 -> ENDF.B-VII.0, 28, 64, 0x34496b0
+ ENDF.B-VII.0, 29, 63 -> ENDF.B-VII.0, 29, 63, 0x2334780
+ ENDF.B-VII.0, 29, 65 -> ENDF.B-VII.0, 29, 65, 0x1d06120
+ ENDF.B-VII.0, 30, 64 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 66 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 67 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 68 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 70 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 32, 70 -> ENDF.B-VII.0, 32, 70, 0x350e4b0
+ ENDF.B-VII.0, 32, 72 -> ENDF.B-VII.0, 32, 72, 0x1f13c80
+ ENDF.B-VII.0, 32, 73 -> ENDF.B-VII.0, 32, 73, 0x1ceab40
+ ENDF.B-VII.0, 32, 74 -> ENDF.B-VII.0, 32, 74, 0x1ccbd70
+ ENDF.B-VII.0, 32, 76 -> ENDF.B-VII.0, 32, 76, 0x1d3f4b0
+ ENDF.B-VII.0, 53, 127 -> ENDF.B-VII.0, 53, 127, 0x1ef9530
+ ENDF.B-VII.0, 82, 204 -> ENDF.B-VII.0, 82, 204, 0x1c8a1f0
+ ENDF.B-VII.0, 82, 206 -> ENDF.B-VII.0, 82, 206, 0x1c89450
+ ENDF.B-VII.0, 82, 207 -> ENDF.B-VII.0, 82, 207, 0x232a3d0
+ ENDF.B-VII.0, 82, 208 -> ENDF.B-VII.0, 82, 208, 0x4f3fa60
+Dump UsedTarget for LENDFission
+Requested Evaluation, Z , A -> Actual Evaluation, Z , A(0=Nat) , Pointer of Target
+ ENDF.B-VII.0, 1, 1 -> ENDF.B-VII.0, 1, 1, 0x1c68330
+ ENDF.B-VII.0, 1, 2 -> ENDF.B-VII.0, 1, 2, 0x1c690b0
+ ENDF.B-VII.0, 2, 3 -> ENDF.B-VII.0, 2, 3, 0x1d01850
+ ENDF.B-VII.0, 2, 4 -> ENDF.B-VII.0, 2, 4, 0x1cdc060
+ ENDF.B-VII.0, 6, 12 -> na, -1, -1, 0
+ ENDF.B-VII.0, 6, 13 -> na, -1, -1, 0
+ ENDF.B-VII.0, 7, 14 -> ENDF.B-VII.0, 7, 14, 0x3894b60
+ ENDF.B-VII.0, 7, 15 -> ENDF.B-VII.0, 7, 15, 0x4253f70
+ ENDF.B-VII.0, 8, 16 -> ENDF.B-VII.0, 8, 16, 0x1c67870
+ ENDF.B-VII.0, 8, 17 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 8, 18 -> na, -1, -1, 0
+ ENDF.B-VII.0, 11, 23 -> ENDF.B-VII.0, 11, 23, 0x1c7efa0
+ ENDF.B-VII.0, 12, 24 -> ENDF.B-VII.0, 12, 24, 0x1f368d0
+ ENDF.B-VII.0, 12, 25 -> ENDF.B-VII.0, 12, 25, 0x1cc9650
+ ENDF.B-VII.0, 12, 26 -> ENDF.B-VII.0, 12, 26, 0x2339920
+ ENDF.B-VII.0, 13, 27 -> ENDF.B-VII.0, 13, 27, 0x1c4ba00
+ ENDF.B-VII.0, 14, 28 -> ENDF.B-VII.0, 14, 28, 0x1c7e9c0
+ ENDF.B-VII.0, 14, 29 -> ENDF.B-VII.0, 14, 29, 0x352c7f0
+ ENDF.B-VII.0, 14, 30 -> ENDF.B-VII.0, 14, 30, 0x38752f0
+ ENDF.B-VII.0, 15, 31 -> ENDF.B-VII.0, 15, 31, 0x1f09810
+ ENDF.B-VII.0, 16, 32 -> ENDF.B-VII.0, 16, 32, 0x1cff6c0
+ ENDF.B-VII.0, 16, 33 -> ENDF.B-VII.0, 16, 33, 0x1cfe840
+ ENDF.B-VII.0, 16, 34 -> ENDF.B-VII.0, 16, 34, 0x2329c80
+ ENDF.B-VII.0, 16, 36 -> ENDF.B-VII.0, 16, 36, 0x1d7a0a0
+ ENDF.B-VII.0, 17, 35 -> ENDF.B-VII.0, 17, 35, 0x38942b0
+ ENDF.B-VII.0, 17, 37 -> ENDF.B-VII.0, 17, 37, 0x1d7b0b0
+ ENDF.B-VII.0, 18, 36 -> ENDF.B-VII.0, 18, 36, 0x2980a50
+ ENDF.B-VII.0, 18, 38 -> ENDF.B-VII.0, 18, 38, 0x492a730
+ ENDF.B-VII.0, 18, 40 -> ENDF.B-VII.0, 18, 40, 0x1f15960
+ ENDF.B-VII.0, 19, 39 -> ENDF.B-VII.0, 19, 39, 0x1f056e0
+ ENDF.B-VII.0, 19, 40 -> ENDF.B-VII.0, 19, 40, 0x6921030
+ ENDF.B-VII.0, 19, 41 -> ENDF.B-VII.0, 19, 41, 0x2df4930
+ ENDF.B-VII.0, 20, 40 -> ENDF.B-VII.0, 20, 40, 0x1ced760
+ ENDF.B-VII.0, 20, 42 -> ENDF.B-VII.0, 20, 42, 0x2df4ab0
+ ENDF.B-VII.0, 20, 43 -> ENDF.B-VII.0, 20, 43, 0x1c80aa0
+ ENDF.B-VII.0, 20, 44 -> ENDF.B-VII.0, 20, 44, 0x1f077f0
+ ENDF.B-VII.0, 20, 46 -> ENDF.B-VII.0, 20, 46, 0x4950590
+ ENDF.B-VII.0, 20, 48 -> ENDF.B-VII.0, 20, 48, 0x1f57f10
+ ENDF.B-VII.0, 24, 50 -> ENDF.B-VII.0, 24, 50, 0x1efa8d0
+ ENDF.B-VII.0, 24, 52 -> ENDF.B-VII.0, 24, 52, 0x1cd53c0
+ ENDF.B-VII.0, 24, 53 -> ENDF.B-VII.0, 24, 53, 0x28a6980
+ ENDF.B-VII.0, 24, 54 -> ENDF.B-VII.0, 24, 54, 0x1c582c0
+ ENDF.B-VII.0, 25, 55 -> ENDF.B-VII.0, 25, 55, 0x38877b0
+ ENDF.B-VII.0, 26, 54 -> ENDF.B-VII.0, 26, 54, 0x2333ea0
+ ENDF.B-VII.0, 26, 56 -> ENDF.B-VII.0, 26, 56, 0x1f602e0
+ ENDF.B-VII.0, 26, 57 -> ENDF.B-VII.0, 26, 57, 0x1f2e590
+ ENDF.B-VII.0, 26, 58 -> ENDF.B-VII.0, 26, 58, 0x1d062c0
+ ENDF.B-VII.0, 28, 58 -> ENDF.B-VII.0, 28, 58, 0x1cfcf40
+ ENDF.B-VII.0, 28, 60 -> ENDF.B-VII.0, 28, 60, 0x1ccde50
+ ENDF.B-VII.0, 28, 61 -> ENDF.B-VII.0, 28, 61, 0x2deeeb0
+ ENDF.B-VII.0, 28, 62 -> ENDF.B-VII.0, 28, 62, 0x2009d60
+ ENDF.B-VII.0, 28, 64 -> ENDF.B-VII.0, 28, 64, 0x34496b0
+ ENDF.B-VII.0, 29, 63 -> ENDF.B-VII.0, 29, 63, 0x2334780
+ ENDF.B-VII.0, 29, 65 -> ENDF.B-VII.0, 29, 65, 0x1d06120
+ ENDF.B-VII.0, 30, 64 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 66 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 67 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 68 -> na, -1, -1, 0
+ ENDF.B-VII.0, 30, 70 -> na, -1, -1, 0
+ ENDF.B-VII.0, 32, 70 -> ENDF.B-VII.0, 32, 70, 0x350e4b0
+ ENDF.B-VII.0, 32, 72 -> ENDF.B-VII.0, 32, 72, 0x1f13c80
+ ENDF.B-VII.0, 32, 73 -> ENDF.B-VII.0, 32, 73, 0x1ceab40
+ ENDF.B-VII.0, 32, 74 -> ENDF.B-VII.0, 32, 74, 0x1ccbd70
+ ENDF.B-VII.0, 32, 76 -> ENDF.B-VII.0, 32, 76, 0x1d3f4b0
+ ENDF.B-VII.0, 53, 127 -> ENDF.B-VII.0, 53, 127, 0x1ef9530
+ ENDF.B-VII.0, 82, 204 -> ENDF.B-VII.0, 82, 204, 0x1c8a1f0
+ ENDF.B-VII.0, 82, 206 -> ENDF.B-VII.0, 82, 206, 0x1c89450
+ ENDF.B-VII.0, 82, 207 -> ENDF.B-VII.0, 82, 207, 0x232a3d0
+ ENDF.B-VII.0, 82, 208 -> ENDF.B-VII.0, 82, 208, 0x4f3fa60
+Dump UsedTarget for LENDFission
+Requested Evaluation, Z , A -> Actual Evaluation, Z , A(0=Nat) , Pointer of Target
+ ENDF.B-VII.0, 1, 1 -> ENDF.B-VII.0, 1, 1, 0x1c68330
+ ENDF.B-VII.0, 1, 2 -> ENDF.B-VII.0, 1, 2, 0x1c690b0
+ ENDF.B-VII.0, 2, 3 -> ENDF.B-VII.0, 2, 3, 0x1d01850
+ ENDF.B-VII.0, 2, 4 -> ENDF.B-VII.0, 2, 4, 0x1cdc060
+ ENDF.B-VII.0, 6, 12 -> ENDF.B-VII.0, 6, 0, 0x726e8a0
+ ENDF.B-VII.0, 6, 13 -> ENDF.B-VII.0, 6, 0, 0x726e8a0
+ ENDF.B-VII.0, 7, 14 -> ENDF.B-VII.0, 7, 14, 0x3894b60
+ ENDF.B-VII.0, 7, 15 -> ENDF.B-VII.0, 7, 15, 0x4253f70
+ ENDF.B-VII.0, 8, 16 -> ENDF.B-VII.0, 8, 16, 0x1c67870
+ ENDF.B-VII.0, 8, 17 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 8, 18 -> ENDF.B-VII.0, 8, 17, 0x1cd0380
+ ENDF.B-VII.0, 11, 23 -> ENDF.B-VII.0, 11, 23, 0x1c7efa0
+ ENDF.B-VII.0, 12, 24 -> ENDF.B-VII.0, 12, 24, 0x1f368d0
+ ENDF.B-VII.0, 12, 25 -> ENDF.B-VII.0, 12, 25, 0x1cc9650
+ ENDF.B-VII.0, 12, 26 -> ENDF.B-VII.0, 12, 26, 0x2339920
+ ENDF.B-VII.0, 13, 27 -> ENDF.B-VII.0, 13, 27, 0x1c4ba00
+ ENDF.B-VII.0, 14, 28 -> ENDF.B-VII.0, 14, 28, 0x1c7e9c0
+ ENDF.B-VII.0, 14, 29 -> ENDF.B-VII.0, 14, 29, 0x352c7f0
+ ENDF.B-VII.0, 14, 30 -> ENDF.B-VII.0, 14, 30, 0x38752f0
+ ENDF.B-VII.0, 15, 31 -> ENDF.B-VII.0, 15, 31, 0x1f09810
+ ENDF.B-VII.0, 16, 32 -> ENDF.B-VII.0, 16, 32, 0x1cff6c0
+ ENDF.B-VII.0, 16, 33 -> ENDF.B-VII.0, 16, 33, 0x1cfe840
+ ENDF.B-VII.0, 16, 34 -> ENDF.B-VII.0, 16, 34, 0x2329c80
+ ENDF.B-VII.0, 16, 36 -> ENDF.B-VII.0, 16, 36, 0x1d7a0a0
+ ENDF.B-VII.0, 17, 35 -> ENDF.B-VII.0, 17, 35, 0x38942b0
+ ENDF.B-VII.0, 17, 37 -> ENDF.B-VII.0, 17, 37, 0x1d7b0b0
+ ENDF.B-VII.0, 18, 36 -> ENDF.B-VII.0, 18, 36, 0x2980a50
+ ENDF.B-VII.0, 18, 38 -> ENDF.B-VII.0, 18, 38, 0x492a730
+ ENDF.B-VII.0, 18, 40 -> ENDF.B-VII.0, 18, 40, 0x1f15960
+ ENDF.B-VII.0, 19, 39 -> ENDF.B-VII.0, 19, 39, 0x1f056e0
+ ENDF.B-VII.0, 19, 40 -> ENDF.B-VII.0, 19, 40, 0x6921030
+ ENDF.B-VII.0, 19, 41 -> ENDF.B-VII.0, 19, 41, 0x2df4930
+ ENDF.B-VII.0, 20, 40 -> ENDF.B-VII.0, 20, 40, 0x1ced760
+ ENDF.B-VII.0, 20, 42 -> ENDF.B-VII.0, 20, 42, 0x2df4ab0
+ ENDF.B-VII.0, 20, 43 -> ENDF.B-VII.0, 20, 43, 0x1c80aa0
+ ENDF.B-VII.0, 20, 44 -> ENDF.B-VII.0, 20, 44, 0x1f077f0
+ ENDF.B-VII.0, 20, 46 -> ENDF.B-VII.0, 20, 46, 0x4950590
+ ENDF.B-VII.0, 20, 48 -> ENDF.B-VII.0, 20, 48, 0x1f57f10
+ ENDF.B-VII.0, 24, 50 -> ENDF.B-VII.0, 24, 50, 0x1efa8d0
+ ENDF.B-VII.0, 24, 52 -> ENDF.B-VII.0, 24, 52, 0x1cd53c0
+ ENDF.B-VII.0, 24, 53 -> ENDF.B-VII.0, 24, 53, 0x28a6980
+ ENDF.B-VII.0, 24, 54 -> ENDF.B-VII.0, 24, 54, 0x1c582c0
+ ENDF.B-VII.0, 25, 55 -> ENDF.B-VII.0, 25, 55, 0x38877b0
+ ENDF.B-VII.0, 26, 54 -> ENDF.B-VII.0, 26, 54, 0x2333ea0
+ ENDF.B-VII.0, 26, 56 -> ENDF.B-VII.0, 26, 56, 0x1f602e0
+ ENDF.B-VII.0, 26, 57 -> ENDF.B-VII.0, 26, 57, 0x1f2e590
+ ENDF.B-VII.0, 26, 58 -> ENDF.B-VII.0, 26, 58, 0x1d062c0
+ ENDF.B-VII.0, 28, 58 -> ENDF.B-VII.0, 28, 58, 0x1cfcf40
+ ENDF.B-VII.0, 28, 60 -> ENDF.B-VII.0, 28, 60, 0x1ccde50
+ ENDF.B-VII.0, 28, 61 -> ENDF.B-VII.0, 28, 61, 0x2deeeb0
+ ENDF.B-VII.0, 28, 62 -> ENDF.B-VII.0, 28, 62, 0x2009d60
+ ENDF.B-VII.0, 28, 64 -> ENDF.B-VII.0, 28, 64, 0x34496b0
+ ENDF.B-VII.0, 29, 63 -> ENDF.B-VII.0, 29, 63, 0x2334780
+ ENDF.B-VII.0, 29, 65 -> ENDF.B-VII.0, 29, 65, 0x1d06120
+ ENDF.B-VII.0, 30, 64 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 66 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 67 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 68 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 30, 70 -> ENDF.B-VII.0, 30, 0, 0x28a9070
+ ENDF.B-VII.0, 32, 70 -> ENDF.B-VII.0, 32, 70, 0x350e4b0
+ ENDF.B-VII.0, 32, 72 -> ENDF.B-VII.0, 32, 72, 0x1f13c80
+ ENDF.B-VII.0, 32, 73 -> ENDF.B-VII.0, 32, 73, 0x1ceab40
+ ENDF.B-VII.0, 32, 74 -> ENDF.B-VII.0, 32, 74, 0x1ccbd70
+ ENDF.B-VII.0, 32, 76 -> ENDF.B-VII.0, 32, 76, 0x1d3f4b0
+ ENDF.B-VII.0, 53, 127 -> ENDF.B-VII.0, 53, 127, 0x1ef9530
+ ENDF.B-VII.0, 82, 204 -> ENDF.B-VII.0, 82, 204, 0x1c8a1f0
+ ENDF.B-VII.0, 82, 206 -> ENDF.B-VII.0, 82, 206, 0x1c89450
+ ENDF.B-VII.0, 82, 207 -> ENDF.B-VII.0, 82, 207, 0x232a3d0
+ ENDF.B-VII.0, 82, 208 -> ENDF.B-VII.0, 82, 208, 0x4f3fa60
+
+---> I am in a smart tcsh terminal ;-) .
+ Macro geomGridTest.mac is being run 
+libGL error: No matching fbConfigs or visuals found
+libGL error: failed to load driver: swrast
+G4Scene::AddWorldIfEmpty: The scene was empty of run-duration models.
+  "world" has been added.
+fridgeHalfHeightToBottomPlate: 823.176
+distanceCenterToFloor: 1285.72
+world_z: 7000
+floorZ: -957.942
+floorThk: 2542.06
+floorMiddleZ: -2228.97
+holeDepth: 1828.8
+holePosZ: 337.579
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+Tower 1 is detector 1
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+tower1 had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicalVolumeModel::Validate(): A volume of the same name and
+  copy number ("world_P", copy 0) still exists and is being used.
+  But it is not the same volume you originally specified
+  in /vis/scene/add/.
+fridgeHalfHeightToBottomPlate: 823.176
+distanceCenterToFloor: 1285.72
+world_z: 7000
+floorZ: -957.942
+floorThk: 2542.06
+floorMiddleZ: -2228.97
+holeDepth: 1828.8
+holePosZ: 337.579
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+Tower 1 is detector 1
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+tower1 had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicalVolumeModel::Validate(): A volume of the same name and
+  copy number ("world_P", copy 0) still exists and is being used.
+  But it is not the same volume you originally specified
+  in /vis/scene/add/.
+fridgeHalfHeightToBottomPlate: 823.176
+distanceCenterToFloor: 1285.72
+world_z: 7000
+floorZ: -957.942
+floorThk: 2542.06
+floorMiddleZ: -2228.97
+holeDepth: 1828.8
+holePosZ: 337.579
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+Tower 1 is detector 1
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+tower1 had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicalVolumeModel::Validate(): A volume of the same name and
+  copy number ("world_P", copy 0) still exists and is being used.
+  But it is not the same volume you originally specified
+  in /vis/scene/add/.
+fridgeHalfHeightToBottomPlate: 823.176
+distanceCenterToFloor: 1285.72
+world_z: 7000
+floorZ: -957.942
+floorThk: 2542.06
+floorMiddleZ: -2228.97
+holeDepth: 1828.8
+holePosZ: 337.579
+floorZ: -957.942
+Position of Source: 0,1197.31,-646.792
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+Tower 1 is detector 1
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+tower1 had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicalVolumeModel::Validate(): A volume of the same name and
+  copy number ("world_P", copy 0) still exists and is being used.
+  But it is not the same volume you originally specified
+  in /vis/scene/add/.
+fridgeHalfHeightToBottomPlate: 823.176
+distanceCenterToFloor: 1285.72
+world_z: 7000
+floorZ: -957.942
+floorThk: 2542.06
+floorMiddleZ: -2228.97
+holeDepth: 1828.8
+holePosZ: 337.579
+floorZ: -957.942
+Position of Source: 0,1197.31,-646.792
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+Tower 1 is detector 1
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+tower1 had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicalVolumeModel::Validate(): A volume of the same name and
+  copy number ("world_P", copy 0) still exists and is being used.
+  But it is not the same volume you originally specified
+  in /vis/scene/add/.
+<NaIB> is not found.
+NaI B is Detector 7
+<NaIC> is not found.
+NaI C is Detector 8
+fridgeHalfHeightToBottomPlate: 823.176
+distanceCenterToFloor: 1285.72
+world_z: 7000
+floorZ: -957.942
+floorThk: 2542.06
+floorMiddleZ: -2228.97
+holeDepth: 1828.8
+holePosZ: 337.579
+floorZ: -957.942
+Position of Source: 0,1197.31,-646.792
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+Tower 1 is detector 1
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+tower1 had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicalVolumeModel::Validate(): A volume of the same name and
+  copy number ("world_P", copy 0) still exists and is being used.
+  But it is not the same volume you originally specified
+  in /vis/scene/add/.
+NaI B is Detector 7
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+NaIB had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+NaI C is Detector 8
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+NaIC had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+fridgeHalfHeightToBottomPlate: 823.176
+distanceCenterToFloor: 1285.72
+world_z: 7000
+floorZ: -957.942
+floorThk: 2542.06
+floorMiddleZ: -2228.97
+holeDepth: 1828.8
+holePosZ: 337.579
+floorZ: -957.942
+Position of Source: 0,1197.31,-646.792
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+Tower 1 is detector 1
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+tower1 had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicalVolumeModel::Validate(): A volume of the same name and
+  copy number ("world_P", copy 0) still exists and is being used.
+  But it is not the same volume you originally specified
+  in /vis/scene/add/.
+NaI B is Detector 7
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+NaIB had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+NaI C is Detector 8
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+NaIC had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+fridgeHalfHeightToBottomPlate: 823.176
+distanceCenterToFloor: 1285.72
+world_z: 7000
+floorZ: -957.942
+floorThk: 2542.06
+floorMiddleZ: -2228.97
+holeDepth: 1828.8
+holePosZ: 337.579
+floorZ: -957.942
+Position of Source: 0,1197.31,-646.792
+Position of Tower 1 in World: (0,0,-65)
+Tower 1 Height Above Floor: 892.942
+Tower_nZcut: 2
+Tower_zPcut: -126.231	126.231
+Tower_rIcut: 0	0
+Tower_rOcut: 55.34	42.45
+z shift for Tower Guts: 73.1226
+Height of copper upper tower: 106.216
+z shift for Tower lower cap: 20.0146
+Height of copper lower cap: 4.85
+z shift for spool: -29.7045
+Height of spool: 89.7382
+z shift for base ring: -74.5736
+Height of base ring: 4.81
+z shift for upper det housing cap: -80.2556
+Height of upper det housing cap: 6.554
+z shift for side det housing: -101.707
+Height of side det housing: 36.348
+z shift for lower det housing cap: -123.056
+Height of lower det housing cap: 6.35
+Zip Array Position In Tower: -101.707
+Zip Height Above Floor: 994.648
+Zip Height Above Floor (2nd calc): 994.648
+Coordinates of Zip w/ copy no = 0: 0,0,0
+Coordinates of Zip w/ copy no = 1: 0,0,0
+Tower 1 is detector 1
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : DET1010
+      issued by : G4SDStructure::AddNewDetector()
+tower1 had already been stored in /. Object pointer is overwitten.
+It's users' responsibility to delete the old sensitive detector object.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicalVolumeModel::Validate(): A volume of the same name and
+  copy number ("world_P", copy 0) still exists and is being used.
+  But it is not the same volume you originally specified
+  in /vis/scene/add/.
+Running geometry overlaps check...
+Checking overlaps for volume physicFrame ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicFrame
+          with physicRect1 volume's
+          local point (68.8621,-294.112,412.24), overlapping by at least: 1.55221 cm 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicSquare ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicSquare
+          apparently fully encapsulating volume physicFrame
+          at the same level !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicRect1 ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicRect1
+          with physicFrame volume's
+          local point (533.4,-0.426073,423.827), overlapping by at least: 7.9538 mm 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicNaISupport0 ... OK! 
+Checking overlaps for volume physicNaIPlate0 ... OK! 
+Checking overlaps for volume physicNaIDet0 ... OK! 
+Checking overlaps for volume physicNaI0 ... OK! 
+Checking overlaps for volume physicLG0 ... OK! 
+Checking overlaps for volume physicNaI1 ... OK! 
+Checking overlaps for volume physicLeadSquare ... OK! 
+Checking overlaps for volume physicLeadRectY_forNaI0 ... OK! 
+Checking overlaps for volume physicLeadRectY1 ... OK! 
+Checking overlaps for volume physicLeadRectX0 ... OK! 
+Checking overlaps for volume physicmK100 ... OK! 
+Checking overlaps for volume physicmK100top ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicmK100top
+          apparently fully encapsulating volume physicivcTop
+          at the same level !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicmK100low ... OK! 
+Checking overlaps for volume physicuBrLow ... OK! 
+Checking overlaps for volume physicuCu ... OK! 
+Checking overlaps for volume physicuBrTop ... OK! 
+Checking overlaps for volume physicivc ... OK! 
+Checking overlaps for volume physicivcTop ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicivcTop
+          with physicmK100top volume's
+          local point (-58.979,63.5968,-0.635), overlapping by at least: 2.54 mm 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicupp ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicupp
+          with physicmK100top volume's
+          local point (-12.128,-49.331,1.65553), overlapping by at least: 1.51947 mm 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicupc ... OK! 
+Checking overlaps for volume physicivcLow ... OK! 
+Checking overlaps for volume physicebox ... OK! 
+Checking overlaps for volume physicebox ... OK! 
+Checking overlaps for volume physictopHe ... OK! 
+Checking overlaps for volume physictcHe ... OK! 
+Checking overlaps for volume physiceHe ... OK! 
+Checking overlaps for volume physiclcHe ... OK! 
+Checking overlaps for volume physiculHe ... OK! 
+Checking overlaps for volume physiclHe ... OK! 
+Checking overlaps for volume physicbotHe ... OK! 
+Checking overlaps for volume physicoeShell ... OK! 
+Checking overlaps for volume physicteShell ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicteShell
+          with physicupIn volume's
+          local point (-193.65,4.95494,229.375), overlapping by at least: 25.4 um 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicbtShell ... OK! 
+Checking overlaps for volume physicucShell ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicucShell
+          with physicteShell volume's
+          local point (25.56,-124.847,-3.1496), overlapping by at least: 25.4 um 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicuiShell ... OK! 
+Checking overlaps for volume physicmcShell ... OK! 
+Checking overlaps for volume physicliShell ... OK! 
+Checking overlaps for volume physiclcShell ... OK! 
+Checking overlaps for volume physiclpShell ... OK! 
+Checking overlaps for volume physicupIn ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with volume already placed !
+          Overlap is detected for volume physicupIn
+          apparently fully encapsulating volume physicteShell
+          at the same level !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume physicmiIn ... OK! 
+Checking overlaps for volume physicloIn ... OK! 
+Checking overlaps for volume physicbtIn ... OK! 
+Checking overlaps for volume physicalFloorBlock ... OK! 
+Checking overlaps for volume physicalHoleBox ... OK! 
+Checking overlaps for volume physicalHoleCap ... OK! 
+Checking overlaps for volume physicalFloorFootC_0 ... OK! 
+Checking overlaps for volume physicalPostPlate_0 ... OK! 
+Checking overlaps for volume physicalPost_0 ... OK! 
+Checking overlaps for volume physicalPostSand_0 ... OK! 
+Checking overlaps for volume physicalPostTopPlate_0 ... OK! 
+Checking overlaps for volume physicalPostBoxedIBeamW_0 ... OK! 
+Checking overlaps for volume physicalPostBoxedIBeamW_AirPocket_0 ... OK! 
+Checking overlaps for volume physicalPostTopAPlate_0 ... OK! 
+Checking overlaps for volume physicalNorthYStrut ... OK! 
+Checking overlaps for volume physicalNorthYStrut_AirPocket ... OK! 
+Checking overlaps for volume physicalEastXStrut ... OK! 
+Checking overlaps for volume physicalEastXStrut_AirPocket ... OK! 
+Checking overlaps for volume physicalFramePlateMiddle ... OK! 
+Checking overlaps for volume physicalFramePlateEast ... OK! 
+Checking overlaps for volume physicalWoodBase ... OK! 
+Checking overlaps for volume physicalleadBase ... OK! 
+Checking overlaps for volume physicalAlBox ... OK! 
+Checking overlaps for volume physicalAirInAlBox ... OK! 
+Checking overlaps for volume physicalAlIntPlate ... OK! 
+Checking overlaps for volume physicalAlLeadPlate ... OK! 
+Checking overlaps for volume physicalLeadStack ... OK! 
+Checking overlaps for volume physicalLeadStack1 ... OK! 
+Checking overlaps for volume physicalLeadStack2 ... OK! 
+Checking overlaps for volume physicalBarrel ... OK! 
+Checking overlaps for volume physicalParaffin ... OK! 
+Checking overlaps for volume physicalPipe ... OK! 
+Checking overlaps for volume physicalPipeAir ... OK! 
+Checking overlaps for volume physicalLuciteRodInPipe ... OK! 
+Checking overlaps for volume physicalBarrelAir0 ... OK! 
+Checking overlaps for volume physicalLuciteRodAbovePipe ... OK! 
+Checking overlaps for volume physicalBarrelAir1 ... OK! 
+Checking overlaps for volume physicalLuciteRodAboveBarrel ... OK! 
+Checking overlaps for volume Tower1_P ... OK! 
+Checking overlaps for volume cutp1 ... OK! 
+Checking overlaps for volume clcp1 ... OK! 
+Checking overlaps for volume ctup1 ... OK! 
+Checking overlaps for volume crbp1 ... OK! 
+Checking overlaps for volume udhp1 ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with mother volume !
+          Overlap is detected for volume udhp1
+          with its mother volume Tower1_L
+          at mother local point (-3.77867,-53.34,-77.302), overlapping by at least: 497.514 um 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume sdhp1 ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with mother volume !
+          Overlap is detected for volume sdhp1
+          with its mother volume Tower1_L
+          at mother local point (56.976,-7.99475,-84.9631), overlapping by at least: 106.869 um 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume ldhp1 ... OK! 
+Checking overlaps for volume coax1 ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with mother volume !
+          Overlap is detected for volume coax1
+          with its mother volume Tower1_L
+          at mother local point (11.7864,-54.64,-29.6276), overlapping by at least: 4.22679 mm 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume coax4 ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with mother volume !
+          Overlap is detected for volume coax4
+          with its mother volume Tower1_L
+          at mother local point (4.64487,53.34,-4.786), overlapping by at least: 4.19517 mm 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume coax6 ... 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomVol1002
+      issued by : G4PVPlacement::CheckOverlaps()
+Overlap with mother volume !
+          Overlap is detected for volume coax6
+          with its mother volume Tower1_L
+          at mother local point (-46.7403,-28.3235,-87.6064), overlapping by at least: 1.27039 mm 
+NOTE: Reached maximum fixed number -1- of overlaps reports for this volume !
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Checking overlaps for volume ZipArray1_P ... OK! 
+Checking overlaps for parameterised volume Zip1_P ... OK! 
+Geometry overlaps check completed !
+Idle> 
+Idle> 
+Idle> 
+Idle> 
+Idle> 
+Idle> 
+Idle> 
+Session terminated.
+
+-------- EEEE ------- G4Exception-START -------- EEEE -------
+*** G4Exception : UI0001
+      issued by : G4UIterminal::SignalHandler()
+KeyboardInterrput with Ctrl-C
+*** Fatal Exception *** core dump ***
+-------- EEEE -------- G4Exception-END --------- EEEE -------
+
+
+*** G4Exception: Aborting execution ***

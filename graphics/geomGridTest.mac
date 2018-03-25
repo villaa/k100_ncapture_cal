@@ -1,0 +1,25 @@
+/vis/scene/create
+
+# Create a scene handler for a specific graphics system
+# (Edit the next lines(s) to choose another graphics system
+/vis/open OGLIX
+#/vis/open OGL
+
+
+
+#/CDMS/genericShield/setPosition 100.0 0.0 0.685355 cm
+#/CDMS/genericShield/setPosition -70.0 0.0 0.0 cm
+#/CDMS/genericShield/setSize 10.0 10.0 20.0 cm
+#/CDMS/genericShield/setMat Lead 
+#/CDMS/detector/activate GPSShielding 
+#/CDMS/detector/deactivate Shields
+/CDMS/detector/activate Floor 
+/CDMS/detector/activate Frame 
+/CDMS/detector/activate IceBox 
+/CDMS/detector/activate PuBeSourceAndShield 
+#/CDMS/PuBe/Barrel True 
+/CDMS/detector/activate Shields
+/CDMS/Shield/SouthNaI True 
+/CDMS/updateGeometry
+
+/geometry/test/run
