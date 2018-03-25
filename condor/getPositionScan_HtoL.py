@@ -13,7 +13,7 @@ from argparse import ArgumentParser, ArgumentTypeError
 def getPosition(iteration=1,n=10):
 	#first we need the endpoints -- label 'h' for high flux
 	xh = 0 #cm
-	yh = 3.3 #N-MISC-17-003 pg 29, #trelloP1
+	yh = 33.02 #N-MISC-17-003 pg 29, #trelloP1
 	zh = 0 #should be near detector height
 	p_h = np.asarray([xh,yh,zh],dtype=np.float64)
 
@@ -45,17 +45,28 @@ if __name__ == "__main__":
 
         #make a parser for the input
         parser = argparse.ArgumentParser(description='Input processing specifications')
-        parser.add_argument('--n', type=int, dest='n', default=10, help='number of points, default 10')
+        parser.add_argument('-n','--n', type=int, dest='n', default=10, help='number of points, default 10')
+        parser.add_argument("-r", "--radial", action="count", default=0)
         parser.add_argument('iteration', metavar='N', type=int, nargs='+', \
 			                    help='iteration for the function cannot be larger than n')
         parser.set_defaults(n=10);
+        parser.set_defaults(radial=0);
 
         args = parser.parse_args()
+
+        radial = False #use a flag
+        if args.radial>0:
+          radial=True
 
 
         try:
           v = getPosition(args.iteration[0],args.n) 
-          print('{0}\t{1}\t{2}'.format(v[0],v[1],v[2])) 
+
+          if (radial):
+            print('{0:3.3f}'.format(np.linalg.norm(v))) 
+          else:
+            print('{0:3.2f}\t{1:3.2f}\t{2:3.2f}'.format(v[0],v[1],v[2])) 
+
         except KeyboardInterrupt:
           print('Shutdown requested .... exiting')
         except Exception:
