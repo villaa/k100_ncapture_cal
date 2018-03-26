@@ -1,13 +1,10 @@
-#scan of number of captures per ~10M primaries as a function of radial
-#distance in the standard shielding config
-#distance n cap millions of primaries
-33.020	4984	9
-43.256	1092	10
-54.229	169	9
-65.570	111	10
-77.116	81	10
-88.789	32	10
-100.543	15	10
-112.353	9	10
-124.204	7	10
-136.084	2	9
+33.020	4681	9
+43.256	1326	10
+54.229	220	10
+65.570	138	10
+77.116	98	9
+88.789	69	10
+100.543	37	10
+112.353	26	9
+124.204	13	10
+136.084	5	10
