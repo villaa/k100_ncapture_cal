@@ -1,0 +1,4 @@
+#these measurements are competed by Matt:
+#https://zzz.physics.umn.edu/cdms/doku.php?id=cdms:k100:run_summary:run_66:pube_activation#more_thorough_estimate_of_pube_activation_rates
+33.020	19.8	1.4	
+136.084	0.171	0.033	
