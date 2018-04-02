@@ -6,7 +6,7 @@ import scipy as sp
 from scipy.stats import poisson
 
 
-def getScanData(file='data/Run66Sim_FluxScan0.txt'):
+def getScanData(file='data/Run66Sim_FluxScan0.txt',Sig=0.0955): #assume total Ge cross sect
 
   #a function to get three rows of data x y z
   data = dp.getXYZdata(file)
@@ -25,7 +25,7 @@ def getScanData(file='data/Run66Sim_FluxScan0.txt'):
   
   #add in the factors for neutron flux V=258.5 cm^3; Sig=0.0955 cm^-1; nPrim=1e6; Source R=1.96e6 neut/s
   V=258.50
-  Sig=0.0955
+  #Sig=0.0955
   data['nPrim']=data['zz']*1e6
   SrcR=1.96e6
   
