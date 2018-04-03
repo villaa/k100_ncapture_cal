@@ -10,11 +10,17 @@ from argparse import ArgumentParser, ArgumentTypeError
 #
 
 ######################functions############################
-def getPosition(iteration=1,n=10):
+def getPosition(iteration=1,n=10,pit=False):
 	#first we need the endpoints -- label 'h' for high flux
 	xh = 0 #cm
 	yh = 33.02 #N-MISC-17-003 pg 29, #trelloP1
 	zh = 0 #should be near detector height
+
+        #modify for pit possibility
+	if(pit):
+	  yh = 0
+	  zh = -60
+
 	p_h = np.asarray([xh,yh,zh],dtype=np.float64)
 
 	#see the file templates/Run66Shield_stdLocation_inBarrel.mac.template for the standard position point--label
@@ -22,6 +28,12 @@ def getPosition(iteration=1,n=10):
 	xl = 0 #cm
 	yl = 119.731
 	zl = -64.679
+
+        #modify for pit possibility
+	if(pit):
+	  yl = 0
+	  zl = -200
+
 	p_l = np.asarray([xl,yl,zl],dtype=np.float64)
 
 	#get unit vector pointing from high flux to low flux
@@ -47,10 +59,12 @@ if __name__ == "__main__":
         parser = argparse.ArgumentParser(description='Input processing specifications')
         parser.add_argument('-n','--n', type=int, dest='n', default=10, help='number of points, default 10')
         parser.add_argument("-r", "--radial", action="count", default=0)
+        parser.add_argument("-p", "--pit", action="count", default=0)
         parser.add_argument('iteration', metavar='N', type=int, nargs='+', \
 			                    help='iteration for the function cannot be larger than n')
         parser.set_defaults(n=10);
         parser.set_defaults(radial=0);
+        parser.set_defaults(pit=0);
 
         args = parser.parse_args()
 
@@ -58,9 +72,12 @@ if __name__ == "__main__":
         if args.radial>0:
           radial=True
 
+        pit = False #use a flag
+        if args.pit>0:
+          pit=True
 
         try:
-          v = getPosition(args.iteration[0],args.n) 
+          v = getPosition(args.iteration[0],args.n,pit) 
 
           if (radial):
             print('{0:3.3f}'.format(np.linalg.norm(v))) 
