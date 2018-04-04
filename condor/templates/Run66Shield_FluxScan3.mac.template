@@ -22,7 +22,7 @@
 /CDMS/detector/activate IceBox 
 /CDMS/detector/activate PuBeSourceAndShield 
 /CDMS/PuBe/Barrel False 
-/CDMS/PuBe/Mod 2
+/CDMS/Shield/Mod 2
 /CDMS/detector/activate Shields
 /CDMS/Shield/SouthNaI True
 /CDMS/updateGeometry
