@@ -29,6 +29,7 @@
 
 #run naming stuff
 #/run/k100/uniqueID 160617_182500_365312119 # not implemented in the geant4 code
+/run/k100/OnlyNCapOut true
 /run/k100/OFPrefix /data/chocula/villaa/k100Sim_Data/DATADIR/Run66ShieldFluxScan1_RADSOURCE_THESETID_NEVHR_
 
 /run/beamOn NEVENTS 
