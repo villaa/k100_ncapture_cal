@@ -17,6 +17,7 @@
 #/vis/rayTracer/trace
 
 /CDMS/Zip1/IsGe False
+/CDMS/detector/activate Walls
 /CDMS/detector/activate Floor 
 /CDMS/detector/activate Frame 
 /CDMS/detector/activate IceBox 
