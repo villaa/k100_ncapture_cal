@@ -53,6 +53,7 @@
 #/CDMS/detector/activate GPSShielding 
 #/CDMS/detector/deactivate Shields
 /CDMS/detector/activate Floor 
+/CDMS/detector/activate Walls
 /CDMS/detector/activate Frame 
 /CDMS/detector/activate IceBox 
 /CDMS/detector/activate PuBeSourceAndShield 
@@ -75,7 +76,7 @@
 #/vis/scene/add/text 0.00	110.10	-57.49 cm 24 0 0 x
 #/vis/scene/add/text 0.00	119.73	-64.68 cm 24 0 0 x
 
+/run/beamOn 300
 /vis/ogl/set/printMode pixmap
 /vis/ogl/set/printFilename tracking_test     
 /vis/ogl/printEPS
-/run/beamOn 3 
