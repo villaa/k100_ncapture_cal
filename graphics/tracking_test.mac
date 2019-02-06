@@ -57,7 +57,9 @@
 /CDMS/detector/activate Frame 
 /CDMS/detector/activate IceBox 
 /CDMS/detector/activate PuBeSourceAndShield 
-/CDMS/PuBe/Barrel True 
+/CDMS/PuBe/westPolySensitive False 
+/CDMS/PuBe/doPuBeGammas True 
+/CDMS/PuBe/Barrel False 
 /CDMS/detector/activate Shields
 /CDMS/Shield/SouthNaI True 
 /CDMS/updateGeometry
