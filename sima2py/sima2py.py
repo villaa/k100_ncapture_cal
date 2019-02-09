@@ -67,7 +67,7 @@ def saveh5(ofile='data.h5',path='./',regex=re.compile(r'(.*?)')):
         of = h5py.File(ofile, 'w')
 
         #hits dataset
-        dset_hits = of.create_dataset("geant4/hits", np.shape(d), dtype=np.dtype('float64').type)
+        dset_hits = of.create_dataset("geant4/hits", np.shape(d), dtype=np.dtype('float64').type, compression="gzip", compression_opts=9)
         dset_hits[...] = d      
 
         of.close()
