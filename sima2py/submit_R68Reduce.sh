@@ -14,7 +14,7 @@ do
   #echo ${ARGS}
   #echo ${LOGPREFIX}
   sed -e 's|ARGS|'"${ARGS}"'|g' -e 's|LOGPREFIX|'${LOGPREFIX}'|g' < condor-k100R68SimReduce > .condor
-  cat .condor
-  #condor_submit .condor
+  #cat .condor
+  condor_submit .condor
   rm .condor
 done
