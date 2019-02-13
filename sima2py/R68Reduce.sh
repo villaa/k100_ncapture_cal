@@ -3,7 +3,8 @@
 #standard R68 config, neutrons from PuBe 
 TAG=$1
 #TAG='Run68_gdirect_bknd_R68_PuBe'
-QUANTITYREGEX='1M'
+#QUANTITYREGEX='10M'
+QUANTITYREGEX='[0-9]+M'
 DATASET=$2
 #DATASET=5
 DATASETIDHEX=`printf "0x%04x" ${DATASET}`

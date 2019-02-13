@@ -28,6 +28,7 @@ def listFiles(path='./',regex=re.compile(r'(.*?)')):
             f.extend(passfiles)
             break
 
+        print(f)
         return dirpath,f 
 
 def readFile(filename):
