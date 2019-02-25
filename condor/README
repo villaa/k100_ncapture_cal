@@ -1,0 +1,2 @@
+#submitting for R68
+./condork100Sim_GenericShielding -n 1 -src PuBe -set 4 -ngen 1000000 -template templates/Run68_gdirect_bknd.mac.template -merge -sourcepos `./getPositionScan_HtoL.py --n 10 10` -shieldsize 40.0 40.0 40.0 -shieldmat Poly
