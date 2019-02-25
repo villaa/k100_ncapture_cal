@@ -1,0 +1,193 @@
+#!/bin/sh
+
+
+DATASETID=0
+NJOBS=1
+SOURCE=PuBe
+NEV=100
+EXE=no
+OTYPE=ascii
+TREEOUT="false"
+PRIMOUT="false"
+DATAOUT="true"
+DATADIR=captureCal
+MERGE="false"
+TEMPLATEFILE="templates/pube.mac.template"
+SOURCEPOSX=-100.0
+SOURCEPOSY=0.0
+SOURCEPOSZ=0.0
+SHIELDW=10.0
+SHIELDL=10.0
+SHIELDT=20.0
+SHIELDMAT=Poly
+TAGNAME=""
+
+input=($@)
+
+for((i=0; i<$#; i++))
+do
+
+  if [ "${input[i]}" = "-usage" ];
+  then
+    echo "condork100Sim_GenericShielding -n NJOBS -src SOURCE -set DATASETID -ngen NEV -prim -otype OTYPE -merge -template TEMPLATEFILE -sourcepos X Y Z -shieldsize W L T -shieldmat SHIELDMAT TAGNAME "
+    exit
+  fi
+
+  if [ "${input[i]}" = "-n" ];
+  then
+    NJOBS=${input[i+1]}
+  fi
+
+  if [ "${input[i]}" = "-src" ];
+  then
+    SOURCE=${input[i+1]}
+  fi
+
+  if [ "${input[i]}" = "-set" ];
+  then
+    DATASETID=${input[i+1]}
+  fi
+
+  if [ "${input[i]}" = "-ngen" ];
+  then
+    NEV=${input[i+1]}
+  fi
+
+  if [ "${input[i]}" = "-prim" ];
+  then
+    PRIMOUT="true" 
+  fi
+
+  if [ "${input[i]}" = "-otype" ];
+  then
+    OTYPE=${input[i+1]}
+  fi
+
+  if [ "${input[i]}" = "-merge" ];
+  then
+    MERGE="true"
+  fi
+
+  if [ "${input[i]}" = "-template" ];
+  then
+    TEMPLATEFILE=${input[i+1]}
+  fi
+
+  if [ "${input[i]}" = "-sourcepos" ];
+  then
+    SOURCEPOSX=${input[i+1]}
+    SOURCEPOSY=${input[i+2]}
+    SOURCEPOSZ=${input[i+3]}
+  fi
+
+  if [ "${input[i]}" = "-shieldsize" ];
+  then
+    SHIELDW=${input[i+1]}
+    SHIELDL=${input[i+2]}
+    SHIELDT=${input[i+3]}
+  fi
+
+  if [ "${input[i]}" = "-shieldmat" ];
+  then
+    SHIELDMAT=${input[i+1]}
+  fi
+
+  if [ "${input[i]}" = "-tagname" ];
+  then
+    TAGNAME=${input[i+1]}
+  fi
+
+  if [ "${input[i]}" = "-exe" ];
+  then
+    EXE=yes
+  fi
+
+done
+
+if [ "${OTYPE}" = "root" ];
+then
+  PRIMOUT="false"
+  DATAOUT="false"
+  TREEOUT="true"
+  DATADIR=${SOURCE}"root"
+fi
+
+
+DATASETIDHEX=`printf "0x%04x" ${DATASETID}`
+DATE=`date +%y%m%d"_"%H%M%S"_"%N`
+
+#echo ${DATE}
+
+
+if [ ${NEV} -gt 999999 ]
+then
+  REDNEV=$[NEV/1000000]M
+elif [ ${NEV} -gt 999 ]
+then
+  REDNEV=$[NEV/1000]K
+else
+  REDNEV=${NEV}
+fi
+
+#be sure data directories exist based on OTYPE
+#if [ "${OTYPE}" = "root" ];
+#then
+#  mkdir -p ${PREFIXDIR}SLACroot/
+#else
+#  mkdir -p ${PREFIXDIR}SLAC/
+#fi
+
+for ((i=0; i<${NJOBS}; i++))
+do
+
+  if [ ${EXE} != "yes" ]
+  then
+
+    if [ "${MERGE}" != "true" ]
+    then
+       #make the macro file and put it in the macros/ directory
+       sed -e 's|RADSOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${DATADIR}'|' -e 's|NEVHR|'${REDNEV}'|' -e 's|SOURCEPOSX|'${SOURCEPOSX}'|' -e 's|SOURCEPOSY|'${SOURCEPOSY}'|' -e 's|SOURCEPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDPOSX|'${SOURCEPOSX}'|' -e 's|SHIELDPOSY|'${SOURCEPOSY}'|' -e 's|SHIELDPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDW|'${SHIELDW}'|' -e 's|SHIELDL|'${SHIELDL}'|' -e 's|SHIELDT|'${SHIELDT}'|' -e 's|SHIELDMAT|'${SHIELDMAT}'|' -e 's|TAGNAME|'${TAGNAME}'|' < ${TEMPLATEFILE}  > 'macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
+
+       #make the condor file
+       args='macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
+       echo ${args}
+       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|' -e 's|SIMNAME|'${DATADIR}'_'${SOURCE}'|' -e 's|DATE|'${DATE}'|' -e 's|NGENHR|'${REDNEV}'|'   < condor-k100Sim_CMS > .condorjob_${SOURCE}_${DATE}_${i}
+    else
+       #make the condor file
+       #genShieldSimCondense.sh 0 PuBe 100 templates/pube.mac.template -100.0 0.0 0.0 10.0 10.0 20.0 Poly
+       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}' '${TAGNAME}
+       echo ${args}
+       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|' -e 's|SIMNAME|'${DATADIR}'_'${SOURCE}'|' -e 's|DATE|'${DATE}'|' -e 's|NGENHR|'${REDNEV}'|' < condor-k100SimMerge_CMS > .condorjob_${SOURCE}_${DATE}_${i}
+
+    fi
+
+    #print condor output
+    cat .condorjob_${SOURCE}_${DATE}_${i}
+    rm .condorjob_${SOURCE}_${DATE}_${i}
+  else
+    echo submitting to batch farm...
+   
+    if [ "${MERGE}" != "true" ]
+    then
+       #make the macro file and put it in the macros/ directory
+       sed -e 's|RADSOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${DATADIR}'|' -e 's|NEVHR|'${REDNEV}'|' -e 's|SOURCEPOSX|'${SOURCEPOSX}'|' -e 's|SOURCEPOSY|'${SOURCEPOSY}'|' -e 's|SOURCEPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDPOSX|'${SOURCEPOSX}'|' -e 's|SHIELDPOSY|'${SOURCEPOSY}'|' -e 's|SHIELDPOSZ|'${SOURCEPOSZ}'|' -e 's|SHIELDW|'${SHIELDW}'|' -e 's|SHIELDL|'${SHIELDL}'|' -e 's|SHIELDT|'${SHIELDT}'|' -e 's|SHIELDMAT|'${SHIELDMAT}'|' -e 's|TAGNAME|'${TAGNAME}'|' < ${TEMPLATEFILE}  > 'macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
+
+       #make the condor file
+       args='macros/'${DATADIR}'_'${SOURCE}'_'${DATASETIDHEX}'_'${DATE}'_JOB'${i}'.mac'
+       echo ${args}
+       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|' -e 's|SIMNAME|'${DATADIR}'_'${SOURCE}'|' -e 's|DATE|'${DATE}'|' -e 's|NGENHR|'${REDNEV}'|'   < condor-k100Sim_CMS > .condorjob_${SOURCE}_${DATE}_${i}
+    else
+       #make the condor file
+       #genShieldSimCondense.sh 0 PuBe 100 templates/pube.mac.template -100.0 0.0 0.0 10.0 10.0 20.0 Poly
+       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}' '${TAGNAME}
+       echo ${args}
+       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|' -e 's|SIMNAME|'${DATADIR}'_'${SOURCE}'|' -e 's|DATE|'${DATE}'|' -e 's|NGENHR|'${REDNEV}'|' < condor-k100SimMerge_CMS > .condorjob_${SOURCE}_${DATE}_${i}
+
+    fi
+
+    #print condor output
+    condor_submit .condorjob_${SOURCE}_${DATE}_${i}
+    rm .condorjob_${SOURCE}_${DATE}_${i}
+    
+  fi
+done
