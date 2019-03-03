@@ -2,8 +2,7 @@
 
 # Create a scene handler for a specific graphics system
 # (Edit the next lines(s) to choose another graphics system
-#/vis/open OGLIX
-/vis/open OGLIX 600x600-0+0
+/vis/open OGLIX
 #/vis/open OGL
 
 
@@ -13,11 +12,11 @@
 /vis/viewer/set/lightsThetaPhi 90 0 deg
 #/vis/viewer/set/viewpointThetaPhi 90 90 deg
 #/vis/viewer/zoom 1.5
-/vis/viewer/set/upVector 0 0 1
-/vis/viewer/addCutawayPlane -1 0 0 m 1 0 0
-/vis/viewer/set/viewpointVector -1 0 0
-#/vis/viewer/set/viewpointVector 0 0 1 
-#/vis/viewer/zoom 1.5
+/vis/viewer/set/upVector 0 1 0
+/vis/viewer/addCutawayPlane 0 0 0 m 0 0 1
+#/vis/viewer/set/viewpointVector -1 0 0
+/vis/viewer/set/viewpointVector 0 0 -1 
+/vis/viewer/zoom 1.5
 
 
 #make some special colors
@@ -53,34 +52,13 @@
 #/CDMS/detector/activate GPSShielding 
 #/CDMS/detector/deactivate Shields
 /CDMS/detector/activate Floor 
-#/CDMS/detector/activate Walls
 /CDMS/detector/activate Frame 
 /CDMS/detector/activate IceBox 
 /CDMS/detector/activate PuBeSourceAndShield 
-/CDMS/PuBe/westPolySensitive False 
-/CDMS/PuBe/doPuBeGammas True 
-/CDMS/PuBe/Barrel False 
+/CDMS/PuBe/Barrel True 
 /CDMS/detector/activate Shields
-/CDMS/Shield/HPGeboron True 
 #/CDMS/Shield/SouthNaI True 
+/CDMS/Shield/HPGeboron True 
 /CDMS/updateGeometry
-/vis/viewer/zoom 1.5
-/vis/viewer/pan 0 100 cm
-/vis/viewer/pan 0 100 cm
-/vis/viewer/zoom 1.5
-/vis/viewer/zoom 2 
-#/vis/scene/add/text 0.00	33.02	0.00 cm 24 0 0 x
-#/vis/scene/add/text 0.00	42.65	-7.19 cm 24 0 0 x
-#/vis/scene/add/text 0.00	52.29	-14.37 cm 24 0 0 x
-#/vis/scene/add/text 0.00	61.92	-21.56 cm 24 0 0 x
-#/vis/scene/add/text 0.00	71.56	-28.75 cm 24 0 0 x
-#/vis/scene/add/text 0.00	81.19	-35.93 cm 24 0 0 x
-#/vis/scene/add/text 0.00	90.83	-43.12 cm 24 0 0 x
-#/vis/scene/add/text 0.00	100.46	-50.31 cm 24 0 0 x
-#/vis/scene/add/text 0.00	110.10	-57.49 cm 24 0 0 x
-#/vis/scene/add/text 0.00	119.73	-64.68 cm 24 0 0 x
 
-/run/beamOn 300
-/vis/ogl/set/printMode pixmap
-/vis/ogl/set/printFilename tracking_test     
-/vis/ogl/printEPS
+/run/beamOn 3 
