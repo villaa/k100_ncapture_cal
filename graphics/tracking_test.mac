@@ -62,6 +62,7 @@
 /CDMS/PuBe/Barrel False 
 /CDMS/detector/activate Shields
 /CDMS/Shield/HPGeboron True 
+#/CDMS/Shield/HPGeboron_shield True 
 #/CDMS/Shield/SouthNaI True 
 /CDMS/updateGeometry
 /vis/viewer/zoom 1.5

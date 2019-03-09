@@ -38,6 +38,11 @@ do
     NJOBS=${input[i+1]}
   fi
 
+  if [ "${input[i]}" = "-datadir" ];
+  then
+    DATADIR=${input[i+1]}
+  fi
+
   if [ "${input[i]}" = "-src" ];
   then
     SOURCE=${input[i+1]}
