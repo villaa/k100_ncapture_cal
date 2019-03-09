@@ -13,7 +13,8 @@ SHIELDT=${10}
 SHIELDMAT=${11}
 TAGNAME=${12}
 
-DATADIR="captureCal"
+#DATADIR="captureCal"
+DATADIR=${13}
 
 
 DATASETIDHEX=`printf "0x%04x" ${DATASETID}`

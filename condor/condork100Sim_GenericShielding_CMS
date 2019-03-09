@@ -10,7 +10,7 @@ OTYPE=ascii
 TREEOUT="false"
 PRIMOUT="false"
 DATAOUT="true"
-DATADIR=captureCal
+DATADIR="captureCal"
 MERGE="false"
 TEMPLATEFILE="templates/pube.mac.template"
 SOURCEPOSX=-100.0
@@ -160,7 +160,7 @@ do
     else
        #make the condor file
        #genShieldSimCondense.sh 0 PuBe 100 templates/pube.mac.template -100.0 0.0 0.0 10.0 10.0 20.0 Poly
-       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}' '${TAGNAME}
+       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}' '${TAGNAME}' '${DATADIR}
        echo ${args}
        sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|' -e 's|SIMNAME|'${DATADIR}'_'${SOURCE}'|' -e 's|DATE|'${DATE}'|' -e 's|NGENHR|'${REDNEV}'|' < condor-k100SimMerge_CMS > .condorjob_${SOURCE}_${DATE}_${i}
 
@@ -184,7 +184,7 @@ do
     else
        #make the condor file
        #genShieldSimCondense.sh 0 PuBe 100 templates/pube.mac.template -100.0 0.0 0.0 10.0 10.0 20.0 Poly
-       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}' '${TAGNAME}
+       args=${DATASETID}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}' '${SOURCEPOSX}' '${SOURCEPOSY}' '${SOURCEPOSZ}' '${SHIELDW}' '${SHIELDL}' '${SHIELDT}' '${SHIELDMAT}' '${TAGNAME}' '${DATADIR}
        echo ${args}
        sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|' -e 's|SIMNAME|'${DATADIR}'_'${SOURCE}'|' -e 's|DATE|'${DATE}'|' -e 's|NGENHR|'${REDNEV}'|' < condor-k100SimMerge_CMS > .condorjob_${SOURCE}_${DATE}_${i}
 
