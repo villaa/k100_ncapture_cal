@@ -19,8 +19,8 @@ SOURCEPOSZ=0.0
 SHIELDW=10.0
 SHIELDL=10.0
 SHIELDT=20.0
-SHIELDMAT=Poly
-TAGNAME=""
+SHIELDMAT="Poly"
+TAGNAME="default"
 
 input=($@)
 
@@ -141,6 +141,7 @@ fi
 #else
 #  mkdir -p ${PREFIXDIR}SLAC/
 #fi
+echo ${DATADIR}
 
 for ((i=0; i<${NJOBS}; i++))
 do

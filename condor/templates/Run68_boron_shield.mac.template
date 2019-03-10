@@ -31,6 +31,6 @@
 #run naming stuff
 #/run/k100/uniqueID 160617_182500_365312119 # not implemented in the geant4 code
 /run/k100/OnlyNCapOut false 
-/run/k100/OFPrefix /data/chocula/villaa/k100Sim_Data/DATADIR/Run68_boron_RADSOURCE_THESETID_NEVHR_
+/run/k100/OFPrefix /data/chocula/villaa/k100Sim_Data/DATADIR/Run68_RADSOURCE_THESETID_NEVHR_
 
 /run/beamOn NEVENTS 
