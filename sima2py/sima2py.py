@@ -15,6 +15,18 @@ from argparse import ArgumentParser, ArgumentTypeError
 # The purpose here is to convert a Geant4 output text file
 # to an h5 file with a workable output structure.
 #
+######################classes##############################
+class simData:
+	def __init__(self):
+	  self.nhit = None 
+	  self.NRhit = None 
+	  self.ERhit = None 
+	  self.NRedep = None 
+	  self.ERedep = None
+	  self.CapEvent = None
+
+	#def __Print__(self):
+	#  print 'self.nhit = %s' % str(self.nhit)
 
 ######################functions############################
 def listFiles(path='./',regex=re.compile(r'(.*?)')):
@@ -28,6 +40,7 @@ def listFiles(path='./',regex=re.compile(r'(.*?)')):
             f.extend(passfiles)
             break
 
+        f.sort()
         print(f)
         return dirpath,f 
 
@@ -42,6 +55,21 @@ def readFile(filename):
         #convert to numpy array
         data = np.asarray(data,dtype=np.float64)
 
+        #hard-code a cut?
+        if np.shape(data)[0]>0:
+          cHVDet = np.zeros(np.shape(data)[0],dtype=bool)
+          cZeroEdep = np.zeros(np.shape(data)[0],dtype=bool)
+          cNeutron = np.zeros(np.shape(data)[0],dtype=bool)
+          cGamma = np.zeros(np.shape(data)[0],dtype=bool)
+          cNR = np.zeros(np.shape(data)[0],dtype=bool)
+
+          cHVDet[data[:,1]==1] = True
+          cZeroEdep[data[:,6]==0] = True
+          cNeutron[data[:,4]==2112] = True
+          cGamma[data[:,4]==22] = True
+          cNR[data[:,4]>3000] = True
+          data = data[cHVDet&~cZeroEdep&cNR,:]
+
         f.close()
         return data,tags 
 
@@ -49,8 +77,8 @@ def readFiles(flist,dirpath='./'):
 
         d = []
         data,tags = readFile(dirpath+flist[0]) #FIXME bug in simcode only puts correct header for file 0 -- eventually need to check if n colums is same for all files and return error if not
-        for f in flist:
-          print(dirpath+f)
+        for n,f in enumerate(flist):
+          print('{} ({} out of {})'.format(dirpath+f,n,np.shape(flist)[0]))
           data,t = readFile(dirpath+f)
           d.extend(data)
 
