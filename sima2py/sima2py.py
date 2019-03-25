@@ -58,18 +58,34 @@ def readFile(filename):
         #hard-code a cut?
         if np.shape(data)[0]>0:
           cHVDet = np.zeros(np.shape(data)[0],dtype=bool)
+          cCapture = np.zeros(np.shape(data)[0],dtype=bool)
           cZeroEdep = np.zeros(np.shape(data)[0],dtype=bool)
           cNeutron = np.zeros(np.shape(data)[0],dtype=bool)
           cGamma = np.zeros(np.shape(data)[0],dtype=bool)
           cNR = np.zeros(np.shape(data)[0],dtype=bool)
 
           cHVDet[data[:,1]==1] = True
+          cCapture[data[:,21]==1] = True
           cZeroEdep[data[:,6]==0] = True
           cNeutron[data[:,4]==2112] = True
           cGamma[data[:,4]==22] = True
           cNR[data[:,4]>3000] = True
-          data = data[cHVDet&~cZeroEdep&cNR,:]
 
+          #event-level cuts
+          #try to label events with consecutive and unique labels
+          ev = data[:,0]
+
+          diffs = np.append(np.diff(ev),1)
+          diff_divide = np.copy(diffs)
+          diff_divide[diff_divide==0] = 1 #replace some elements with unity
+          diffs = diffs/diff_divide
+
+          newev = np.cumsum(diffs)
+          #now some event-level cuts
+          evWithCapture = newev[cCapture]
+          cWithCapture = np.isin(newev,evWithCapture)
+
+          data = data[cHVDet&~cZeroEdep&cNR&~cWithCapture,:]
         f.close()
         return data,tags 
 
