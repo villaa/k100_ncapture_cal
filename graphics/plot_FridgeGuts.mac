@@ -54,7 +54,7 @@
 #/CDMS/detector/deactivate Shields
 #/CDMS/detector/activate Floor 
 #/CDMS/detector/activate Frame 
-#/CDMS/detector/activate IceBox 
+/CDMS/detector/activate IceBox 
 #/CDMS/detector/activate PuBeSourceAndShield 
 #/CDMS/PuBe/Barrel True 
 #/CDMS/detector/activate Shields
