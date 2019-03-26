@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 import numpy as np
+import pandas as pd
+warnings.resetwarnings()
 import re
 import os
 #===============to suppress h5py warning see:
 #https://github.com/h5py/h5py/issues/961
-import warnings
+#import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 import h5py
 warnings.resetwarnings()
@@ -63,6 +67,7 @@ def readFile(filename):
           cNeutron = np.zeros(np.shape(data)[0],dtype=bool)
           cGamma = np.zeros(np.shape(data)[0],dtype=bool)
           cNR = np.zeros(np.shape(data)[0],dtype=bool)
+          cER = np.zeros(np.shape(data)[0],dtype=bool)
 
           cHVDet[data[:,1]==1] = True
           cCapture[data[:,21]==1] = True
@@ -70,6 +75,7 @@ def readFile(filename):
           cNeutron[data[:,4]==2112] = True
           cGamma[data[:,4]==22] = True
           cNR[data[:,4]>3000] = True
+          cER[(data[:,4]==11)|(data[:,4]==-11)|(data[:,4]==22)] = True
 
           #event-level cuts
           #try to label events with consecutive and unique labels
@@ -85,7 +91,8 @@ def readFile(filename):
           evWithCapture = newev[cCapture]
           cWithCapture = np.isin(newev,evWithCapture)
 
-          data = data[cHVDet&~cZeroEdep&cNR&~cWithCapture,:]
+          #data = data[cHVDet&~cZeroEdep&cNR&~cWithCapture,:]
+          data = data[cHVDet&~cZeroEdep&cER&~cWithCapture,:]
         f.close()
         return data,tags 
 
@@ -118,6 +125,63 @@ def saveh5(ofile='data.h5',path='./',regex=re.compile(r'(.*?)')):
 
         of.close()
         return
+
+def applyCuts(data=[],cutstring='',length=13):
+
+    data_out = np.zeros((0,length))
+    if np.shape(data)[0]>0:
+      #hit-level cuts
+      cHVDet = np.zeros(np.shape(data)[0],dtype=bool)
+      cCapture = np.zeros(np.shape(data)[0],dtype=bool)
+      cZeroEdep = np.zeros(np.shape(data)[0],dtype=bool)
+      cNeutron = np.zeros(np.shape(data)[0],dtype=bool)
+      cGamma = np.zeros(np.shape(data)[0],dtype=bool)
+      cNR = np.zeros(np.shape(data)[0],dtype=bool)
+      cER = np.zeros(np.shape(data)[0],dtype=bool)
+
+      cHVDet[data[:,1]==1] = True
+      cCapture[data[:,21]==1] = True
+      cZeroEdep[data[:,6]==0] = True
+      cNeutron[data[:,4]==2112] = True
+      cGamma[data[:,4]==22] = True
+      cNR[data[:,4]>3000] = True
+      cER[(data[:,4]==11)|(data[:,4]==-11)|(data[:,4]==22)] = True
+
+      #event-level cuts
+      #try to label events with consecutive and unique labels
+      ev = data[:,0]
+
+      diffs = np.append(np.diff(ev),1)
+      diff_divide = np.copy(diffs)
+      diff_divide[diff_divide==0] = 1 #replace some elements with unity
+      diffs = diffs/diff_divide
+
+      newev = np.cumsum(diffs)
+      #now some event-level cuts
+      evWithCapture = newev[cCapture]
+      cWithCapture = np.isin(newev,evWithCapture)
+
+      #data = data[cHVDet&~cZeroEdep&cNR&~cWithCapture,:]
+      data = data[cHVDet&~cZeroEdep&cER&~cWithCapture,:]
+
+      reduced_data = data[:,[0,4,5,6,21]]
+      #print(reduced_data)
+      df = pd.DataFrame(data=reduced_data)
+      groupbyvec=[0]
+
+      #evec = np.zeros((0,length))
+      nhit = np.zeros((0,1))
+
+      for i in df.groupby(groupbyvec,axis=0)[3].apply(list):
+        vector = np.zeros((1,length))
+        #vector[0,0:np.shape(i)[0]] = np.transpose(np.asarray(i))
+        arr = np.asarray(i)
+        ue = np.minimum(length,np.shape(arr)[0]) #useful elements
+        vector[0,0:ue] = arr[0:ue]
+        data_out = np.append(data_out,vector*1e6,0) #convert from MeV
+        nhit = np.append(nhit,np.shape(i)[0])
+
+    return data_out
 
 #the stuff below is so this functionality can be used as a script
 ########################################################################
