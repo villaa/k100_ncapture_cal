@@ -62,6 +62,7 @@ def readFile(filename):
         #hard-code a cut?
         if np.shape(data)[0]>0:
           cHVDet = np.zeros(np.shape(data)[0],dtype=bool)
+          cLowE = np.zeros(np.shape(data)[0],dtype=bool)
           cCapture = np.zeros(np.shape(data)[0],dtype=bool)
           cZeroEdep = np.zeros(np.shape(data)[0],dtype=bool)
           cNeutron = np.zeros(np.shape(data)[0],dtype=bool)
@@ -70,6 +71,7 @@ def readFile(filename):
           cER = np.zeros(np.shape(data)[0],dtype=bool)
 
           cHVDet[data[:,1]==1] = True
+          cLowE[data[:,6]<=0.01] = True #each hit less than 10 keV
           cCapture[data[:,21]==1] = True
           cZeroEdep[data[:,6]==0] = True
           cNeutron[data[:,4]==2112] = True
@@ -88,11 +90,13 @@ def readFile(filename):
 
           newev = np.cumsum(diffs)
           #now some event-level cuts
-          evWithCapture = newev[cCapture]
+          evWithCapture = newev[cHVDet&cCapture]
           cWithCapture = np.isin(newev,evWithCapture)
+          evWithHighE = newev[cHVDet&~cLowE]
+          cWithHighE = np.isin(newev,evWithHighE)
 
           #data = data[cHVDet&~cZeroEdep&cNR&~cWithCapture,:]
-          data = data[cHVDet&~cZeroEdep&cER&~cWithCapture,:]
+          data = data[cHVDet&~cZeroEdep&cER&~cWithHighE&~cWithCapture,:]
         f.close()
         return data,tags 
 
