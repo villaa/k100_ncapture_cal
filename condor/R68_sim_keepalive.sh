@@ -4,8 +4,8 @@ pwd
 ls setup.sh
 . ./setup.sh
 
-CMSload=`condor_q -wide |grep genShieldSimCondense_CMS.sh|awk 'BEGIN{if(NR==0){print 0}}{print $9}'`
-CDMSload=`condor_q -wide |grep genShieldSimCondense.sh|awk 'BEGIN{if(NR==0){print 0}}{print $9}'`
+CMSload=`condor_q -wide |grep genShieldSimCondense_CMS.sh|awk 'END{if(NR==0){print 0}}{print $9}'`
+CDMSload=`condor_q -wide |grep genShieldSimCondense.sh|awk 'END{if(NR==0){print 0}}{print $9}'`
 
 echo "CMS load: "${CMSload} 
 echo "CDMS load: "${CDMSload} 
