@@ -48,7 +48,7 @@ def listFiles(path='./',regex=re.compile(r'(.*?)')):
         print(f)
         return dirpath,f 
 
-def readFile(filename):
+def readFile(filename,cuts=None):
 
         f = open(filename)
 
@@ -83,10 +83,11 @@ def readFile(filename):
           #try to label events with consecutive and unique labels
           ev = data[:,0]
 
-          diffs = np.append(np.diff(ev),1)
-          diff_divide = np.copy(diffs)
-          diff_divide[diff_divide==0] = 1 #replace some elements with unity
-          diffs = diffs/diff_divide
+          #diffs = np.append(np.diff(ev),1)
+          diffs = np.append(0,np.diff(ev))
+          #diff_divide = np.copy(diffs)
+          #diff_divide[diff_divide==0] = 1 #replace some elements with unity
+          #diffs = diffs/diff_divide
 
           newev = np.cumsum(diffs)
           #now some event-level cuts
@@ -94,19 +95,27 @@ def readFile(filename):
           cWithCapture = np.isin(newev,evWithCapture)
           evWithHighE = newev[cHVDet&~cLowE]
           cWithHighE = np.isin(newev,evWithHighE)
+          #checks for file: Run68_gdirect_bknd_R68_PuBe_0x0006_10M_1550295336_000_000.txt
+          #print(cWithHighE[ev==775483])
+          #print(cWithCapture[ev==5812160])
 
-          #data = data[cHVDet&~cZeroEdep&cNR&~cWithCapture,:]
-          data = data[cHVDet&~cZeroEdep&cER&~cWithHighE&~cWithCapture,:]
+          if cuts=='NR':
+            data = data[cHVDet&~cZeroEdep&cNR&~cWithCapture,:]
+          elif cuts=='ER':
+            data = data[cHVDet&~cZeroEdep&cER&~cWithHighE&~cWithCapture,:]
+          elif cuts=='NRc':
+            data = data[cHVDet&~cZeroEdep&cNR&cWithCapture,:]
+
         f.close()
         return data,tags 
 
-def readFiles(flist,dirpath='./'):
+def readFiles(flist,dirpath='./',cuts=None):
 
         d = []
         data,tags = readFile(dirpath+flist[0]) #FIXME bug in simcode only puts correct header for file 0 -- eventually need to check if n colums is same for all files and return error if not
         for n,f in enumerate(flist):
           print('{} ({} out of {})'.format(dirpath+f,n,np.shape(flist)[0]))
-          data,t = readFile(dirpath+f)
+          data,t = readFile(dirpath+f,cuts)
           d.extend(data)
 
         #convert to numpy array
@@ -114,11 +123,11 @@ def readFiles(flist,dirpath='./'):
 
         return d,tags 
 
-def saveh5(ofile='data.h5',path='./',regex=re.compile(r'(.*?)')):
+def saveh5(ofile='data.h5',path='./',regex=re.compile(r'(.*?)'),cuts=None):
 
         #get the data
         dirpath, f = listFiles(path,regex)
-        d, tags = readFiles(f,dirpath)
+        d, tags = readFiles(f,dirpath,cuts)
 
         #open and write file
         of = h5py.File(ofile, 'w')
@@ -130,6 +139,7 @@ def saveh5(ofile='data.h5',path='./',regex=re.compile(r'(.*?)')):
         of.close()
         return
 
+#FIXME not yet used, should eventually be a more elegant way to do generalized cuts
 def applyCuts(data=[],cutstring='',length=13):
 
     data_out = np.zeros((0,length))
@@ -196,6 +206,7 @@ if __name__ == "__main__":
         parser.add_argument('-d','--filedir', type=str, dest='filedir', default='./', help='directory to look for files')
         parser.add_argument('-x','--regex', type=str, dest='regstr', default=r'(.*?)', help='regex for picking up files')
         parser.add_argument('-o','--outfile', type=str, dest='outfile', default='data.h5', help='output file for data')
+        parser.add_argument('-c','--cuts', type=str, dest='cuts', default='NR', help='kind of cuts to apply')
         #parser.set_defaults(filedir='./');
 
         args = parser.parse_args()
@@ -206,7 +217,8 @@ if __name__ == "__main__":
           print(args.filedir)
           print(args.regstr)
           print(args.outfile)
-          saveh5(args.outfile,args.filedir,re.compile(args.regstr))
+          print(args.cuts)
+          saveh5(args.outfile,args.filedir,re.compile(args.regstr),args.cuts)
         except KeyboardInterrupt:
           print('Shutdown requested .... exiting')
         except Exception:
