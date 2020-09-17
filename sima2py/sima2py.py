@@ -111,6 +111,8 @@ def readFile(filename,cuts=None):
 
           if cuts=='NR':
             data = data[cHVDet&~cZeroEdep&cNR&~cWithCapture,:]
+          if cuts=='NRlowE':
+            data = data[cHVDet&~cZeroEdep&cNR&~cWithHighE&~cWithCapture,:]
           elif cuts=='ER':
             data = data[cHVDet&~cZeroEdep&cER&~cWithHighE&~cWithCapture,:]
           elif cuts=='NRc':
