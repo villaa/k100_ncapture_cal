@@ -48,6 +48,10 @@ def listFiles(path='./',regex=re.compile(r'(.*?)')):
         print(f)
         return dirpath,f 
 
+#Is this list of lists rectangular?
+def isRect(n):
+        return all(len(i)==len(n[0]) for i in n)
+
 def readFile(filename,cuts=None):
 
         f = open(filename)
@@ -55,7 +59,13 @@ def readFile(filename,cuts=None):
         #assume the first line is the tags
         tags = f.readline().split()
         data = [x.split() for x in f.readlines()] 
-        
+       
+        #Make sure all lines are complete
+        if not isRect(data):
+          print('Incomplete lines. Skipping file: '+filename)
+          tags=[]
+          data=[]
+
         #convert to numpy array
         data = np.asarray(data,dtype=np.float64)
 
@@ -105,6 +115,10 @@ def readFile(filename,cuts=None):
             data = data[cHVDet&~cZeroEdep&cER&~cWithHighE&~cWithCapture,:]
           elif cuts=='NRc':
             data = data[cHVDet&~cZeroEdep&cNR&cWithCapture,:]
+          elif cuts=='Cap':
+            data = data[cHVDet&cNeutron&cCapture,:]
+          elif cuts=='wCap':
+            data=data[cHVDet&cWithCapture,:]
 
         f.close()
         return data,tags 
@@ -114,7 +128,7 @@ def readFiles(flist,dirpath='./',cuts=None):
         d = []
         data,tags = readFile(dirpath+flist[0]) #FIXME bug in simcode only puts correct header for file 0 -- eventually need to check if n colums is same for all files and return error if not
         for n,f in enumerate(flist):
-          print('{} ({} out of {})'.format(dirpath+f,n,np.shape(flist)[0]))
+          print('{} ({} out of {})'.format(dirpath+f,n,np.shape(flist)[0]),flush=True)
           data,t = readFile(dirpath+f,cuts)
           d.extend(data)
 
@@ -123,11 +137,15 @@ def readFiles(flist,dirpath='./',cuts=None):
 
         return d,tags 
 
-def saveh5(ofile='data.h5',path='./',regex=re.compile(r'(.*?)'),cuts=None):
+def saveh5(ofile='data.h5',path='./',regex=re.compile(r'(.*?)'),cuts=None,trimvec=[]):
 
         #get the data
         dirpath, f = listFiles(path,regex)
         d, tags = readFiles(f,dirpath,cuts)
+        goodtags = list(set(tags) - set(trimvec))
+        sel=np.sort([tags.index(i) for i in goodtags])
+        tags = [tags[i] for i in sel]
+        d = d[:,sel]
 
         #open and write file
         of = h5py.File(ofile, 'w')
@@ -207,6 +225,7 @@ if __name__ == "__main__":
         parser.add_argument('-x','--regex', type=str, dest='regstr', default=r'(.*?)', help='regex for picking up files')
         parser.add_argument('-o','--outfile', type=str, dest='outfile', default='data.h5', help='output file for data')
         parser.add_argument('-c','--cuts', type=str, dest='cuts', default='NR', help='kind of cuts to apply')
+        parser.add_argument('-t','--trimvec',nargs='*', type=str, dest='trimvec', default=[], help='parameters to remove from output')
         #parser.set_defaults(filedir='./');
 
         args = parser.parse_args()
@@ -218,7 +237,8 @@ if __name__ == "__main__":
           print(args.regstr)
           print(args.outfile)
           print(args.cuts)
-          saveh5(args.outfile,args.filedir,re.compile(args.regstr),args.cuts)
+          print(args.trimvec)
+          saveh5(args.outfile,args.filedir,re.compile(args.regstr),args.cuts,args.trimvec)
         except KeyboardInterrupt:
           print('Shutdown requested .... exiting')
         except Exception:

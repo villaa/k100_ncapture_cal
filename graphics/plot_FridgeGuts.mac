@@ -55,6 +55,7 @@
 #/CDMS/detector/activate Floor 
 #/CDMS/detector/activate Frame 
 /CDMS/detector/activate IceBox 
+#/CDMS/Det/setSize 3.8 1.0 0 cm
 #/CDMS/detector/activate PuBeSourceAndShield 
 #/CDMS/PuBe/Barrel True 
 #/CDMS/detector/activate Shields
@@ -67,4 +68,4 @@
 /vis/ogl/set/printMode pixmap
 /vis/ogl/set/printFilename FridgeGuts     
 /vis/ogl/printEPS
-#/run/beamOn 3 
+/run/beamOn 3 
